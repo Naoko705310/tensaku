@@ -1,0 +1,34 @@
+@use "global" as *;
+
+.questionnaire__contents-wrapper {
+  // 要確認 背景グラデーション
+  background-color: $main-color;
+  text-align: center;
+  padding: rem(86) rem(24);
+}
+
+.questionnaire__main-copy--01 h3,
+.questionnaire__main-copy--02 h3 {
+  font-family: $base-font-family;
+  font-size: rem(32);
+  color: $main-color;
+  font-weight: $bold;
+  padding: rem(10) rem(15);
+  display: inline-block;
+  background-color: $white;
+}
+
+.questionnaire__main-copy--02 h3 {
+  margin-top: rem(13);
+}
+
+
+
+.questionnaire__text {
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $white;
+  font-weight: $normal;
+  margin-top: rem(15);
+}
+

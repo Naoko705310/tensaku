@@ -1,0 +1,37 @@
+@use "global" as *;
+
+.section-title {
+text-align: center;
+}
+
+.section-title--en {
+  font-family: $third-font-family;
+  font-size: rem(15);
+  color: $text-green;
+  font-weight: $bold;
+  line-height: 1;
+}
+.section-title--jp {
+  font-family: $base-font-family;
+  font-size: rem(20);
+  color: $black;
+  font-weight: $bold;
+  line-height: 1;
+  position: relative;
+  padding-bottom: rem(20);
+  margin-top: rem(9);
+  @include mq(md) {
+    font-size: rem(36);
+  }
+}
+
+.section-title--jp::after {
+  content: '';
+  position: absolute;
+  bottom: 0; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  width: rem(70); 
+  height: rem(2); 
+  background-color: $text-green; 
+}

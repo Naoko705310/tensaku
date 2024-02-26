@@ -1,0 +1,43 @@
+@use "global" as *;
+
+.button {
+  width: rem(174);
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $text-green;
+  font-weight: $bold;
+  display: inline-block;
+  text-align: center;
+  padding: rem(17) 0;
+  // background-color: $main-color;
+  // 要確認 角度がわからない
+  background-image: linear-gradient(45deg, #075735, #00BA6B);
+  // 線の太さと色を要確認
+  border: 3px solid transparent;
+  border-radius: rem(25);
+  box-sizing: border-box;
+  // position: relative;
+  // z-index: 1;
+  transition: .3s;
+}
+
+.button:hover {
+  color: $white;
+  background-color: $main-color;
+  border-color: $main-color;
+  transform: scale(1, 1);
+}
+
+
+
+
+
+
+
+// 送信ボタン
+.button__submit {
+  // padding-top: rem(16);
+  // padding-right: rem(112);
+  // padding-bottom: rem(16);
+  // padding-left: rem(56);
+}

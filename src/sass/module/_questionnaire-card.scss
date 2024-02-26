@@ -1,0 +1,61 @@
+@use "global" as *;
+
+.questionnaire-card {
+  text-align: center;
+
+}
+
+.questionnaire-card__title {
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $white;
+  font-weight: $bold;
+  padding: rem(6) rem(9);
+  display: inline-block;
+  background-color: $black;
+  margin-top: rem(7);
+}
+
+.questionnaire-card__image {
+  position: relative;
+}
+
+.questionnaire-card__image::before {
+  content: "";
+  display: block;
+  padding-top: 100%;// height/width
+}
+
+.questionnaire-card__image img {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+.questionnaire-card__body {
+  margin-top: rem(19);
+}
+
+.questionnaire-card__main-copy {
+  font-family: $base-font-family;
+  font-size: rem(18);
+  color: $black;
+  font-weight: $bold;
+  @include mq(md) {
+    font-size: rem(20);
+  }
+}
+
+.questionnaire-card__text {
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: $black;
+  font-weight: $normal;
+  margin-top: rem(11);
+}
+
