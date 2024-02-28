@@ -1,0 +1,54 @@
+@use "global" as *;
+
+.price {
+
+}
+
+.price__inner {
+
+}
+
+
+.price__text {
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $black;
+  font-weight: $normal;
+  text-align: center;
+  line-height: 1;
+  margin-top: rem(56);
+  margin-inline: calc(50% - 50vw);
+  padding: 0 rem(10);
+  @include mq(md) {
+    font-size: rem(20);
+    font-weight: $bold;
+    margin-top: rem(44);
+  }
+}
+
+.price__items {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: rem(28);
+  margin-top: rem(40);
+  @include mq(md) {
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: rem(81);
+    padding: 0 rem(20);
+  }
+}
+
+.price__remark {
+  margin-top: rem(45);
+}
+
+.price__remark-items {
+
+}
+
+.price__remark-item {
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: $black;
+  font-weight: $normal;
+}

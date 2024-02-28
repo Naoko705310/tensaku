@@ -6,14 +6,18 @@ text-align: center;
 
 .section-title--en {
   font-family: $third-font-family;
-  font-size: rem(15);
+  font-size: rem(12);
   color: $text-green;
   font-weight: $bold;
   line-height: 1;
+  text-transform: uppercase;
+  @include mq(md) {
+    font-size: rem(15);
+  }
 }
 .section-title--jp {
   font-family: $base-font-family;
-  font-size: rem(20);
+  font-size: rem(24);
   color: $black;
   font-weight: $bold;
   line-height: 1;
@@ -25,13 +29,20 @@ text-align: center;
   }
 }
 
+.section-title--jp span {
+  text-transform: uppercase;
+}
+
 .section-title--jp::after {
   content: '';
   position: absolute;
   bottom: 0; 
   left: 50%; 
   transform: translateX(-50%); 
-  width: rem(70); 
+  width: rem(50); 
   height: rem(2); 
   background-color: $text-green; 
+  @include mq(md) {
+    width: rem(70);
+  }
 }

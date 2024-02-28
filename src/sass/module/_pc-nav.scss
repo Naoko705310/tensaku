@@ -1,0 +1,42 @@
+// @use "global" as *;
+
+// .pc-nav {
+//   display: none; //最初(SP)は非表示
+//   height: inherit;
+// }
+
+// .pc-nav__items {
+//   display: flex;
+//   align-items: center;
+//   height: inherit;
+// }
+
+// .pc-nav__items .pc-nav__item:last-child {
+//   padding-right: 0;
+// }
+
+// .pc-nav__item {
+//   height: inherit;
+//   // position: relative;//hover時の下線用
+// }
+
+// .pc-nav__item a {
+//   font-family: $base-font-family;
+//   font-size: rem(16);
+//   color: $text-green;//要確認　あとで白に
+//   font-weight: $bold;
+//   line-height: 1;
+//   text-transform: capitalize;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   text-align: center;
+//   height: inherit;
+//   white-space: nowrap;
+//   padding: rem(8) rem(18);
+// }
+
+// .pc-nav__item a.current, //要確認
+// .pc-nav__item:hover {
+//   color: $text-green;
+// }

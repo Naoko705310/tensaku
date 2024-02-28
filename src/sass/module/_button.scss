@@ -1,31 +1,76 @@
 @use "global" as *;
 
+// 利用申込ボタン：緑
 .button {
   width: rem(174);
+  height: rem(50);
   font-family: $base-font-family;
   font-size: rem(16);
-  color: $text-green;
+  color: $white;
   font-weight: $bold;
+  line-height: 1;
   display: inline-block;
   text-align: center;
+  // padding: rem(17) rem(39);
   padding: rem(17) 0;
-  // background-color: $main-color;
-  // 要確認 角度がわからない
   background-image: linear-gradient(45deg, #075735, #00BA6B);
-  // 線の太さと色を要確認
-  border: 3px solid transparent;
+  border: 1px solid transparent;
   border-radius: rem(25);
+  box-shadow: 0px 6px 9px rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
-  // position: relative;
-  // z-index: 1;
   transition: .3s;
 }
 
 .button:hover {
+  transform: scale(1.1); 
+  cursor: pointer;
+}
+
+// 資料請求ボタン：オレンジ
+.button--orange {
+  background-image: linear-gradient(45deg, #FF8A00, #E9A512);
+}
+
+// 利用申込ボタン：白
+// 上書きでき中たので別で作る
+.button--white {
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $text-green;
+  font-weight: $bold;
+  line-height: 1;
+  display: inline-block;
+  text-align: center;
+  padding: rem(17) rem(39);
+  background-color: $white;
+  border: 1px solid transparent;
+  border-radius: rem(25);
+  box-shadow: 0px 6px 9px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  transition: .3s;
+}
+
+.button--white:hover {
+  transform: scale(1.1); 
+  cursor: pointer;
+}
+
+
+
+
+// 利用申込ボタン
+.button--apply {
+  font-family: $base-font-family;
+  font-size: rem(16);
   color: $white;
-  background-color: $main-color;
-  border-color: $main-color;
-  transform: scale(1, 1);
+  font-weight: $bold;
+  line-height: 1;
+  background-color: #FF8A00;
+  padding: rem(15) rem(30);
+  border-radius: 5px;
+    @include mq(md) {
+
+    }
 }
 
 

@@ -1,28 +1,66 @@
 @use "global" as *;
 
+.questionnaire {
+  background-color: #F7FFFC;
+  padding-top: rem(30);
+}
+
+.questionnaire__cards-wrapper {
+  margin-top: rem(40);
+  @include mq(md) {
+    padding: 0 rem(32);
+    margin-top: rem(70);
+  }
+}
+
 .questionnaire__contents-wrapper {
-  // 要確認 背景グラデーション
+  // 要確認 背景グラデーションが違う
   background-color: $main-color;
   text-align: center;
-  padding: rem(86) rem(24);
+  padding-top: rem(86);
+  padding-bottom: rem(24);
+  margin-top: rem(82);
+  margin-inline: calc(50% - 50vw);
+  position: relative;
+  @include mq(md) {
+
+  }
+}
+
+.questionnaire__contents-wrapper:before {
+  content: "";
+  position: absolute;
+  top: rem(58);//要確認 角度が若干違う
+  left: 50%;
+  transform: translateX(-50%) translateY(-100%);
+  width: 0;
+  height: 0;
+  border-left: 93px solid transparent; // 逆三角形の幅の半分
+  border-right: 93px solid transparent; // 逆三角形の幅の半分
+  border-top: 61px solid #f2fffa; // 逆三角形の高さと背景色
 }
 
 .questionnaire__main-copy--01 h3,
 .questionnaire__main-copy--02 h3 {
   font-family: $base-font-family;
-  font-size: rem(32);
+  font-size: rem(20);
   color: $main-color;
   font-weight: $bold;
+  line-height: 1.5;
   padding: rem(10) rem(15);
   display: inline-block;
   background-color: $white;
+  @include mq(md) {
+    font-size: rem(32);
+    line-height: 1;
+  }
 }
 
 .questionnaire__main-copy--02 h3 {
   margin-top: rem(13);
+  margin-right: rem(15);
+  margin-left: rem(15);
 }
-
-
 
 .questionnaire__text {
   font-family: $base-font-family;

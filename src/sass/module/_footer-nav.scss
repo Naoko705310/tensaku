@@ -1,0 +1,31 @@
+@use "global" as *;
+
+.footer-nav__items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  @include mq(md) {
+    
+  }
+}
+
+.footer-nav__item {
+
+
+}
+
+.footer-nav__item a {
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $black;
+  font-weight: $bold;
+  line-height: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding:  rem(18);
+  @include mq(md) {
+
+  }
+}

@@ -1,0 +1,102 @@
+@use "global" as *;
+
+.top-fv {
+  background-color: pink; //要確認　あとではずす
+  padding-top: rem(88);
+  padding-bottom: rem(44);
+  @include mq(md) {
+    padding-top: rem(138);
+    padding-bottom: rem(30);
+  }
+}
+
+.top-fv__inner {
+
+}
+
+.inner {
+
+}
+
+.top-fv__heading {
+
+}
+
+.top-fv__message {
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: #075735;
+  font-weight: $bold;
+  line-height: 1;
+  display: inline-block;
+  padding: rem(12) rem(15);
+  background-color: $white;
+  border-radius: rem(25);
+  @include mq(md) {
+  font-size: rem(20);
+  }
+}
+
+.top-fv__main-copy {
+  font-family: $base-font-family;
+  font-size: rem(24);
+  color: $white;
+  font-weight: $bold;
+  line-height: 1.5;
+  margin-top: rem(23);
+  @include mq(md) {
+  font-size: rem(20);
+  }
+}
+
+.top-fv__sub-copy {
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: $white;
+  font-weight: $normal;
+  line-height: 1.5;
+  margin-top: rem(15);
+  @include mq(md) {
+  font-size: rem(20);
+  }
+}
+
+.top-fv__imgage {
+  position: relative;
+  margin-top: rem(11);
+}
+
+.top-fv__imgage::before {
+  content: "";
+  display: block;
+  padding-top: 57.681%;// 199/345
+}
+
+.top-fv__imgage img {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+.top-fv__button-wrapper {
+  width: rem(283);
+  margin-top: rem(29);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: rem(19);
+  margin: 0 auto;
+}
+
+.button {
+
+}
+
+.button--orange {
+
+}
+

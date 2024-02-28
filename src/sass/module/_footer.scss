@@ -1,0 +1,76 @@
+@use "global" as *;
+
+.footer {
+  background-color: #F1F1F1;
+  padding-top: rem(20);
+  padding-bottom: rem(77);
+  @include mq(md) {
+    padding-top: rem(50);//itemのpadding-top: 18px分を上にずらす（クリック領域確保のため）
+  }
+}
+
+.footer__inner.inner {
+  display: flex; 
+  flex-direction: column;
+  max-width: rem(600);
+  @include mq(md) {
+    display: grid; 
+    grid-template-columns: auto auto auto;
+    grid-template-areas: 
+      "logo nav button";
+    max-width: rem(1080); //1080+50
+    padding: 0 rem(20);
+  }
+}
+
+
+
+.footer__logo {
+  order: 1;
+  @include mq(md) {
+    grid-area: logo; // PC表示時にロゴをこのエリアに配置
+    margin-top: rem(18);
+  }
+}
+
+.footer__copy-right {
+  font-family: $base-font-family;
+  font-size: rem(12);
+  color: $black;
+  font-weight: $normal;
+  line-height: 1;
+  text-align: center;
+  margin-top: rem(40);
+  order: 4;
+  @include mq(md) {
+    grid-area: logo;
+    margin-top: rem(76);//logo 32px + margin-top 26px +padding-top 18px
+    text-align: left;
+  }
+}
+
+.footer__nav {
+  order: 3;
+  margin-top: rem(20);
+  @include mq(md) {
+    grid-area: nav; 
+    margin-top: 0;
+    margin-left: rem(47);//65-18
+  }
+}
+
+.footer__button-wrapper {
+  width: rem(283);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: rem(19);
+  margin-top: rem(40);
+  order: 3;
+  @include mq(md) {
+    width: rem(174);
+    grid-area: button; 
+    margin-top: rem(18);
+    margin-left: rem(57);//75-18
+  }
+}

@@ -1,0 +1,126 @@
+@use "global" as *;
+
+.flow-chart__items {
+  display: grid;
+  grid-template-columns: 1fr;
+  @include mq(md) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.flow-chart__item {
+  background-color: #DAFFF1;
+  display: grid;
+  grid-template-columns: rem(79) 1fr;
+  gap: rem(23);
+  padding-top: rem(24);
+  padding-right: rem(20);
+  padding-bottom: rem(21);
+  padding-left: rem(12);
+  position: relative;
+  z-index: -1;
+  @include mq(md) {
+    grid-template-columns: 1fr;
+    gap: rem(35);
+    padding-top: rem(27);
+    padding-right: rem(1);
+    padding-bottom: rem(29);
+    padding-left: rem(20);
+  }
+}
+
+// itemの背景色
+.flow-chart__item:nth-child(2) {
+  background-color: #A4FAD8;
+}
+.flow-chart__item:nth-child(3) {
+  background-color: #76F6C5;
+}
+.flow-chart__item:nth-child(4) {
+  background-color: #3AEFA2;
+}
+
+// 三角形（SPの時）
+.flow-chart__item::after {
+  content: "";
+  position: absolute;
+  left: 25.15px; 
+  top: 0; 
+  z-index: 3;
+  // transform: translateY(100%); 
+  width: 0;
+  height: 0;
+  border-left: 26.845px solid transparent; 
+  border-right: 26.845px solid transparent; 
+  // border-top: 14.25px solid #DAFFF1; 
+  border-top: 14.25px solid $black; 
+  @include mq(md) {
+    display: none;
+  }
+}
+
+// 三角形（背景色個別指定）
+.flow-chart__item:nth-child(1)::after {
+  border-top: none; 
+}
+
+.flow-chart__item:nth-child(2)::after {
+  border-top: 14.25px solid #DAFFF1; 
+}
+
+.flow-chart__item:nth-child(3)::after {
+  border-top: 14.25px solid #A4FAD8; 
+}
+
+.flow-chart__item:nth-child(4)::after {
+  border-top: 14.25px solid #76F6C5; 
+}
+
+// 三角形（PCの時）
+.flow-chart__item::before {
+  @include mq(md) {
+    content: "";
+    position: absolute;
+    top: 50%; 
+    left: 0; 
+    transform: translateY(-50%);
+    width: 0;
+    border-top: 107px solid transparent;
+    border-bottom: 107px solid transparent;
+    border-left: 19px solid #DAFFF1; 
+  }
+}
+
+// 各三角形の背景色を指定
+.flow-chart__item:nth-child(2)::before { border-left-color: #DAFFF1; }
+.flow-chart__item:nth-child(3)::before { border-left-color: #A4FAD8; }
+.flow-chart__item:nth-child(4)::before { border-left-color: #76F6C5; }
+
+.flow-chart__step {
+  font-family: $base-font-family;
+  font-size: rem(20);
+  color: #BBBBBB;
+  font-weight: $bold;
+  line-height: 1;
+}
+
+.flow-chart__heading {
+  font-family: $base-font-family;
+  font-size: rem(20);
+  color: $text-green;
+  font-weight: $bold;
+  line-height: 1;
+}
+
+.flow-chart__text {
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: $black;
+  font-weight: $normal;
+  line-height: 1.5;
+  margin-top: rem(19);
+  @include mq(md) {
+    margin-top: rem(20);
+  }
+}
+

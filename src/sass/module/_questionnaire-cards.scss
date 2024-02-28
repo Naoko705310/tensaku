@@ -3,8 +3,8 @@
 .questionnaire-cards {
   display: grid;
   grid-template-columns: 1fi;
+  gap: rem(45);
   @include mq(md) {
     grid-template-columns: repeat(3, 1fr);
-    gap: rem(45);
   }
 }

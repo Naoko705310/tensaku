@@ -1,0 +1,26 @@
+@use "global" as *;
+
+.footer-logo {
+  // 要確認　サイズ
+  width: rem(181);
+  height: rem(32);
+  position: relative;
+  z-index: 9999;
+  @include mq(md) {
+    width: rem(181);
+    height: rem(32);
+  }
+}
+
+.footer-logo__link {
+  width: 100%;
+  max-width: 100%;
+  height: inherit;
+}
+
+.footer-logo img {
+  width: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  vertical-align: baseline;
+}

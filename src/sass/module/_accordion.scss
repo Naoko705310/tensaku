@@ -1,0 +1,118 @@
+@use "global" as *;
+
+.accordion__item:not(:first-of-type) {
+  margin-top: rem(20);
+}
+
+// 質問のブロック
+.accordion__heading {
+  background-color: $sub-color;
+  display: flex;
+  align-items: center;
+  gap: rem(8);
+  padding: rem(12) rem(58) rem(12) rem(12);
+  position: relative;
+  cursor: pointer;
+  @include mq(md) {
+    padding: rem(12) rem(38) rem(12) rem(50);
+    gap: rem(33);
+  }
+}
+
+// マイナスマーク
+.accordion__heading::after {
+  content: "";
+  display: inline-block;
+  width: rem(30); 
+  height: rem(30);
+  background-image: url('../images/common/minus-icon.png'); 
+  background-size: cover;
+  position: absolute;
+  right: rem(20); 
+  top: 50%;
+  transform: translateY(-50%);
+  @include mq(md) {
+    right: rem(38); 
+  }
+}
+
+// プラスマーク
+.accordion__heading.is-open::after {
+  background-image: url('../images/common/plus-icon.png');
+}
+
+// 回答のブロック
+.accordion__body {
+  background-color: $white; //要確認　色
+  display: flex;
+  align-items: center;
+  gap: rem(8);
+  border: 1px solid $sub-color;
+  padding: rem(12) rem(20) rem(12) rem(12);
+  @include mq(md) {
+    gap: rem(33);
+    padding: rem(20) rem(38) rem(20) rem(50);
+  }
+}
+
+// Qのマーク
+.accordion__q {
+  font-family: $third-font-family;
+  font-size: rem(20);
+  color: $sub-color;
+  font-weight: $bold;
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: rem(36);
+  min-width: rem(36);
+  height: rem(36);
+  background-color: $white;
+  text-transform: uppercase;
+  flex-shrink: 0; 
+}
+
+// 質問文
+.accordion__question {
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: $white;
+  font-weight: $bold;
+  @include mq(md) {
+    font-size: rem(16);
+    line-height: 1;
+  }
+}
+
+// 回答文
+.accordion__answer {
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: $black;
+  font-weight: $normal;
+  @include mq(md) {
+    font-size: rem(16);
+    line-height: 1;
+  }
+}
+
+// Aのマーク
+.accordion__a {
+  font-family: $third-font-family;
+  font-size: rem(20);
+  color: $white;
+  font-weight: $bold;
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: rem(36);
+  min-width: rem(36); 
+  height: rem(36);
+  background-color: $sub-color;
+  text-transform: uppercase;
+  flex-shrink: 0; 
+}

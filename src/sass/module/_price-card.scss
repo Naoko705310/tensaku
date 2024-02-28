@@ -1,0 +1,99 @@
+@use "global" as *;
+
+.price-card {
+  border-radius: 20px;
+  text-align: center;
+}
+
+.price-card__heading {
+  background-color: $main-color;
+  padding-top: rem(42);
+  padding-bottom: rem(32);
+}
+
+.price-card__plan {
+  font-family: $third-font-family;
+  font-size: rem(36);
+  color: $white;
+  font-weight: $bold;
+  line-height: 1;
+  text-transform: capitalize;
+    @include mq(md) {
+    font-size: rem(36);
+    }
+}
+
+.price-card__member {
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $white;
+  font-weight: $bold;
+  line-height: 1;
+  margin-top: rem(17);
+}
+
+.price-card__body {
+  background-color: #F1F1F1;
+  padding-top: rem(35);
+  padding-right: rem(43);
+  padding-bottom: rem(46);
+  padding-left: rem(43);
+}
+
+.price-card__price {
+  font-family: $base-font-family;
+  font-size: rem(48);
+  color: $black;
+  font-weight: $bold;
+  line-height: 0.7;
+  @include mq(md) {
+    font-size: rem(60);
+  }
+}
+
+// 円マーク
+.yen-symbol {
+  width: rem(14);
+  height: rem(12);
+  font-size: rem(20); 
+  display: inline-block;
+  line-height: 0.7; 
+  vertical-align: top;
+}
+
+.price-card__group {
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $black;
+  font-weight: $normal;
+  line-height: 1;
+  margin-top: rem(27); //要確認　上との重なり
+}
+
+.price-card__items {
+  margin-top: rem(61);
+}
+
+.price-card__item {
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: $black;
+  font-weight: $normal;
+  line-height: 1;
+  border-bottom: 1px solid #D9D9D9;
+  padding: rem(18) 0;
+}
+
+.price-card__item:first-child {
+  padding-top: 0;
+}
+.price-card__item:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.price-card__button {
+  margin-top: rem(61);
+}
+
+
