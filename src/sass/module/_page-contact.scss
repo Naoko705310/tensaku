@@ -1,0 +1,25 @@
+@use "global" as *;
+
+.page-contact {
+  background-color: #F7FFFC;
+  padding-bottom: calc(rem(64) - 50px);
+}
+
+.page-contact__inner.inner {
+  max-width: rem(630);
+  @include mq(md) {
+    max-width: rem(850);
+  }
+
+}
+
+.page-contact__contents {
+
+
+}
+
+.page-contact__form {
+  position: relative;
+  top: rem(-50);
+}
+

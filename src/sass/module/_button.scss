@@ -1,6 +1,7 @@
 @use "global" as *;
 
-// 利用申込ボタン：緑
+// 元になるスタイル
+// 利用申込ボタン：緑(
 .button {
   width: rem(174);
   height: rem(50);
@@ -32,44 +33,50 @@
 }
 
 // 利用申込ボタン：白
-// 上書きでき中たので別で作る
-.button--white {
-  font-family: $base-font-family;
-  font-size: rem(16);
+.button.button--white {
   color: $text-green;
-  font-weight: $bold;
-  line-height: 1;
-  display: inline-block;
-  text-align: center;
-  padding: rem(17) rem(39);
+  background-image: none;
   background-color: $white;
-  border: 1px solid transparent;
-  border-radius: rem(25);
-  box-shadow: 0px 6px 9px rgba(0, 0, 0, 0.25);
-  box-sizing: border-box;
-  transition: .3s;
 }
-
-.button--white:hover {
-  transform: scale(1.1); 
-  cursor: pointer;
-}
-
-
 
 
 // 利用申込ボタン
 .button--apply {
+  width: rem(156);
+  background-image: none;
+  background-color: #FF8A00;
+  padding: rem(15) 0;
+  border-radius: 5px;
+}
+
+// ダウンロードボタン
+.button--download {
   font-family: $base-font-family;
   font-size: rem(16);
   color: $white;
   font-weight: $bold;
-  line-height: 1;
-  background-color: #FF8A00;
-  padding: rem(15) rem(30);
+  background-color: #075735;
+  padding: rem(10) rem(126);
   border-radius: 5px;
     @include mq(md) {
 
+    }
+}
+
+// お問い合わせボタン
+.button--contact {
+  max-width:100%;
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $white;
+  font-weight: $bold;
+  background-color: #FF8A00;
+  line-height: 1.5;
+  padding: rem(25) rem(80);
+  border-radius: rem(20);
+    @include mq(md) {
+      padding: rem(25) rem(146);
+      line-height: 1;
     }
 }
 

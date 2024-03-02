@@ -1,0 +1,58 @@
+@use "global" as *;
+
+.sub-fv {
+  background-image: linear-gradient(45deg, #00BA6B, #075735);
+  text-align: center;
+  padding-top: calc(#{rem(60)} + #{rem(73)});//要確認header高さSP
+  padding-bottom: rem(87);
+  @include mq(md) {
+    padding-top: calc(#{rem(68)} + #{rem(98)});
+    padding-bottom: rem(87);
+  }
+}
+
+.sub-fv--terms,
+.sub-fv--policy {
+  background-image: linear-gradient(45deg, #00BA6B, #075735);
+  text-align: center;
+  padding-top: calc(#{rem(60)} + #{rem(73)});//要確認header高さSP
+  padding-bottom: rem(60);
+  @include mq(md) {
+    padding-top: calc(#{rem(115)} + #{rem(98)});
+    padding-bottom: rem(115);
+  }
+}
+
+.sub-fv__inner {
+
+}
+
+.sub-fv__heading {
+
+}
+
+.sub-fv__main-copy {
+  font-family: $base-font-family;
+  font-size: rem(24);//要確認
+  color: $text-green;
+  font-weight: $bold;
+  line-height: 1;
+  background-color: $white;
+  display: inline-block;
+  padding: rem(10) rem(15);
+  @include mq(md) {
+  font-size: rem(40);
+  }
+}
+
+.sub-fv__text {
+  width: 80%;
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $white;
+  font-weight: $normal;
+  margin-top: rem(27);
+  margin-right: auto;
+  margin-left: auto;
+}
+

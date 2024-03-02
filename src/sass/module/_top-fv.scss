@@ -1,25 +1,124 @@
 @use "global" as *;
 
 .top-fv {
-  background-color: pink; //要確認　あとではずす
+  // background-color: pink; //要確認　あとではずす
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
   padding-top: rem(88);
   padding-bottom: rem(44);
+  position: relative;
   @include mq(md) {
     padding-top: rem(138);
     padding-bottom: rem(30);
   }
 }
-
-.top-fv__inner {
-
+.top-fv::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+width: 100%;
+  // width: 66.328%; // 画面左端から849pxの幅
+  height: 100%; // 親要素と同じ高さ
+  background-image: linear-gradient(45deg, #00BA6B, #075735);
+  background-size: cover;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  clip-path: polygon(0% 0%,100% 0%,40% 100%, 0% 100%) ;
+  // clip-path: polygon(0% 0%,100% 0,40% 100%, 0 100%) ;
+  @include mq(md) {
+    width: 66.328%; // 画面左端から849pxの幅
+    clip-path: polygon(0% 0%,100% 0%,40% 100%, 0% 100%) ;
+  }
 }
 
-.inner {
+// .top-fv::before {
+//   content: "";
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   z-index: -1;
+//   width: 50%; // 左から50%の幅
+//   height: 100%; // 親要素と同じ高さ
+//   background-image: linear-gradient(to bottom right, transparent 50%, #FFFFFF 50.1%), linear-gradient(45deg, #00BA6B, #075735);
+//   background-size: cover, cover;
+//   background-position: left bottom, center;
+//   background-repeat: no-repeat;
+//   @include mq(md) {
+//     padding-top: rem(138);
+//     padding-bottom: rem(30);
+//   }
+// }
 
+// .top-fv::before {
+//   content: "";
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 50%; // 左から50%の幅
+//   height: 100%; // 親要素と同じ高さ
+//   background-image: linear-gradient(45deg, #00BA6B, #075735), linear-gradient(to bottom right, transparent 50%, #FFFFFF 50.1%);
+//   background-size: 849px 797px, cover;
+//   background-position: left bottom, center;
+//   background-repeat: no-repeat;
+//   @include mq(md) {
+//     padding-top: rem(138);
+//     padding-bottom: rem(30);
+//   }
+// }
+
+// .top-fv::before {
+//   content: ""; // これが必要
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   background-image: linear-gradient(to bottom right, #FFFFFF 50%, transparent 50.1%), linear-gradient(45deg, #075735, #00BA6B);
+//   background-size: 849px 797px, cover;
+//   background-position: left bottom, center;
+//   background-repeat: no-repeat;
+//   @include mq(md) {
+//     padding-top: rem(138);
+//     padding-bottom: rem(30);
+//   }
+// }
+
+.top-fv__inner {
+  padding: 0 rem(15);
+  margin: 0 auto;
+  @include mq(md) {
+    max-width: calc(1280px + 2 * 57px);
+    padding: 0 rem(57);
+  }
+}
+
+.top-fv__contents-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: rem(20);
+  @include mq(md) {
+    // flex-direction: row;
+    display: grid;
+    grid-template-columns: 38.833% 1fr;
+    gap: rem(24);
+  }
+}
+
+.top-fv__body {
+  @include mq(md) {
+    // width: 37.833%; //440/1163
+  }
+}
+.top-fv__text-wrapper {
+
+  order: 1;
 }
 
 .top-fv__heading {
-
+@include mq(md) {
+  order: 1;
+}
 }
 
 .top-fv__message {
@@ -34,18 +133,22 @@
   border-radius: rem(25);
   @include mq(md) {
   font-size: rem(20);
+  padding: rem(18) rem(37);
   }
 }
 
 .top-fv__main-copy {
   font-family: $base-font-family;
-  font-size: rem(24);
+  font-size: clamp(24px, 40 / 1280 * 100vw, 40px);
+  // font-size: rem(24);
+  // 要確認　文字の折り返し
+  // font-size: calc(24px + (40 - 24) * ((100vw - 320px) / (1280 - 320)));
   color: $white;
   font-weight: $bold;
   line-height: 1.5;
-  margin-top: rem(23);
+  margin-top: rem(33);
   @include mq(md) {
-  font-size: rem(20);
+  // font-size: rem(40);
   }
 }
 
@@ -57,19 +160,27 @@
   line-height: 1.5;
   margin-top: rem(15);
   @include mq(md) {
-  font-size: rem(20);
+  font-size: rem(16);
   }
 }
 
 .top-fv__imgage {
   position: relative;
-  margin-top: rem(11);
+  // margin-top: rem(11);
+  @include mq(md) {
+    // width: rem(699);//gridで1frにしているので指定不要
+    max-width: 100%;
+    order: 3;
+  }
 }
 
 .top-fv__imgage::before {
   content: "";
   display: block;
   padding-top: 57.681%;// 199/345
+  @include mq(md) {
+    padding-top: 57.510%;// 402/699
+  }
 }
 
 .top-fv__imgage img {
@@ -80,23 +191,62 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .top-fv__button-wrapper {
-  width: rem(283);
+  // width: rem(283);
   margin-top: rem(29);
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  // grid-template-columns: 1fr;
   gap: rem(19);
   margin: 0 auto;
+  @include mq(md) {
+    // grid-template-columns: repeat(2, 1fr);
+    gap: rem(10);
+    margin-top: rem(76);
+    margin-right: 0;
+    margin-left: 0;
+  }
 }
 
-.button {
 
+// /* スライダーの追加スタイル */
+.top-fv__swiper-container {
+  margin-top: rem(41);
 }
 
-.button--orange {
+.top-fv__swiper {
+  // width: 100%;
+  // max-width: 100%;
+  height: rem(185);
+  overflow: hidden; 
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
 
+.top-fv__swiper .swiper-wrapper {
+  // width: 100%;
+  // max-width: 100%;
+  height: inherit;
+}
+
+.top-fv__swiper .swiper-slide {
+  width: rem(324);
+  max-width: 100%;
+  height: inherit;
+  aspect-ratio: 324/185;
+}
+
+.top-fv__swiper .swiper-slide img {
+  width: 100%;
+  max-width: 100%;
+  height: inherit;
+  object-fit: cover;
+  border-radius: rem(25); 
+}
+
+.swiper-flip {
+  overflow: hidden !important;
 }
 

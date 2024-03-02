@@ -1,7 +1,7 @@
 @use "global" as *;
 
 .voices-card {
-  width: rem(262);
+  // width: rem(262);//幅はswiper-slideで指定する
   background-color: $white;
   padding: rem(22);
   border-radius: 20px;

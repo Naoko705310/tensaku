@@ -1,0 +1,105 @@
+@use "global" as *;
+
+.download-form {
+  width: rem(440);
+  background-color: $white;
+  padding-top: rem(31);
+  padding-right: rem(30);
+  padding-bottom: rem(49);
+  padding-left: rem(30);
+  box-sizing: border-box;
+}
+
+.download-form__text {
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: $black;
+  font-weight: $normal;
+}
+
+.download-form__items {
+  margin-top: rem(37);
+}
+
+.download-form__item {
+  width: 100%;
+}
+
+.download-form__item:not(:first-child) {
+  margin-top: rem(10);
+}
+
+.download-form__item:last-child {
+  position: relative;
+  display: inline-block;
+}
+
+// プルダウンの下矢印
+.download-form__item:last-child::before {
+  content: ""; 
+  position: absolute;
+  right: rem(15); 
+  top: 50%; 
+  transform: translateY(-50%); 
+  pointer-events: none; 
+  width: rem(14); 
+  height: rem(14); 
+  background-image: url('../images/common/pulldown-icon.png'); 
+  background-size: cover; 
+  background-position: center; 
+}
+
+select {
+  -webkit-appearance: none; 
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.download-form input,
+.download-form select {
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: #999999;
+  font-weight: $normal;
+  width: 100%;
+  border: 1px solid #BCBCBC;
+  border-radius: rem(5);
+  // padding: rem(10) rem(13);
+  padding: rem(9) rem(13);//要確認　ピクパ調整10→9
+}
+
+// placeholderのテキスト
+input::placeholder{
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: #999999;
+  font-weight: $normal;
+}
+
+// .download-form input[type="text"] {
+
+// }
+
+.download-form__policy {
+  margin-top: rem(22);
+  //要確認　ピクパ調整24→22
+}
+
+.download-form__policy p {
+  font-family: $base-font-family;
+  font-size: rem(12);
+  color: $black;
+  font-weight: $normal;
+}
+
+.download-form__policy a {
+  font-family: $base-font-family;
+  font-size: rem(12);
+  color: #023E78;
+  font-weight: $normal;
+  border-bottom: 1px solid #023E78;
+}
+
+.download-form__button {
+  margin-top: rem(22);//要確認　ピクパ調整24→22
+}

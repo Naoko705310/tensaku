@@ -1,7 +1,9 @@
 @use "global" as *;
 
 .price {
-
+  background-color: #F7FFFC;
+  padding-top: rem(30);
+  margin-top: rem(90);
 }
 
 .price__inner {
@@ -27,12 +29,15 @@
 }
 
 .price__items {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   gap: rem(28);
   margin-top: rem(40);
   @include mq(md) {
-    grid-template-columns: repeat(3, 1fr);
+    flex-direction: row;
     margin-top: rem(81);
     padding: 0 rem(20);
   }
@@ -40,6 +45,7 @@
 
 .price__remark {
   margin-top: rem(45);
+  padding: 0 rem(20);
 }
 
 .price__remark-items {

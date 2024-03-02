@@ -1,14 +1,18 @@
 @use "global" as *;
 
 .price-card {
-  border-radius: 20px;
+  width: clamp(200px, 309 / 375 * 100vw, 400px);
   text-align: center;
+  @include mq(md) {
+    width: rem(309);
+  }
 }
 
 .price-card__heading {
   background-color: $main-color;
   padding-top: rem(42);
   padding-bottom: rem(32);
+  border-radius: rem(20) rem(20) 0 0;
 }
 
 .price-card__plan {
@@ -33,7 +37,11 @@
 }
 
 .price-card__body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
   background-color: #F1F1F1;
+  border-radius: 0 0 rem(20) rem(20);
   padding-top: rem(35);
   padding-right: rem(43);
   padding-bottom: rem(46);
@@ -92,7 +100,7 @@
   border-bottom: none;
 }
 
-.price-card__button {
+.price-card__button-wrapper {
   margin-top: rem(61);
 }
 

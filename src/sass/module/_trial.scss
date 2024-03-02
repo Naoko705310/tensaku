@@ -9,10 +9,11 @@
 }
 
 .trial__inner {
+  max-width: rem(630);
   padding: 0 rem(15);
   margin: 0 auto;
   @include mq(md) {
-    max-width: rem(1034);
+    max-width: rem(1014);
   }
 }
 
@@ -90,18 +91,14 @@
 
 // 要確認　ボタンを横並びにするかどうか
 .trial__button-wrapper {
-  width: rem(283);
   margin-top: rem(29);
-  display: grid;
-  grid-template-columns: 1fr;
-  // grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  justify-content: center;
   gap: rem(19);
   margin-top: rem(40);
-  margin-right: auto;
-  margin-left: auto;
   @include mq(md) {
+    justify-content: flex-start;
     margin-top: rem(65);
-    grid-template-columns: repeat(2, 1fr);
     margin-right: 0;
     margin-left: 0;
   }

@@ -85,7 +85,8 @@
     left: 0; 
     transform: translateY(-50%);
     width: 0;
-    border-top: 107px solid transparent;
+    height: 100%;
+    border-top: 107px solid transparent;//itemの縦半分(214/2=107)
     border-bottom: 107px solid transparent;
     border-left: 19px solid #DAFFF1; 
   }

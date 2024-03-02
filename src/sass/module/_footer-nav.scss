@@ -3,9 +3,11 @@
 .footer-nav__items {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  // justify-content: center;
+
   @include mq(md) {
-    
+    justify-content: flex-start;
+    justify-content: space-between;
   }
 }
 

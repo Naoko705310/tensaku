@@ -1,14 +1,11 @@
 @use "global" as *;
 
 .flow {
-
+  margin-top: rem(30);
 }
 
-.top-layout {
-
-}
-
-.flow__inner {
+.flow__inner.inner {
+  // width: rem(147);
 
 }
 

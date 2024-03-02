@@ -15,11 +15,13 @@
   max-width: rem(600);
   @include mq(md) {
     display: grid; 
-    grid-template-columns: auto auto auto;
+    // grid-template-columns: 30.370% auto auto;//346-18/1080
+    grid-template-columns: auto 47px auto auto;//346-18/1080
     grid-template-areas: 
-      "logo nav button";
+      "logo . nav button";
     max-width: rem(1080); //1080+50
     padding: 0 rem(20);
+    // column-gap: rem(75.94); // navとlogoの余白
   }
 }
 
@@ -55,20 +57,23 @@
   @include mq(md) {
     grid-area: nav; 
     margin-top: 0;
-    margin-left: rem(47);//65-18
+    // margin-left: rem(47);//65-18
   }
 }
 
 .footer__button-wrapper {
-  width: rem(283);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr;
+  // width: rem(283);
+  // margin: 0 auto;
+  display: flex;
+  justify-content: center;
   gap: rem(19);
   margin-top: rem(40);
   order: 3;
   @include mq(md) {
     width: rem(174);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: rem(19);
     grid-area: button; 
     margin-top: rem(18);
     margin-left: rem(57);//75-18

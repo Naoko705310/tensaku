@@ -1,0 +1,37 @@
+@use "global" as *;
+
+.downloaded-form {
+  padding-bottom: rem(348);
+}
+
+.downloaded-form__heading {
+  font-family: $base-font-family;
+  font-size: rem(24);
+  color: $black;
+  font-weight: $bold;
+  line-height: 1.5;
+    @include mq(md) {
+
+    }
+}
+
+.downloaded-form__text {
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: $black;
+  font-weight: $normal;
+  line-height: 1;
+  margin-top: rem(26);
+}
+
+.downloaded-form__text--link {
+  display: inline-block;
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: #023E78;
+  font-weight: $normal;
+  line-height: 1;
+  border-bottom: 1px solid #023E78;
+  margin-top: rem(19);
+}
+

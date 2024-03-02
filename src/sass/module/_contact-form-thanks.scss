@@ -1,0 +1,26 @@
+@use "global" as *;
+
+.contact-form {
+
+}
+
+.contact-form-thanks {
+
+}
+
+.contact-form__layout {
+
+}
+
+.contact-form-thanks__text-wrapper {
+
+}
+.contact-form-thanks__text-wrapper p {
+font-family: $base-font-family;
+font-size: rem(16);
+color: $black;
+font-weight: $normal;
+  @include mq(md) {
+  }
+}
+
