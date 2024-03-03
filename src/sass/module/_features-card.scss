@@ -5,8 +5,7 @@
   grid-template-columns: 1fr;
   @include mq(md) {
     //bodyの横幅
-    // grid-template-columns: 564px calc(1024px - 544px - 57px);
-    grid-template-columns: 564px 1fr;
+    grid-template-columns: rem(564) 1fr; //imageの幅が544px+margin:20px
     grid-template-areas: "image body"; //位置決め
   }
 }
@@ -22,7 +21,7 @@
   width: 100%;
   position: relative;
   @include mq(md) {
-    width: rem(544);
+    width: rem(544); 
     margin-left: rem(20);
     grid-area: image; // 画像のエリアを指定
   }
@@ -43,14 +42,10 @@
   left: 50%;
   transform: translate(-50%, -50%);
   object-fit: cover;
-  @include mq(md) {
-
-  }
 }
 
 .features-card__body {
   @include mq(md) {
-    width: rem(460);
     padding-top: rem(99);
     padding-left: rem(57);
     padding-right: rem(30);
@@ -104,8 +99,7 @@
 .features-card:nth-child(even) {
   @include mq(md) {
     grid-template-areas: "body image"; 
-    grid-template-columns: 450px 1fr;
-
+    grid-template-columns: 1fr rem(564);
   }
 }
 

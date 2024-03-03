@@ -1,7 +1,11 @@
 @use "global" as *;
 
 .voices-card {
-  // width: rem(262);//幅はswiper-slideで指定する
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex-grow: 1;
+  width: rem(262);//SPで崩れないように、横幅固定
   background-color: $white;
   padding: rem(22);
   border-radius: 20px;
@@ -60,6 +64,7 @@
   display: inline-block;
   padding: rem(3) rem(5);
   margin-top: rem(14);
+  margin-right: auto;
 }
 
 .voices-card__text {
@@ -68,5 +73,6 @@
   color: $black;
   font-weight: $normal;
   margin-top: rem(14);
+  margin-bottom: auto;
 }
 

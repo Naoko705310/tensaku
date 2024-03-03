@@ -1,0 +1,12 @@
+@use "global" as *;
+// TOPへ戻るボタン
+
+.button-to-top {
+  display: none;//初期は非表示
+  width: rem(88);
+  aspect-ratio: 88/88;
+  position:fixed;
+  right: rem(20);
+  bottom: rem(20);
+  z-index: 999999;
+}

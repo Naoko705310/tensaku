@@ -10,7 +10,7 @@
 .tab__item {
   display: inline-block;
   width: rem(290);
-  padding: rem(9) 0;
+  padding: rem(5) 0; //要確認　ピクパ調整 9→5 線の分？
   background-color: #F1F1F1;
   border: 2px solid #999999;
   border-radius: rem(25);
@@ -31,6 +31,7 @@
   color: #999999;
   font-weight: $bold;
   line-height: 1;
+  box-sizing: border-box;
   @include mq(md) {
     font-size: rem(20);
   }

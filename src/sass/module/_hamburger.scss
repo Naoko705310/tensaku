@@ -1,25 +1,24 @@
 @use "global" as *;
 // ハンバーガーメニュー
+//「メニュー」テキストの幅になり線が左によってしまうので、marginで中央寄せ
 
 .hamburger {
   max-width: 100%;
   z-index: 9999;
-  text-align: center;
-  position: relative;
+  margin-left: auto;
   @include mq(md) {
     display: none;
   }
 }
 
 .hamburger span {
-width: rem(28);
-height: rem(2);
-position: absolute; // relativeからabsoluteに変更
-left: 50%; // 追加
-transform: translateX(-50%); // 追加
-display: block;
-background: #fff;
-transition: ease .3s;
+  width: rem(32);
+  height: rem(2);
+  position: relative;
+  display: block;
+  background: #fff;
+  margin: 0 auto;
+  transition: ease .3s;
 }
 
 .hamburger span:nth-child(1) {
@@ -27,12 +26,22 @@ top: 0;
 }
 
 .hamburger span:nth-child(2) {
-margin: rem(9) 0;
+margin: rem(9) auto;
 }
 
-.hamburger span:nth-child(3) {
-top: 0;
+// .hamburger span:nth-child(3) {
+// top: 0;
+// }
+
+// 「メニュー」
+.hamburger p {
+  font-family: $base-font-family;
+  font-size: rem(10);
+  color: $white;
+  font-weight: $normal;
+  line-height: 1;
 }
+
 
 //is-OPEN時の動き
 .hamburger.is-open span:nth-child(1) {
@@ -41,23 +50,10 @@ transform: rotate(40deg);
 }
 
 .hamburger.is-open span:nth-child(2) {
-transform: translateY(-50%);
-opacity: 0;
+  top: 0;
+  transform: rotate(-40deg);
 }
 
-.hamburger.is-open span:nth-child(3) {
-top: rem(-11);
-transform: rotate(-40deg);
-}
-
-.hamburger p {
-  font-family: $base-font-family;
-  font-size: rem(10);
-  color: $white;
-  font-weight: $normal;
-  line-height: 1;
-  // position: absolute; // この行を追加
-  // bottom: 0; // この行を追加
-  // width: 100%; // この行を追加
-  // text-align: center; // この行を追加
+.hamburger.is-open p {
+  display: none;
 }

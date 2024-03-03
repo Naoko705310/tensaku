@@ -1,0 +1,51 @@
+@use "global" as *;
+
+
+
+.js-drawer-menu {
+
+}
+
+
+
+.sp-nav__heading p {
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $white;
+  font-weight: $normal;
+  display: inline-block;
+  width: 74.666%;
+}
+
+.sp-nav__items {
+  margin-top: rem(36);
+}
+
+.sp-nav__item {
+  border-bottom: 1px solid $white;
+}
+
+.sp-nav__item:first-child {
+  border-top: 1px solid $white;
+}
+
+.sp-nav__item a {
+  display: inline-block;
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: $white;
+  font-weight: $normal;
+  padding-top: rem(19);
+  padding-bottom: rem(19);
+  padding-left: rem(10);
+}
+
+.sp-nav__button-wrapper {
+  display: flex;
+  align-items: center;
+  gap: rem(10);
+  margin-top: rem(39);
+}
+
+
+

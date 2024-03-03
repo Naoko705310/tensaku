@@ -27,6 +27,42 @@
   cursor: pointer;
 }
 
+.button--header-green,
+.button--header-orange {
+  @include mq(md) {
+    white-space: nowrap; // この行を追加
+    // width: rem(174);
+    max-width: 100%;
+    // height: rem(50);
+    font-family: $base-font-family;
+    font-size: rem(16);
+    // font-size: clamp(12px, 16 / 768 * 100vw, 16px);
+    color: $white;
+    font-weight: $bold;
+    line-height: 1;
+    display: inline-block;
+    text-align: center;
+    padding-top: rem(17);
+    padding-bottom: rem(17);
+    padding-right: clamp(12px, 16 / 768 * 100vw, 39px);
+    padding-left: clamp(12px, 16 / 768 * 100vw, 39px);
+    background-image: linear-gradient(45deg, #075735, #00BA6B);
+    border: 1px solid transparent;
+    border-radius: rem(25);
+    box-shadow: 0px 6px 9px rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
+    transition: .3s;
+  }
+}
+
+.button--header-orange {
+  @include mq(md) {
+    background-image: linear-gradient(45deg, #FF8A00, #E9A512);
+  }
+}
+
+
+
 // 資料請求ボタン：オレンジ
 .button--orange {
   background-image: linear-gradient(45deg, #FF8A00, #E9A512);
@@ -80,6 +116,21 @@
     }
 }
 
+.button--popup {
+  width: rem(266);
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $black;
+  font-weight: $bold;
+  display: inline-block;
+  text-align: center;
+  padding: rem(11) 0;
+  background-color: $white;
+  border: 2px solid $black;
+  border-radius: rem(25);
+  box-sizing: border-box;
+  transition: .3s;
+}
 
 
 

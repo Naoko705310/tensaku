@@ -6,7 +6,11 @@ padding-top: rem(30);
 padding-bottom: rem(121);
 }
 
-.features__inner {
+.features__inner.inner {
+  max-width: rem(630);
+  @include mq(md) {
+    max-width: rem(1074);
+  }
 
 }
 

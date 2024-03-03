@@ -55,7 +55,7 @@
 }
 
 .trial__body {
-  padding: 0 rem(15);
+  padding: 0 rem(21);
   margin-top: rem(20);
   @include mq(md) {
     margin-top: 0;
@@ -71,6 +71,23 @@
   color: #000;
   font-weight: $bold;
   line-height: 1;
+  text-decoration: none;
+  display: inline-block;
+  // width: rem(384);
+  position: relative;
+  z-index: 3;
+}
+.trial__main-copy::after {
+  content: "";
+  position: absolute;
+  bottom: rem(-4);
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  // width: 66.328%; // 画面左端から849pxの幅
+  height: rem(8); // 親要素と同じ高さ
+  background-color: #00BA6B;
+  // opacity: 1;
 }
 
 .trial__text-wrapper {
@@ -94,7 +111,7 @@
   margin-top: rem(29);
   display: flex;
   justify-content: center;
-  gap: rem(19);
+  gap: rem(10);
   margin-top: rem(40);
   @include mq(md) {
     justify-content: flex-start;

@@ -45,8 +45,7 @@
         <!-- ヘッダーロゴ -->
         <h1 class="header__logo header-logo">
           <a href="index.html" class="header-logo__link">
-            <!-- 要修正/ファイル名 -->
-            <img src="./assets/images/common/tensaku-logo.png" alt="ヘッダーロゴ">
+            <img src="./assets/images/common/header-logo.png" alt="ヘッダーロゴ">
           </a>
         </h1>
         <!-- ハンバーガー -->
@@ -54,55 +53,66 @@
           <span></span>
           <span></span>
           <p>メニュー</p>
-        </button>
+        </button><!-- /.header__hamburger hamburger js-hamburger -->
         <!-- SPナビ -->
-        <!-- <div class="header__sp-nav js-drawer-menu">
+        <div class="header__sp-nav js-drawer-menu">
           <nav class="sp-nav">
-            <ul class="sp-nav__items">
-              <li class="sp-nav__item">
-                <a href="#">ナビ</a>
-              </li>
-              <li class="sp-nav__item">
-                <a href="#">ナビ</a>
-              </li>
-              <li class="sp-nav__item">
-                <a href="#">ナビ</a>
-              </li>
-            </ul>
+            <div class="sp-nav__heading">
+              <p>
+                面倒な添削作業のストレスから
+                今日で開放します。<br>
+                まずは資料請求から。
+              </p>
+              <ul class="sp-nav__items">
+                <li class="sp-nav__item">
+                  <a href="#">トップ</a>
+                </li>
+                <li class="sp-nav__item">
+                  <a href="#">導入事例</a>
+                </li>
+                <li class="sp-nav__item">
+                  <a href="#">ご利用の流れ</a>
+                </li>
+                <li class="sp-nav__item">
+                  <a href="#">料金</a>
+                </li>
+                <li class="sp-nav__item">
+                  <a href="#">よくある質問</a>
+                </li>
+              </ul>
+              <div class="sp-nav__button-wrapper">
+                <a href="#" class="button button--white">利用申し込み</a>
+                <a href="#" class="button button--orange">資料請求する</a>
+              </div>
+            </div>
           </nav>
-        </div> -->
+        </div><!-- /.header__sp-nav js-drawer-menu -->
         <!-- PCナビ -->
         <div class="header__pc-nav pc-nav u-desktop">
-          <!-- <ul class="pc-nav__items">
+          <ul class="pc-nav__items">
             <li class="pc-nav__item">
-              <a href="#">特徴
-              </a>
+              <a href="#" class="pc-nav__link">特徴</a>
             </li>
             <li class="pc-nav__item">
-              <a href="#">導入事例
-              </a>
+              <a href="#" class="pc-nav__link">導入事例</a>
             </li>
             <li class="pc-nav__item">
-              <a href="#">ご利用の流れ
-              </a>
+              <a href="#" class="pc-nav__link">ご利用の流れ</a>
             </li>
             <li class="pc-nav__item">
-              <a href="#">料金
-              </a>
+              <a href="#" class="pc-nav__link">料金</a>
             </li>
             <li class="pc-nav__item">
-              <a href="#">よくある質問
-              </a>
+              <a href="#" class="pc-nav__link">よくある質問</a>
             </li>
-          </ul> -->
-          <!-- ボタン -->
-          <!-- <div class="header__button">
-            <a href="#" class="button">利用申し込み</a>
-            <a href="#" class="button button--orange">資料請求する</a>
-          </div> -->
+          </ul>
+        </div><!-- /.header__pc-nav pc-nav -->
+        <div class="header__button-wrapper">
+          <a href="#" class="button--header-green">利用申し込み</a>
+          <a href="#" class="button--header-orange">資料請求する</a>
         </div>
-      </div>
-    </header>
+      </div><!-- /.header__inner inner -->
+    </header><!-- /.header -->
     <!-- ヘッダーここまで -->
     <main>
       <!-- トップページFV -->
@@ -115,7 +125,7 @@
                   最短1分でサクッと始められる
                 </div>
                 <h2 class="top-fv__main-copy">
-                  面倒だった添削作業を、<br class="u-mobile">
+                  面倒だった添削作業を、<br>
                   もっと楽しく効率よく
                 </h2>
                 <p class="top-fv__sub-copy">
@@ -246,9 +256,94 @@
         </div>
       </section>
       <!-- TENSAKUが誇る５つの特徴 -->
-
-      <!-- あとでメモ帳から貼る -->
-
+      <section class="features top-layout">
+        <div class="features__inner inner">
+          <!-- section-title -->
+          <div class="section-title">
+            <p class="section-title--en">features</p>
+            <h2 class="section-title--jp">
+              <span>tensaku</span>が誇る5つの特徴
+              <span></span>
+            </h2>
+          </div>
+  
+          <div class="features__contents-wrapper">
+            <!-- features-card -->
+            <ul class="features-cards">
+              <li class="features-card">
+                <figure class="features-card__image">
+                  <img src="./assets/images/common/features-01.png" alt="男性がハシゴに登っている画像">
+                </figure>
+                <div class="features-card__body">
+                  <h3 class="features-card__heading">
+                    クリエイティブの修正を<br>
+                    ビジュアルで伝える
+                  </h3>
+                  <p class="features-card__text">
+                    広告やデザインの修正を行う場合に、紙を使用するとどうしても意図を伝えにくいもの。TENSAKUでは直接デザインに書き込みを行えます。
+                  </p>
+                </div>
+              </li>
+              <li class="features-card">
+                <figure class="features-card__image">
+                  <img src="./assets/images/common/features-02.png" alt="画面の前に立つ男性の画像">
+                </figure>
+                <div class="features-card__body">
+                  <h3 class="features-card__heading">
+                    いつ、どんな修正をしたか<br>
+                    履歴で管理
+                  </h3>
+                  <p class="features-card__text">
+                    誰がどういう経緯で修正を依頼したのか、誰が取り組む依頼内容なのかが一目でわかり、チームでのコミュニケーションエラーをゼロにできます。
+                  </p>
+                </div>
+              </li>
+              <li class="features-card">
+                <figure class="features-card__image">
+                  <img src="./assets/images/common/features-03.png" alt="鍵を持っている女性の画像">
+                </figure>
+                <div class="features-card__body">
+                  <h3 class="features-card__heading">
+                    IP制限機能で<br>
+                    セキュリティも安心
+                  </h3>
+                  <p class="features-card__text">
+                    オンライン上の修正ページは、閲覧にIP制限をかけることができるので、不特定多数に見られる心配もありません。
+                  </p>
+                </div>
+              </li>
+              <li class="features-card">
+                <figure class="features-card__image">
+                  <img src="./assets/images/common/features-04.png" alt="モニターの右に立つ女性の画像">
+                </figure>
+                <div class="features-card__body">
+                  <h3 class="features-card__heading">
+                    あらゆるタスク管理ツールと<br>
+                    連携可能
+                  </h3>
+                  <p class="features-card__text">
+                    機能を修正機能に絞っているので、他のタスク管理ツールと柔軟に組み合わせることが可能です。修正タスクのアサインも可能。
+                  </p>
+                </div>
+              </li>
+              <li class="features-card">
+                <figure class="features-card__image">
+                  <img src="./assets/images/common/features-05.png" alt="PCを膝の上に乗せている女性の画像">
+                </figure>
+                <div class="features-card__body">
+                  <h3 class="features-card__heading">
+                    クライアントをゲスト招待<br>
+                    進捗共有も簡単
+                  </h3>
+                  <p class="features-card__text">
+                    クライアントをゲストとして招待することで、進捗共有も簡単。クライアントには見られたくない情報を制作チームだけで管理することも可能。
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
       <!-- 導入実績・利用者の声 -->
       <section class="voices top-layout">
         <div class="voices__inner inner">
@@ -325,7 +420,8 @@
                     </div>
                   </div>
                 </div>
-
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
                 <!-- If we need navigation buttons -->
                 <div class="swiper-button-prev voices__swiper-arrow-left"></div>
                 <div class="swiper-button-next voices__swiper-arrow-right"></div>
@@ -777,5 +873,40 @@
         </div>
       </div>
     </footer>
+    <!-- ポップアップ開始 -->
+    <div class="popup">
+      <div class="popup__close js-popup-close">
+        <img src="./assets/images/common/popup-close.png" alt="バツボタンの画像">
+      </div>
+      <div class="popup__contents-wrapper">
+        <div class="popup__heading">
+          <div class="popup__image-wrapper">
+            <figure class="popup__image">
+              <img src="./assets/images/common/popup-01.jpg" alt="微笑む男性の画像">
+            </figure>
+            <figure class="popup__image">
+              <img src="./assets/images/common/popup-02.jpg" alt="お客様説明用資料を準備中の画像">
+            </figure>
+          </div>
+          <div class="popup__body">
+            <p class="popup__text">
+              TENSAKU導入で<br>
+              売上70%上昇！？<br>
+              導入最新事例の
+              詳しい資料はこちら
+            </p>
+          </div>
+        </div>
+        <div class="popup__button-wrapper">
+          <a href="whitepaper.html" class="button--popup">資料ダウンロードはこちらから</a>
+        </div>
+      </div>
+    </div>
+    <!-- TOPへ戻るボタン -->
+    <div class="js-button-to-top button-to-top">
+      <a href="#top" class="cutton-to-top__link">
+        <img src="./assets/images/common/button-to-top.png" alt="フッターロゴ">
+      </a>
+    </div>
   </body>
 </html>
