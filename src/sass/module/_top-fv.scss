@@ -21,8 +21,7 @@
   left: 0;
   z-index: -1;
   width: 100%;
-  // width: 66.328%; // 画面左端から849pxの幅
-  height: 100%; // 親要素と同じ高さ
+  height: 100%; 
   background-image: linear-gradient(45deg, #00BA6B, #075735);
   background-size: cover;
   background-position: left bottom;
@@ -46,27 +45,51 @@
 }
 
 .top-fv__contents-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: rem(20);
+  display: grid;
+  grid-template-areas:
+    "heading"
+    "image"
+    "button";
   @include mq(md) {
-    // flex-direction: row;
     display: grid;
-    grid-template-columns: 38.833% 1fr;
-    gap: rem(24);
+    grid-template-columns: 39.896% 1fr; //464/1163
+    // grid-template-columns: 38.833% 1fr; 
+    grid-template-rows: auto auto; 
+    grid-template-areas:
+      "heading image"
+      "button image"; // imageは両行にまたがる
+    // display: grid;
+    // grid-template-columns: 38.833% 1fr;
+    // grid-template-areas: none; // PC表示ではデフォルトのレイアウトを使用
   }
-}
-
-.top-fv__body {
-  @include mq(md) {
-    // width: 37.833%; //440/1163
-  }
-}
-.top-fv__text-wrapper {
-  order: 1;
+  // display: flex;
+  // flex-direction: column;
+  // gap: rem(20);
+  // @include mq(md) {
+  //   display: grid;
+  //   grid-template-columns: 38.833% 1fr;
+  //   gap: rem(24);
+  // }
 }
 
 .top-fv__heading {
+  grid-area: heading;
+}
+
+.top-fv__imgage {
+  grid-area: image;
+}
+
+.top-fv__button-wrapper {
+  grid-area: button;
+}
+
+// .top-fv__text-wrapper {
+//   order: 1;
+// }
+
+.top-fv__heading {
+  order: 1;
   @include mq(md) {
     order: 1;
   }
@@ -82,10 +105,10 @@
   padding: rem(12) rem(15);
   background-color: $white;
   border-radius: rem(25);
+  position: relative;
   @include mq(md) {
   font-size: rem(20);
   padding: rem(18) rem(37);
-  position: relative;
   }
 }
 
@@ -111,9 +134,9 @@
   color: $white;
   font-weight: $bold;
   line-height: 1.5;
-  margin-top: rem(33);
+  margin-top: rem(23);
   @include mq(md) {
-  // font-size: rem(40);
+    margin-top: rem(33);
   }
 }
 
@@ -131,9 +154,8 @@
 
 .top-fv__imgage {
   position: relative;
-  // margin-top: rem(11);
+  order: 2;
   @include mq(md) {
-    // width: rem(699);//gridで1frにしているので指定不要
     width:100%;
     max-width: 100%;
     order: 3;
@@ -161,21 +183,17 @@
 }
 
 .top-fv__button-wrapper {
-  // width: rem(283);
   margin-top: rem(29);
   display: flex;
-  // grid-template-columns: 1fr;
   gap: rem(19);
   margin: 0 auto;
   @include mq(md) {
-    // grid-template-columns: repeat(2, 1fr);
     gap: rem(10);
     margin-top: rem(76);
     margin-right: 0;
     margin-left: 0;
   }
 }
-
 
 // /* スライダーの追加スタイル */
 .top-fv__swiper-container {

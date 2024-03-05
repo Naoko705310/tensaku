@@ -6,11 +6,6 @@
   margin-top: rem(90);
 }
 
-.price__inner {
-
-}
-
-
 .price__text {
   font-family: $base-font-family;
   font-size: rem(16);
@@ -28,6 +23,11 @@
   }
 }
 
+.price__remark {
+  margin-top: rem(45);
+  padding: 0 rem(20);
+}
+
 .price__items {
   display: flex;
   flex-direction: column;
@@ -36,20 +36,14 @@
   align-items: center;
   gap: rem(28);
   margin-top: rem(40);
+  list-style-position: outside; //黒丸を外へ
+  padding-left: rem(15); //黒丸の横のスペース
   @include mq(md) {
     flex-direction: row;
     margin-top: rem(81);
     padding: 0 rem(20);
+
   }
-}
-
-.price__remark {
-  margin-top: rem(45);
-  padding: 0 rem(20);
-}
-
-.price__remark-items {
-
 }
 
 .price__remark-item {
@@ -57,4 +51,9 @@
   font-size: rem(14);
   color: $black;
   font-weight: $normal;
+  text-indent: rem(-15); //テキストを左にシフトして回り込み回避
+  @include mq(md) {
+    text-indent: 0;
+  }
 }
+

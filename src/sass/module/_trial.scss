@@ -13,7 +13,7 @@
   padding: 0 rem(15);
   margin: 0 auto;
   @include mq(md) {
-    max-width: rem(1014);
+  max-width: rem(1014);
   }
 }
 
@@ -23,10 +23,7 @@
   padding: rem(40) 0;
   @include mq(md) {
     padding: rem(74) 0;
-    // display: grid;
     display: flex;
-    // grid-template-columns: 1fr 1fr;
-    // grid-template-columns: 48.475% 1fr;
   }
 }
 
@@ -64,30 +61,23 @@
   }
 }
 
-// 要確認　下線をひく
 .trial__main-copy {
   font-family: $base-font-family;
   font-size: rem(24);
   color: #000;
   font-weight: $bold;
-  line-height: 1;
-  text-decoration: none;
-  display: inline-block;
-  // width: rem(384);
-  position: relative;
-  z-index: 3;
+  line-height: 1.5;
+  @include mq(md) {
+    line-height: 1;
+  }
 }
-.trial__main-copy::after {
-  content: "";
-  position: absolute;
-  bottom: rem(-4);
-  left: 0;
-  z-index: -1;
-  width: 100%;
-  // width: 66.328%; // 画面左端から849pxの幅
-  height: rem(8); // 親要素と同じ高さ
-  background-color: #00BA6B;
-  // opacity: 1;
+
+// 下線をひく
+.trial__main-copy span {
+  background-image: linear-gradient(to right, #00BA6B, #00BA6B); // 同じ色のグラデーションを作成
+  background-size: 100% rem(9);
+  background-position: left bottom;
+  background-repeat: no-repeat;
 }
 
 .trial__text-wrapper {

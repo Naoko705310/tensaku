@@ -1,10 +1,10 @@
 @use "global" as *;
 
 .pc-nav {
-  //   display: none; //最初(SP)は非表示
-    height: inherit;
-    margin-left: rem(28);
-  }
+  display: none; //最初(SP)は非表示
+  height: inherit;
+  margin-left: rem(28);
+}
 
 .pc-nav__items {
   display: flex;
@@ -14,7 +14,6 @@
 
 .pc-nav__item {
   height: inherit;
-  // position: relative;//hover時の下線用
 }
 
 .pc-nav__item a {
@@ -29,26 +28,68 @@
   text-align: center;
   height: inherit;
   white-space: nowrap;
-  // padding-top: rem(33);
-  padding: 0 max(1rem, min(1.389vw, 18px));
-  // padding: rem(41) rem(18);
+  padding: 0 max(rem(10), min(1.389vw, 18px));
 }
 
-.pc-nav__item .pc-nav__item a:last-child {
-  padding-right: 0; //要確認　適用されてない
+.pc-nav__item a:hover {
+  cursor: pointer;
+  opacity: 0.7;
+  transform: scale(1.1);
 }
 
-// .pc-nav__item a.current, //要確認
+// .pc-nav__item a.current,
 // .pc-nav__item:hover {
 //   color: $text-green;
 // }
 
-.pc-nav__button-wrapper {
-  @include mq(md) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: rem(10);
-  }
 
-}
+//ここからtensaku
+// .pc-nav {
+//   //   display: none; //最初(SP)は非表示
+//     height: inherit;
+//     // margin-left: rem(28);
+//   }
+
+// .pc-nav__items {
+//   display: flex;
+//   align-items: center;
+//   height: inherit;
+// }
+
+// .pc-nav__item {
+//   height: inherit;
+// }
+
+// .pc-nav__item a {
+//   font-family: $base-font-family;
+//   font-size: rem(16);
+//   color: $white;
+//   font-weight: $bold;
+//   line-height: 1;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   text-align: center;
+//   height: inherit;
+//   white-space: nowrap;//テキスト折り返さない
+//   padding: 0 max(1rem, min(1.389vw, 18px));
+// }
+
+// .pc-nav__item .pc-nav__item a:last-child {
+//   padding-right: 0; //要確認　適用されてない
+// }
+
+// // .pc-nav__item a.current, //要確認
+// // .pc-nav__item:hover {
+// //   color: $text-green;
+// // }
+
+// .pc-nav__button-wrapper {
+//   @include mq(md) {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     gap: rem(10);
+//   }
+
+// }

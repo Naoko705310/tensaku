@@ -8,5 +8,11 @@
   position:fixed;
   right: rem(20);
   bottom: rem(20);
-  z-index: 999999;
+  z-index: 99;
+  transition: 0.3s;
+}
+
+.button-to-top:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }

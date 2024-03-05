@@ -17,7 +17,7 @@
     <meta property="og:site_name" content=""/>
     <meta property="og:description" content=""/>
     <!-- ファビコン -->
-    <link rel="”icon”" href="./assets/images/common/favicon.ico"/>
+    <link rel="icon" href="./assets/images/common//icon.png"> <!-- 48x48px -->
     <!-- Google フォント -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -110,11 +110,11 @@
         <div class="sub-fv__inner">
           <div class="sub-fv__heading">
             <h2 class="sub-fv__main-copy">
-              資料ダウンロード
+              利用申し込み
             </h2>
             <p class="sub-fv__text">
-              TENSAKU導入企業の成功事例や、詳細な機能説明、未リリースの今後のアップデート予定などを<br class="u-desktop">
-              資料に掲載しています。
+              TENSAKU利用の申し込みはこちらのフォームより承ります。<br class="u-desktop">
+              送信後、1営業日以内に担当者よりご連絡いたします。
             </p>
           </div>
         </div>
@@ -125,11 +125,11 @@
           <div class="page-contact__contents">
             <div class="page-contact__form">
               <!-- お問い合わせフォーム -->
-              <!-- <div class="contact-form__error">
+              <div class="contact-form__error">
                 <span id="js-error-message" class="error-message">
                   ※必須項目が入力されていません。入力してください。
                 </span>
-              </div> -->
+              </div>
               <form action="#" method="post" id="contact-form" class="contact-form contact-form__layout">
                 <!-- 名前 -->
                 <dl class="contact-form__item">
@@ -151,7 +151,7 @@
                   <dt>
                     <label for="company-name" class="contact-form__heading">
                       <span>必須</span>
-                      会社名
+                      <p>会社名</p>
                     </label>
                   </dt>
                   <dd>
@@ -167,7 +167,7 @@
                   <dt>
                     <label for="Email" class="contact-form__heading">
                       <span>必須</span>
-                      メールアドレス
+                      <p>メールアドレス</p>
                     </label>
                   </dt>
                   <dd>
@@ -183,7 +183,7 @@
                   <dt>
                     <label for="tel" class="contact-form__heading">
                       <span>必須</span>
-                      電話番号
+                      <p>電話番号</p>
                     </label>
                   </dt>
                   <dd>
@@ -197,7 +197,7 @@
                 <dl class="contact-form__item">
                   <dt>
                     <label for="url" class="contact-form__heading">
-                      貴社サイトURL
+                      <p>貴社サイトURL</p>
                     </label>
                   </dt>
                   <dd>
@@ -212,7 +212,7 @@
                   <dt>
                     <label class="contact-form__heading">
                       <span>必須</span>
-                      ご利用意図（複数選択可能）
+                      <p>ご利用意図（複数選択可能）</p>
                     </label>
                   </dt>
                   <dd>
@@ -231,13 +231,19 @@
                       </li>
                       <li class="checkbox__item">
                         <label for="checkbox-03" class="checkbox-label">
-                          <input id="checkbox-03" class="checkbox-input" type="checkbox" name="checkbox-name" value="文章の添削">
-                          <span class="checkbox-label-span">文章の添削</span>
+                          <input id="checkbox-03" class="checkbox-input" type="checkbox" name="checkbox-name" value="クライアントとの進捗報告の共有">
+                          <span class="checkbox-label-span">クライアントとの進捗報告の共有</span>
                         </label>
                       </li>
                       <li class="checkbox__item">
                         <label for="checkbox-04" class="checkbox-label">
-                          <input id="checkbox-04" class="checkbox-input" type="checkbox" name="checkbox-name" value="その他">
+                          <input id="checkbox-04" class="checkbox-input" type="checkbox" name="checkbox-name" value="文章の添削">
+                          <span class="checkbox-label-span">文章の添削</span>
+                        </label>
+                      </li>
+                      <li class="checkbox__item">
+                        <label for="checkbox-05" class="checkbox-label">
+                          <input id="checkbox-05" class="checkbox-input" type="checkbox" name="checkbox-name" value="その他">
                           <span class="checkbox-label-span">その他</span>
                         </label>
                       </li>
@@ -246,38 +252,32 @@
                     <p class="checkbox-error"></p>
                   </dd>
                 </dl>
-                <!-- ご検討状況（ラジオボタン） -->
+                <!-- ご検討状況1（ラジオボタン） -->
                 <dl class="contact-form__item">
                   <dt>
                     <label class="contact-form__heading">
                       <span>必須</span>
-                      ご検討状況
+                      <p>ご検討状況</p>
                     </label>
                   </dt>
                   <dd>
                     <ul class="contact-form__radio radio__items">
                       <li class="radio__item">
-                        <label for="radio-01" class="radio-label">
-                          <input id="radio-01" class="radio-input" type="radio" name="radio-name" value="クリエイティブの添削を効率化したい">
-                          <span class="radio-label-span">クリエイティブの添削を効率化したい</span>
+                        <input id="radio-01-1" class="radio-input" type="radio" name="radio-name-1" value="TENSAKUを利用するのが決定している">
+                        <label for="radio-01-1" class="radio-label">
+                          <span class="radio-label-span">TENSAKUを利用するのが決定している</span>
                         </label>
                       </li>
                       <li class="radio__item">
-                        <label for="radio-02" class="radio-label">
-                          <input id="radio-02" class="radio-input" type="radio" name="radio-name" value="添削のログを残し、作業が属人化しないようにしたい">
-                          <span class="radio-label-span">添削のログを残し、作業が属人化しないようにしたい</span>
+                        <input id="radio-02-1" class="radio-input" type="radio" name="radio-name-1" value="利用検討中・他社比較中">
+                        <label for="radio-02-1" class="radio-label">
+                          <span class="radio-label-span">利用検討中・他社比較中</span>
                         </label>
                       </li>
                       <li class="radio__item">
-                        <label for="radio-03" class="radio-label">
-                          <input id="radio-03" class="radio-input" type="radio" name="radio-name" value="文章の添削">
-                          <span class="radio-label-span">文章の添削</span>
-                        </label>
-                      </li>
-                      <li class="radio__item">
-                        <label for="radio-04" class="radio-label">
-                          <input id="radio-04" class="radio-input" type="radio" name="radio-name" value="その他">
-                          <span class="radio-label-span">その他</span>
+                        <input id="radio-03-1" class="radio-input" type="radio" name="radio-name-1" value="添削サービスの情報収集中">
+                        <label for="radio-03-1" class="radio-label">
+                          <span class="radio-label-span">添削サービスの情報収集中</span>
                         </label>
                       </li>
                     </ul>
@@ -290,50 +290,50 @@
                   <dt>
                     <label class="contact-form__heading">
                       <span>必須</span>
-                      ご検討状況
+                      <p>ご検討状況</p>
                     </label>
                   </dt>
                   <dd>
                     <ul class="contact-form__radio radio__items">
                       <li class="radio__item">
-                        <label for="radio-01" class="radio-label">
-                          <input id="radio-01" class="radio-input" type="radio" name="radio-name" value="ネット検索">
+                        <input id="radio-01-2" class="radio-input" type="radio" name="radio-name-2" value="ネット検索">
+                        <label for="radio-01-2" class="radio-label">
                           <span class="radio-label-span">ネット検索</span>
                         </label>
                       </li>
                       <li class="radio__item">
-                        <label for="radio-02" class="radio-label">
-                          <input id="radio-02" class="radio-input" type="radio" name="radio-name" value="テレビCM">
+                        <input id="radio-02-2" class="radio-input" type="radio" name="radio-name-2" value="テレビCM">
+                        <label for="radio-02-2" class="radio-label">
                           <span class="radio-label-span">テレビCM</span>
                         </label>
                       </li>
                       <li class="radio__item">
-                        <label for="radio-03" class="radio-label">
-                          <input id="radio-03" class="radio-input" type="radio" name="radio-name" value="X(旧Twitter)">
+                        <input id="radio-03-2" class="radio-input" type="radio" name="radio-name-2" value="X(旧Twitter)">
+                        <label for="radio-03-2" class="radio-label">
                           <span class="radio-label-span">X(旧Twitter)</span>
                         </label>
                       </li>
                       <li class="radio__item">
-                        <label for="radio-04" class="radio-label">
-                          <input id="radio-04" class="radio-input" type="radio" name="radio-name" value="Facebook">
+                        <input id="radio-04-2" class="radio-input" type="radio" name="radio-name-2" value="Facebook">
+                        <label for="radio-04-2" class="radio-label">
                           <span class="radio-label-span">Facebook</span>
                         </label>
                       </li>
                       <li class="radio__item">
-                        <label for="radio-04" class="radio-label">
-                          <input id="radio-04" class="radio-input" type="radio" name="radio-name" value="プレスリリース">
+                        <input id="radio-05-2" class="radio-input" type="radio" name="radio-name-2" value="プレスリリース">
+                        <label for="radio-05-2" class="radio-label">
                           <span class="radio-label-span">プレスリリース</span>
                         </label>
                       </li>
                       <li class="radio__item">
-                        <label for="radio-04" class="radio-label">
-                          <input id="radio-04" class="radio-input" type="radio" name="radio-name" value="ブログ記事">
+                        <input id="radio-06-2" class="radio-input" type="radio" name="radio-name-2" value="ブログ記事">
+                        <label for="radio-06-2" class="radio-label">
                           <span class="radio-label-span">ブログ記事</span>
                         </label>
                       </li>
                       <li class="radio__item">
-                        <label for="radio-04" class="radio-label">
-                          <input id="radio-04" class="radio-input" type="radio" name="radio-name" value="その他">
+                        <input id="radio-07-2" class="radio-input" type="radio" name="radio-name-2" value="その他">
+                        <label for="radio-07-2" class="radio-label">
                           <span class="radio-label-span">その他</span>
                         </label>
                       </li>
@@ -347,31 +347,29 @@
                   <dt>
                     <label class="contact-form__heading">
                       <span>必須</span>
-                      個人情報の取り扱いについて
+                      <p>個人情報の取り扱いについて</p>
                     </label>
                   </dt>
                   <dd>
                     <ul class="contact-form__checkbox checkbox__items">
                       <li class="checkbox__item">
-                        <label for="checkbox-01" class="checkbox-label">
-                          <input id="checkbox-01" class="checkbox-input" type="checkbox" name="checkbox-name" value="同意する">
-                          <span class="checkbox-label-span checkbox-label-span--agree">同意する</span>
+                        <label for="checkbox-01-agree" class="checkbox-label">
+                          <input id="checkbox-01-agree" class="checkbox-input" type="checkbox" name="checkbox-name-agree" value="同意する">
+                          <span class="checkbox-label-span">同意する</span>
                         </label>
                       </li>
+                      <div class="checkbox__text--policy">
+                        <p>個人情報の取り扱い方針については
+                          <a href="policy.html">こちら</a>
+                          をご確認下さい。</p>
+                      </div>
                     </ul>
                     <!-- テキスト内容はJSで制御 -->
-                    <p class="privacy-error"></p>
+                    <p class="checkbox-error"></p>
                   </dd>
                 </dl>
-                <!-- プライバシーポリシー -->
-                <!-- <div class="contact-form__privacy">
-                  <input id="checkbox" name="privacy" class="checkbox" type="checkbox">
-                  <label for="checkbox" class="contact-form__privacy-text">
-                    個人情報の取り扱いについて同意のうえ送信します。
-                  </label>
-                </div> -->
                 <!-- テキスト内容はJSで制御 -->
-                <!-- <p class="privacy-error"></p> -->
+                <p class="privacy-error"></p>
                 <!-- 送信ボタン -->
                 <div class="contact-form__button">
                     <button id="js-submit" class="button--contact" type="submit" value="send">
@@ -383,7 +381,7 @@
             </div>
           </div>
         </div>
-</section>
+      </section>
     </main>
     <!-- フッター -->
     <footer class="footer">

@@ -1,24 +1,23 @@
 @use "global" as *;
 
 .header-logo {
-  // 要確認　サイズ
   width: rem(136);
-  width: clamp(12px, 136 / 375 * 100vw, 181px);
-
   height: rem(24);
   aspect-ratio: 136/24;
   position: relative;
   z-index: 9999;
-  // flex-shrink: 0; // ロゴが縮小しないようにする
   @include mq(md) {
-    // width: rem(181);
-    // height: rem(32);
+    width: rem(181);
+    height: rem(32);
     aspect-ratio: 181/32;
-    // margin-left: rem(37);
   }
 }
 
+
 .header-logo__link {
+  display: flex;//上下中央に
+  justify-content: center;
+  align-items: center;
   width: 100%;
   max-width: 100%;
   height: inherit;
@@ -27,7 +26,7 @@
 .header-logo img {
   width: 100%;
   max-width: 100%;
-  height: inherit;
-  object-fit: contain;
-  vertical-align: baseline;
+  height: 100%;
+  object-fit: cover;
+  // vertical-align: baseline;
 }

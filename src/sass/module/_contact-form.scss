@@ -7,14 +7,10 @@
   border: 1px solid $black;
   border-radius: rem(20);
   padding: rem(30) rem(15);
+  box-sizing: border-box;
   @include mq(md) {
-    padding: rem(60) rem(50);
+    padding: rem(60) rem(49);//要確認　ピクパ調整50→49
   }
-}
-
-// フォーム上部エラーメッセージとの余白
-.contact-form__layout {
-  // margin-top: rem(40);
 }
 
 // 各アイテム(labelとinputを囲むbox)
@@ -23,51 +19,17 @@
   background-color: #F7FFFC;
   margin-top: rem(5);
   padding: rem(12) rem(13);
-  @include mq(md) {
-    // max-width: rem(700);
-    // display: grid;
-    // grid-template-columns: 1fr rem(480);
-  }
 }
 
 .contact-form__item:first-child {
   margin-top: 0;
 }
 
-
-
-
-.contact-form__item dd {
-  //input-areaなど中の子要素を100%にするためflexを使う
-  // display: flex; 
-  // flex-direction: column;
-  // margin-top: rem(16);
-  // @include mq(md) {
-  //   // width: rem(480);
-  //   margin-top: 0;
-  // }
-}
-
-.contact-form__item dd .input-area,
-.contact-form__item dd .text-area,
-.contact-form__item dd .input-area--pull-down {
-    // flex: 1; // 子要素を均等に伸縮させる
-    // min-height: 30px; // 最小の高さを設定
-}
-
-
-
-.contact-form__item--pull-down {
-  // @include mq(md) {
-  //   padding-top: rem(36);
-  // }
-}
-
 //見出し(必須＋見出し）
 .contact-form__heading {
-  // height: rem(23);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  gap: rem(3);
 }
 
 // 見出し
@@ -76,7 +38,7 @@
   font-size: rem(16);
   color: $black;
   font-weight: $bold;
-  margin-left: rem(3);
+  line-height: 1;
 }
 
 //「必須」タグ
@@ -86,21 +48,16 @@
   color: $white;
   font-weight: $bold;
   line-height: 1;
-  // letter-spacing: 0.2em;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #FF8A00;
-  // margin-left: rem(8);
   padding: rem(3) rem(7);
 }
 
 // アイテムのinputエリア
 // ※itemにスタイリングすると、チェックボックスにまで影響してしまうので、inputタグにスタイリングする。
-input[type="text"],
-input[type="email"],
-textarea,
-select {
+.input-area {
   width: 100%;
   background: #fff;
   font-family: $base-font-family;
@@ -109,16 +66,18 @@ select {
   font-weight: $normal;
   border: 1px solid #BCBCBC;
   border-radius: rem(5);
-  padding: rem(12) rem(13);
+  padding: rem(11) rem(13);//要確認　ピクパ調整 12→11
   margin-top: rem(11);
+  box-sizing: border-box;
 }
 
 // 「お名前」だけ幅違い
 input#name {
-  width: 51.285%;//359/700
+  width: rem(359);
+  max-width: 100%;
 }
 
-// アイテムのinputエリアとtextareaのplaceholderスタイル
+// inputエリアとtextareaのplaceholderスタイル
 input[type="text"]::placeholder,
 input[type="email"]::placeholder,
 textarea::placeholder,
@@ -129,42 +88,7 @@ select::placeholder {
   font-weight: $normal;
 }
 
-// エラー時の入力エリアの背景色
-.input-area.errored,
-.text-area.errored {
-  border: 1px solid #C94800;
-  background: rgba(201, 72, 0, 0.20);
-  color: #fff;
-}
-
-//placeholderエラー時文字色
-.input-area.errored::placeholder,
-.text-area.errored::placeholder {
-  color: $white; 
-}
-
-.contact-form__radio {
-  // margin-top: rem(18);
-  // @include mq(md) {
-  //   margin-top: 0;
-  // }
-}
-
-
-
-
-//正規表現チェックのテキスト
-.name-error,
-.email-error,
-.tel-error {
-  font-family: $base-font-family;
-  font-size: rem(14);
-  color: $main-color;
-  font-weight: $normal;
-  text-align: left;
-}
-
-//** ご利用意図（チェックボックス）のデザイン **
+//** チェックボックスのデザイン **
 
 //inputタグのデフォルトデザインを消す
 .checkbox-input {
@@ -175,10 +99,18 @@ select::placeholder {
 
 // チェックボックスのアイテムリスト
 .checkbox__items {
-  margin-top: rem(12);
+  margin-top: rem(14);
 }
 
-// チェックボックスアイテム項目
+.checkbox__item {
+  margin-top: rem(7);
+}
+
+.checkbox__item:first-child {
+  margin-top: 0;
+}
+
+// チェックボックスアイテム項目(四角とテキスト）
 .checkbox-label {
   width: 100%;
   font-family: $base-font-family;
@@ -187,32 +119,32 @@ select::placeholder {
   font-weight: $normal;
   line-height: 1;
   position: relative;//これがないと四角が表示されない
-  // display: inline-block;
   display: flex;
-  align-items: center;
-  margin-bottom: rem(7);
-  // padding-left: rem(30);
+  align-items: flex-start;
+  gap: rem(10);//デフォルトのinputがはみ出ている分をマイナス12→10
   cursor: pointer;
 }
 
-// 同意する
-.checkbox-label-span--agree {
-  font-weight: $bold;
-  margin-top: rem(12);
+// チェックボックスの四角
+.checkbox-label-span {
+  display: inline-block;//これがないと表示されないので注意
+  cursor: pointer;
+  padding-left: rem(30);//label手前にチェックボックス用の余白を開ける
+  vertical-align: middle;
+  position: relative; //本来のcheckboxの位置
+  margin-top: 0;
 }
 
-// チェックボックスの四角
 .checkbox-label-span::before {
   content: "";
   display: inline-block;
-  width: 14px;
-  height: 14px;
+  width: rem(18);
+  height: rem(18);
   border: 1px solid #BCBCBC;
   border-radius: rem(5);
   position: absolute;
   left: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 0;
 }
 
 // チェックマーク
@@ -231,6 +163,10 @@ select::placeholder {
   transform: rotate(-45deg);
 }
 
+.checkbox-label-span:checked::after {
+  opacity: 1;
+}
+
 .checkbox-error {
   font-family: $base-font-family;
   font-size: rem(14);
@@ -238,7 +174,15 @@ select::placeholder {
   font-weight: $normal;
 }
 
+// 「同意する」
+.checkbox-label-span--agree {
+  font-weight: $bold;
+  margin-top: rem(12);
+}
+
+
 // ラジオボタンのスタイルここから
+
 // ラジオボタンのデフォルトデザインを消す
 .radio-input {
   position: absolute;
@@ -246,141 +190,76 @@ select::placeholder {
   z-index: -1;
 }
 
-// チェックボックスのアイテムリスト
 .radio__items {
-  margin-top: rem(12);
+  margin-top: rem(14);
+}
+
+.radio__item {
+  margin-top: rem(7);
+}
+
+.radio__item:first-child {
+  margin-top: 0;
 }
 
 // ラジオボタンアイテム項目
 .radio-label {
   width: 100%;
+  position: relative; // これがないと丸が表示されない
+  display: flex;
+  padding-left: rem(30);
+  cursor: pointer;
+}
+
+.radio-label-span {
   font-family: $base-font-family;
   font-size: rem(16);
   color: $black;
   font-weight: $normal;
   line-height: 1;
-  position: relative; // これがないと円が表示されない
-  display: inline-block;
-  margin-bottom: rem(7);
-  padding-left: rem(30);
-  cursor: pointer;
 }
 
-// ラジオボタンの円
+// ラジオボタンの丸
 .radio-label::before {
   content: "";
   display: inline-block;
-  width: 18px; // 円のサイズ
-  height: 18px; // 円のサイズ
-  border: 2px solid #BCBCBC; // 円のボーダー
-  border-radius: 50%; // 円形にする
+  width: rem(18); 
+  height: rem(18); 
+  border: 2px solid #BCBCBC; 
+  border-radius: 50%; 
   position: absolute;
   left: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 0;
 }
 
 // ラジオボタンがチェックされたときの内側の黒丸
 .radio-input:checked + .radio-label::after {
   content: "";
   display: inline-block;
-  width: 10px; // 内側の黒丸のサイズ
-  height: 10px; // 内側の黒丸のサイズ
-  background-color: #000; // 黒丸の色
-  border-radius: 50%; // 円形にする
+  width: rem(10); 
+  height: rem(10); 
+  background-color: #000; 
+  border-radius: 50%; 
   position: absolute;
-  left: 5px; // 中央に配置するための調整
-  top: 50%;
-  transform: translate(0, -50%);
+  left: rem(4); 
+  top: rem(4);
 }
 // ラジオボタンのスタイルここまで
 
 
-
-
-
-
-// チェックボックスとプライバシー
-.contact-form__privacy {
-  // display: flex;
-  // align-items: flex-start;
-  // justify-content: center;
-  // gap: rem(8);
-  // text-align: left;
-  // margin-top: rem(40);
-  // margin-right: auto;
-  // margin-left: auto;
-  // padding: 0 rem(32);
-  // @include mq(md) {
-  //   gap: 0 rem(16);
-  //   margin-top: rem(80);
-  // }
-}
-
-//「個人情報の取り扱いについて同意のうえ送信します。」のテキスト
-.contact-form__privacy-text { 
+.checkbox__text--policy {
   font-family: $base-font-family;
-  font-size: rem(14);
-  color: $main-color;
+  font-size: rem(12);
+  color: $black;
   font-weight: $normal;
-  line-height: calc(22/14);
-  display: inline-block;
-  text-align: left;
+  line-height: 1;
+  margin-top: rem(9);
+  margin-left: rem(30);
 }
 
-// ** チェックボックスのデザイン **
-input[type="checkbox"] {
-  display: inline-block;//これがないと表示されないので注意
-  cursor: pointer;
-  padding-left: rem(14);//label手前にチェックボックス用の余白を開ける
-  vertical-align: middle;
-  position: relative; //本来のcheckboxの位置
-  margin-top: 0;
-}
-
-//擬似要素で四角をデザイン
-input[type="checkbox"]::before,
-input[type="checkbox"]::after {
-  content: "";
-  display: block; 
-  position: absolute;
-  z-index: 1;
-}
-
-//チェックボックス
-input[type="checkbox"]::before {
-  background-color: #fff;
-  border: 1px solid $main-color;
-  width: rem(22);
-  height: rem(22);
-  top: 0;
-  left: -20%;
-}
-
-//チェックマーク
-input[type="checkbox"]::after {
-  border-bottom: 3px solid #C94800;//チェックの太さ
-  border-left: 3px solid #C94800;//チェックの太さ
-  opacity: 0;//チェック前は非表示
-  height: 6px;//チェックの高さ
-  width: 11px;//チェックの横幅
-  transform: rotate(-45deg);
-  top: rem(6); //チェック時の位置調整
-  left: rem(2); //チェック時の位置調整
-  // left: rem(5); //チェック時の位置調整
-}
-
-input[type="checkbox"]:checked::after {
-  opacity: 1;//チェック後に表示
-} 
-
-//※個人情報保護方針に同意してください。
-.privacy-error {
-  font-family: $base-font-family;
-  font-size: rem(14);
-  color: #C94800;
-  font-weight: $normal;
-  text-align: center;
+.checkbox__text--policy a {
+  color: #023E78;
+  border-bottom: 1px solid #023E78;
 }
 
 .contact-form__button {
@@ -389,6 +268,33 @@ input[type="checkbox"]:checked::after {
   @include mq(md) {
     margin-top: rem(60);
   }
+}
+
+/*** Validation ***/
+
+// エラー時の入力エリアの背景色
+.input-area.errored,
+.text-area.errored {
+  border: 1px solid #C94800;
+  background: rgba(201, 72, 0, 0.20);
+  color: #fff;
+}
+
+//placeholderエラー時文字色
+.input-area.errored::placeholder,
+.text-area.errored::placeholder {
+  color: $white; 
+}
+
+//正規表現チェックのテキスト
+.name-error,
+.email-error,
+.tel-error {
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: $main-color;
+  font-weight: $normal;
+  text-align: left;
 }
 
 // ※入力必須項目です
@@ -420,3 +326,11 @@ span.error_required {
   }
 }
 
+//※個人情報保護方針に同意してください。
+.privacy-error {
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: #C94800;
+  font-weight: $normal;
+  text-align: center;
+}

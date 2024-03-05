@@ -47,12 +47,10 @@
   left: 25.15px; 
   top: 0; 
   z-index: 3;
-  // transform: translateY(100%); 
   width: 0;
   height: 0;
   border-left: 26.845px solid transparent; 
   border-right: 26.845px solid transparent; 
-  // border-top: 14.25px solid #DAFFF1; 
   border-top: 14.25px solid $black; 
   @include mq(md) {
     display: none;

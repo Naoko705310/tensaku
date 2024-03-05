@@ -3,17 +3,14 @@
 .footer-nav__items {
   display: flex;
   flex-wrap: wrap;
-  // justify-content: center;
-
+  justify-content: space-between;
   @include mq(md) {
     justify-content: flex-start;
-    justify-content: space-between;
   }
 }
 
 .footer-nav__item {
-
-
+  transition: 0.3s;
 }
 
 .footer-nav__item a {
@@ -27,7 +24,9 @@
   justify-content: center;
   align-items: center;
   padding:  rem(18);
-  @include mq(md) {
+}
 
-  }
+.footer-nav__item:hover {
+  transform: scale(1.1);
+  cursor: pointer;
 }

@@ -7,11 +7,11 @@
   padding: rem(6) rem(4);
   position: relative; //closeボタン用
   z-index: 999;
-  display: none; /* 初期状態では非表示 */
-  position: fixed; /* 画面に固定 */
-  left: 20px; /* 左から20px */
-  bottom: 20px; /* 下から20px */
-  z-index: 1000; /* 他の要素より前面に表示 */
+  display: none; // 初期状態では非表示 
+  position: fixed; 
+  left: rem(20); 
+  bottom: rem(20); 
+  z-index: 1000; 
 }
 
 // 閉じるボタン
@@ -36,8 +36,8 @@
 .popup__heading {
   display: grid;
   grid-template-columns: rem(113) 1fr;
-
 }
+
 .popup__image {
   width: rem(113);
   position: relative;

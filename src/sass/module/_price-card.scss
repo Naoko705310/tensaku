@@ -13,7 +13,39 @@
   padding-top: rem(42);
   padding-bottom: rem(32);
   border-radius: rem(20) rem(20) 0 0;
+  position: relative;//リボン用
 }
+
+.price__items > li:nth-child(2) .price-card__heading {
+  background-color: #00BA6B; /* ここに希望の背景色を指定 */
+}
+
+.price-card__ribbon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: rem(98);
+  height: rem(98);
+  overflow: hidden;
+  }
+
+  .price-card__ribbon-text {
+    display: inline-block;
+    position: absolute;
+    padding: rem(8) 0;
+    left: rem(-24);
+    top: rem(20);
+    width: rem(160);
+    text-align: center;
+    font-family: $base-font-family;
+    font-size: rem(12);
+    color: $white;
+    font-weight: $bold;
+    line-height: 1;
+    background: $sub-color;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
 
 .price-card__plan {
   font-family: $third-font-family;

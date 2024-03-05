@@ -1,13 +1,17 @@
 @use "global" as *;
 
 .download-form {
+  margin-top: rem(40);
+  padding-bottom: rem(49);
+  @include mq(md) {
   width: rem(440);
   background-color: $white;
   padding-top: rem(31);
   padding-right: rem(30);
-  padding-bottom: rem(49);
   padding-left: rem(30);
   box-sizing: border-box;
+  margin-top: 0;
+  }
 }
 
 .download-form__text {
@@ -18,7 +22,10 @@
 }
 
 .download-form__items {
-  margin-top: rem(37);
+  margin-top: rem(20);
+  @include mq(md) {
+    margin-top: rem(37);
+  }
 }
 
 .download-form__item {
@@ -61,6 +68,7 @@ select {
   font-size: rem(16);
   color: #999999;
   font-weight: $normal;
+  background-color: $white;
   width: 100%;
   border: 1px solid #BCBCBC;
   border-radius: rem(5);
@@ -75,10 +83,6 @@ input::placeholder{
   color: #999999;
   font-weight: $normal;
 }
-
-// .download-form input[type="text"] {
-
-// }
 
 .download-form__policy {
   margin-top: rem(22);
@@ -100,6 +104,6 @@ input::placeholder{
   border-bottom: 1px solid #023E78;
 }
 
-.download-form__button {
+.download-form__button-wrapper {
   margin-top: rem(22);//要確認　ピクパ調整24→22
 }

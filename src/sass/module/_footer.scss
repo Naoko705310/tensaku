@@ -15,17 +15,13 @@
   max-width: rem(600);
   @include mq(md) {
     display: grid; 
-    // grid-template-columns: 30.370% auto auto;//346-18/1080
     grid-template-columns: auto 47px auto auto;//346-18/1080
     grid-template-areas: 
       "logo . nav button";
     max-width: rem(1080); //1080+50
     padding: 0 rem(20);
-    // column-gap: rem(75.94); // navとlogoの余白
   }
 }
-
-
 
 .footer__logo {
   order: 1;
@@ -57,13 +53,10 @@
   @include mq(md) {
     grid-area: nav; 
     margin-top: 0;
-    // margin-left: rem(47);//65-18
   }
 }
 
 .footer__button-wrapper {
-  // width: rem(283);
-  // margin: 0 auto;
   display: flex;
   justify-content: center;
   gap: rem(19);

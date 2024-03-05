@@ -17,12 +17,6 @@
   text-align: center;
   overflow: hidden;
   transition: .3s;
-  @include mq(md) {
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-    // padding: rem(29) 0;
-  }
 }
 
 .tab__item span {
@@ -40,11 +34,11 @@
 // 要確認　hover時の色
 .tab__item:hover {
   cursor: pointer;
-  // background-color: $sub-color;
+  background-color: $sub-color;
+  border: 2px solid $sub-color;
 }
-
 .tab__item:hover span {
-  // color: #999999;
+  color: $white;
 }
 
 .tab__item.is-active {

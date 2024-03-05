@@ -17,7 +17,7 @@
     <meta property="og:site_name" content=""/>
     <meta property="og:description" content=""/>
     <!-- ファビコン -->
-    <link rel="”icon”" href="./assets/images/common/favicon.ico"/>
+    <link rel="icon" href="./assets/images/common//icon.png"> <!-- 48x48px -->
     <!-- Google フォント -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -129,17 +129,17 @@
                 本資料では、製品特長や基本機能、ご利用ガイド、価格表など、詳しくご紹介しています。
               </h3>
               <div class="page-download__image-wrapper">
-                <figure class="page-download__image--left">
+                <figure class="page-download__image page-download__image--left">
                   <img src="./assets/images/common/whitepaper-01.jpg" alt="笑顔の男性の画像">
                 </figure>
-                <figure class="page-download__image--right">
+                <figure class="page-download__image page-download__image--right">
                   <img src="./assets/images/common/whitepaper-02.jpg" alt="お客様説明会用資料の画像">
                 </figure>
               </div>
               <div class="page-download__text-wrapper">
                 <p class="page-download__text">
                   フォーム送信完了後、PDFファイルのダウンロード画面が
-                  <br>表示されます。
+                  <br class="u-desktop">表示されます。
                 </p>
                 <p class="page-download__text--tel">
                   お電話でも承ります。お気軽にご連絡ください。
@@ -156,19 +156,19 @@
                 <form action="#" method="post">
                   <ul class="download-form__items">
                     <li class="download-form__item">
-                      <input type="text" id="name" name="name" placeholder="氏名" required>
+                      <input type="text" id="name-dl" name="name" placeholder="氏名" required>
                     </li>
                     <li class="download-form__item">
-                      <input type="text" id="company" name="company" placeholder="貴社名" required>
+                      <input type="text" id="company-dl" name="company" placeholder="貴社名" required>
                     </li>
                     <li class="download-form__item">
-                      <input type="email" id="email" name="email" placeholder="メールアドレス" required>
+                      <input type="email" id="email-dl" name="email" placeholder="メールアドレス" required>
                     </li>
                     <li class="download-form__item">
-                      <input type="tel" id="phone" name="phone" placeholder="電話番号" required>
+                      <input type="tel" id="phone-dl" name="phone" placeholder="電話番号" required>
                     </li>
                     <li class="download-form__item">
-                      <select id="prefecture" name="prefecture" required>
+                      <select id="prefecture-dl" name="prefecture" required>
                         <option value="">都道府県</option>
                         <option value="北海道">北海道</option>
                         <option value="青森県">青森県</option>
@@ -223,9 +223,12 @@
                   <div class="download-form__policy">
                     <p>送信前に<a href="policy.html">サイトポリシー</a>をご確認くださいませ。</p>
                   </div>
-                  <div class="download-form__button">
-                    <a href="whitepaper-download.html" class="button--download" download="filename.pdf">ダウンロードする</a>
+                  <div class="download-form__button-wrapper">
+                    <button id="downloadButton" class="button--download" disabled>ダウンロードする</button>
                   </div>
+                  <!-- <div class="download-form__button-wrapper">
+                    <a href="whitepaper-download.html" class="button--download" id="downloadButton" disabled>ダウンロードする</a>
+                  </div> -->
                 </form>
               </div>
             </div>

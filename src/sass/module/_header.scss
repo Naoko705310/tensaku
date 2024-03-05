@@ -1,42 +1,35 @@
 @use "global" as *;
 
 .header {
-  // display: none;
+  // display: none;//制作過程で邪魔な時非表示
   width: 100%;
   max-width: 100%;
   height: rem(74);
-  // background-color: pink;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 99;//モーダルより下に来るように
-  @include mq(md) {
-    // height: rem(98);
-  }
+  z-index: 99;
 }
 
-.header.is-open {
-  background-color: $main-color;//要確認　グラデーション？？
-}
+// .header.is-open {
+//   //色はJSで管理
+// }
 
 .header__inner {
   width: 100%;
   max-width: 100%;
   height: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between;//hamburgerを右寄せ
   align-items: center;
   padding-right: rem(21);
   padding-left: rem(15);
   @include mq(md) {
-    padding-right: rem(57);
-    padding-left: rem(57);
+    // max-width: rem(1216);//左右のpaddingが57pxになる
+    margin: 0 auto;
+    padding: 0 rem(57);
   }
-  // @include mq(md) {
-  //   justify-content: flex-start;
-  //   padding: rem(25) rem(57);
-  // }
 }
 
 .header__hamburger {
@@ -63,33 +56,20 @@
   margin-left: auto;
 }
 
-// .header__pc-nav {
-//   // margin-left: auto;
-// }
-
-// .header__button {
-//   display: flex;
-//   gap: rem(10);
-//   margin-left: rem(117);
-// }
+.header__pc-nav {
+  
+}
 
 .header__button-wrapper {
   display: none;
   @include mq(md) {
-      // margin-top: rem(39);
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  gap: rem(10);
-  margin-left: auto;
+    margin-left: auto;
+    display: flex;
+    // flex-direction: column;
+    align-items: center;
+    gap: rem(10);
+  }
   }
 
-  }
 
-.header__sp-nav {
 
-}
-
-.header__pc-nav {
-  // flex-grow: 1; // ナビゲーションが利用可能なスペースを埋めるようにする
-}
