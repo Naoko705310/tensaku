@@ -21,7 +21,8 @@
   display: grid;
   grid-template-columns: 1fr;
   @include mq(md) {
-    grid-template-columns: 51.171% 1fr;
+    grid-template-columns: 52.032% 1fr;//512/984
+    // grid-template-columns: 51.171% 1fr;
     gap: rem(32);
     padding: 0 rem(20);
   }

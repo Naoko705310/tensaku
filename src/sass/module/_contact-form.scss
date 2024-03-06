@@ -30,6 +30,11 @@
   display: flex;
   align-items: flex-start;
   gap: rem(3);
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $black;
+  font-weight: $bold;
+  line-height: 1;
 }
 
 // 見出し

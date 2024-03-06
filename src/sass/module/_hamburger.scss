@@ -12,6 +12,7 @@
   }
 }
 
+//span（線）のスタイル。「メニュー」以外
 .header__hamburger span:not(.hamburger__text) {
   width: rem(28);
   height: rem(2);
@@ -21,6 +22,10 @@
   margin: 0 auto;
   transition: ease .3s;
 }
+
+// .headerColorScroll .hamburger span:not(.hamburger__text) {
+//   background: $main-color; // ここで希望の色を指定
+// }
 
 
 .hamburger span:nth-child(1) {
@@ -63,6 +68,7 @@ transform: rotate(40deg);
   transform: rotate(-40deg);
 }
 
+//ハンバーガーばバツ印の時、「メニュー」は表示しない
 .hamburger.is-open .hamburger__text {
   display: none; // 三つ目のspanを非表示にする
 }

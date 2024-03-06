@@ -57,42 +57,6 @@ $(window).on('load scroll', function () {
         }
     }
 
-    // $(".js-hamburger").on("click", function () {
-    //     if ($(this).hasClass("is-open")) {
-    //         closeDrawerMenu();
-    //     } else {
-    //         $(".js-drawer-menu").fadeIn();
-    //         $(this).addClass("is-open");
-    //         $("body").css("overflow", "hidden");
-    //         $(".js-header").css("background-color", "transparent");
-    //     }
-    // });
-
-    // $(".sp-nav__link, .sp-nav__heading").on("click", function () {
-    //     closeDrawerMenu();
-    //     var targetSection = $(this).attr("href");
-    //     $("html, body").animate({
-    //         scrollTop: $(targetSection).offset().top,
-    //     }, 1000);
-    // });
-
-    // function closeDrawerMenu() {
-    //     $(".js-drawer-menu").fadeOut();
-    //     $(".js-hamburger").removeClass("is-open");
-    //     $("body").css("overflow", "auto");
-    //     $(".js-header").css("background-color", "");
-    // }
-
-    // $(window).resize(function () {
-    //     if ($(window).width() > 768) {
-    //         closeDrawerMenu();
-    //     }
-    // });
-
-    // if ($(window).width() > 768) {
-    //     closeDrawerMenu();
-    // }
-
     /* --------------------------------------------
     /* トップページのFVスワイパー
     /* -------------------------------------------- */

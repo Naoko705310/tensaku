@@ -6,7 +6,7 @@
   color: $white;
   font-weight: $normal;
   display: inline-block;
-  width: 74.666%;
+  // width: 74.666%;
 }
 
 .sp-nav__items {
@@ -27,6 +27,7 @@
   font-size: rem(14);
   color: $white;
   font-weight: $normal;
+  line-height: 1;
   padding-top: rem(19);
   padding-bottom: rem(19);
   padding-left: rem(10);

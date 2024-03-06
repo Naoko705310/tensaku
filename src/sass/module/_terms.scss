@@ -1,9 +1,12 @@
 @use "global" as *;
 
 .terms {
-  margin-top: rem(40);
+  background-color: #F7FFFC;
+  padding-top: rem(40);
+  padding-bottom: rem(40);
   @include mq(md) {
-    margin-top: rem(90);
+    padding-top: rem(90);
+    padding-bottom: rem(97);
   }
 }
 

@@ -59,12 +59,21 @@
   background-image: none;
   background-color: $white;
   color: $text-green;
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: $main-color;
+  font-weight: $bold;
+  line-height: 1;
 }
 
 .sp-nav__button-wrapper .button.button--sp-nav-download {
   width: rem(132);
   background-image: linear-gradient(45deg, #FF8A00, #E9A512);
-
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: $white;
+  font-weight: $bold;
+  line-height: 1;
 }
 
 // 資料請求ボタン
@@ -118,7 +127,7 @@
 }
 
 // ダウンロードボタン
-.button--download {
+.button-download {
   display: inline-block;
   width: 100%;
   font-family: $base-font-family;

@@ -24,6 +24,7 @@
 }
 
 .header-logo__img {
+  display: block;
   width: rem(136); /* ロゴの幅 */
   height: rem(24); /* ロゴの高さ */
   background-image: url('../images/common/header-logo-sp.png'); /* デフォルトの白いロゴ */

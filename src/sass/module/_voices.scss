@@ -3,7 +3,7 @@
 .voices {
   background-color: #E6F8F1;
   padding-top: rem(30);
-  padding-bottom: rem(110);//113→110 要確認　ピクパ調整
+  padding-bottom: rem(113);
   position: relative;//ページ送り位置決め用
 }
 
@@ -45,12 +45,14 @@
 
 .swiper-button-prev,
 .swiper-button-next {
-  width: rem(44);
-  height: rem(44);
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
+  @include mq(md) {
+    width: rem(44);
+    height: rem(44);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
 }
 
 .swiper-button-prev {
