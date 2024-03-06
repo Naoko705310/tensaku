@@ -22,6 +22,7 @@
   transition: ease .3s;
 }
 
+
 .hamburger span:nth-child(1) {
 top: 0;
 }
@@ -47,11 +48,8 @@ margin: rem(9) auto;
   left: 50%;
   transform: translateX(-50%);
   white-space: nowrap;
-  // width: 22px;
-  // height: 20px;
   text-align: center; // テキストを中央揃えにする
 }
-
 
 
 //is-OPEN時の動き
@@ -65,6 +63,6 @@ transform: rotate(40deg);
   transform: rotate(-40deg);
 }
 
-.hamburger.is-open p {
-  display: none;
+.hamburger.is-open .hamburger__text {
+  display: none; // 三つ目のspanを非表示にする
 }

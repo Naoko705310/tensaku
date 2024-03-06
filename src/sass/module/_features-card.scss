@@ -22,25 +22,16 @@
   position: relative;
   @include mq(md) {
     width: rem(544); 
-    margin-left: rem(20);
+    aspect-ratio: 544/306;
+    margin-left: auto;
     grid-area: image; // 画像のエリアを指定
   }
-}
-
-.features-card__image::before {
-  content: "";
-  display: block;
-  padding-top: 56.251%;// 163.13/290
 }
 
 .features-card__image img {
   width: 100%;
   max-width: 100%;
   height: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   object-fit: cover;
 }
 
@@ -49,7 +40,6 @@
     padding-top: rem(99);
     padding-left: rem(57);
     padding-right: rem(30);
-    padding-bottom: rem(21);
     grid-area: body; // 本文のエリアを指定
   }
 }
@@ -99,14 +89,14 @@
 .features-card:nth-child(even) {
   @include mq(md) {
     grid-template-areas: "body image"; 
-    grid-template-columns: 1fr rem(564);
+    grid-template-columns: rem(450) 1fr;
   }
 }
 
 .features-card:nth-child(even) .features-card__image {
   @include mq(md) {
   margin-left: 0;
-  margin-right: rem(30);
+  margin-right: auto;
   }
 }
 

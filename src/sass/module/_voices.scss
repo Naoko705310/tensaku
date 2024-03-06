@@ -3,30 +3,29 @@
 .voices {
   background-color: #E6F8F1;
   padding-top: rem(30);
-  padding-bottom: rem(113);
+  padding-bottom: rem(110);//113→110 要確認　ピクパ調整
+  position: relative;//ページ送り位置決め用
 }
 
 .voices__contents-wrapper {
+
   margin-top: rem(117);
 }
 
 .voices__swiper-container {
+  position: relative;
+  max-width: 100%;
+  // padding-bottom: rem(58);
+  padding-bottom: rem(60);
   overflow: hidden; //これが無いと横にはみ出る
-  // overflow: visible; //矢印を表示するため　要確認
 }
 
 .voices__swiper {
-  width: 100%; //swiper全体の幅
-  // width: rem(838); //swiper全体の幅
-  height: rem(377); //swiper全体の高さ
-  // padding-right: rem(93);
-  // padding-bottom: rem(58);
-  // padding-left: rem(93);
-  // overflow: hidden;
-  // position: relative;//矢印の位置決めのため
-  // z-index: 1;
+  width: 100%; //containerの100%
+  height: rem(377); 
   @include mq(md) {
     width: rem(838);
+    max-width: 100%;
   }
 }
 
@@ -48,26 +47,19 @@
 .swiper-button-next {
   width: rem(44);
   height: rem(44);
-  // position: unset;
-  // margin: 0;
-}
-
-// 要確認　ボタン表示されない
-.swiper-button-prev {
   position: absolute;
   top: 50%;
-  left: rem(-40);
-  // transform: translateY(-50%);
-  z-index: 3;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.swiper-button-prev {
+  left: rem(56); //93-37
 }
 
 .swiper-button-next {
-  position: absolute;
-  top: 50%;
-  right: rem(-40);
-  // transform: translateY(-50%);
+  right: rem(56); //93-37
 }
-
 
 .swiper-button-prev::after,
 .swiper-button-next::after {
@@ -97,6 +89,23 @@
 // 要確認 位置調整
 .swiper-pagination {
   position: absolute;
-  bottom: 0;
-  left: 0;
+}
+
+/* ページネーション */
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: rem(100);
+}
+
+/* ページネーションの余白 */
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 0 rem(8) rem(8);
+}
+
+/* ページネーションのサイズと色 */
+.swiper-pagination-bullet {
+  background-color: $main-color;
+  height: 8px;
+  width: 8px;
+  margin: 0 rem(16);
 }

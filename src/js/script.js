@@ -1,10 +1,38 @@
 
 jQuery(function ($) { 
+    /* --------------------------------------------
+    /* ヘッダーの色変更
+    /* -------------------------------------------- */
+
+$(window).on('load scroll', function () {
+    // ヘッダーの背景色変更
+    var $header = $('.header');
+    if ($(window).scrollTop() > 800) {
+        $header.addClass('headerColorScroll');
+    } else {
+        $header.removeClass('headerColorScroll');
+    }
+
+    // ナビの文字色変更
+    var $navLinks = $('.pc-nav__link');
+    if ($(window).scrollTop() > 800) {
+        $navLinks.addClass('pc-nav__linkColorScroll');
+    } else {
+        $navLinks.removeClass('pc-nav__linkColorScroll');
+    }
+
+    // ロゴの切り替え
+    var $logo = $('.header-logo__img');
+    if ($(window).scrollTop() > 800) {
+        $logo.addClass('headerLogoScroll');
+    } else {
+        $logo.removeClass('headerLogoScroll');
+    }
+    });
 
     /* --------------------------------------------
     /* ハンバーガーメニュー
     /* -------------------------------------------- */
-
     $(".js-hamburger").on("click", function () {
         if ($(this).hasClass("is-open")) {
             closeDrawerMenu();
@@ -12,34 +40,58 @@ jQuery(function ($) {
             $(".js-drawer-menu").fadeIn();
             $(this).addClass("is-open");
             $("body").css("overflow", "hidden");
-            $(".js-header").css("background-color", "transparent");
+            // 下層ページでドロワーメニューが展開している時のみヘッダーの背景色を白に設定
+            if ($("body").hasClass("sub-page")) {
+                $(".js-header").css("background-color", "#FFFFFF"); // 白色に設定
+            }
         }
     });
-
-    $(".sp-nav__link, .sp-nav__heading").on("click", function () {
-        closeDrawerMenu();
-        var targetSection = $(this).attr("href");
-        $("html, body").animate({
-            scrollTop: $(targetSection).offset().top,
-        }, 1000);
-    });
-
+    
     function closeDrawerMenu() {
         $(".js-drawer-menu").fadeOut();
         $(".js-hamburger").removeClass("is-open");
         $("body").css("overflow", "auto");
-        $(".js-header").css("background-color", "");
-    }
-
-    $(window).resize(function () {
-        if ($(window).width() > 768) {
-            closeDrawerMenu();
+        // 下層ページでドロワーメニューが閉じる時にヘッダーの背景色を元に戻す
+        if ($("body").hasClass("sub-page")) {
+            $(".js-header").css("background-color", ""); // 元のスタイルに戻す
         }
-    });
-
-    if ($(window).width() > 768) {
-        closeDrawerMenu();
     }
+
+    // $(".js-hamburger").on("click", function () {
+    //     if ($(this).hasClass("is-open")) {
+    //         closeDrawerMenu();
+    //     } else {
+    //         $(".js-drawer-menu").fadeIn();
+    //         $(this).addClass("is-open");
+    //         $("body").css("overflow", "hidden");
+    //         $(".js-header").css("background-color", "transparent");
+    //     }
+    // });
+
+    // $(".sp-nav__link, .sp-nav__heading").on("click", function () {
+    //     closeDrawerMenu();
+    //     var targetSection = $(this).attr("href");
+    //     $("html, body").animate({
+    //         scrollTop: $(targetSection).offset().top,
+    //     }, 1000);
+    // });
+
+    // function closeDrawerMenu() {
+    //     $(".js-drawer-menu").fadeOut();
+    //     $(".js-hamburger").removeClass("is-open");
+    //     $("body").css("overflow", "auto");
+    //     $(".js-header").css("background-color", "");
+    // }
+
+    // $(window).resize(function () {
+    //     if ($(window).width() > 768) {
+    //         closeDrawerMenu();
+    //     }
+    // });
+
+    // if ($(window).width() > 768) {
+    //     closeDrawerMenu();
+    // }
 
     /* --------------------------------------------
     /* トップページのFVスワイパー

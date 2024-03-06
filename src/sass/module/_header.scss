@@ -26,7 +26,6 @@
   padding-right: rem(21);
   padding-left: rem(15);
   @include mq(md) {
-    // max-width: rem(1216);//左右のpaddingが57pxになる
     margin: 0 auto;
     padding: 0 rem(57);
   }
@@ -56,20 +55,37 @@
   margin-left: auto;
 }
 
-.header__pc-nav {
-  
+/* 800pxスクロールした時と、下層ページの時に、ヘッダーメニューの背景色とナビの文字色を変更 */
+
+// スクロール時の背景色変更
+.header.headerColorScroll, .sub-header {
+  background-color: #FFFFFF; // 例: 白色
+  transition: background-color 0.4s ease-out;
 }
 
-.header__button-wrapper {
-  display: none;
-  @include mq(md) {
-    margin-left: auto;
-    display: flex;
-    // flex-direction: column;
-    align-items: center;
-    gap: rem(10);
-  }
-  }
+// スクロール時とsub-header適用時のナビの文字色変更
+.pc-nav__link.pc-nav__linkColorScroll, .sub-header .pc-nav__link {
+  color: $black; 
+}
+
+// ロゴ画像切り替えのスタイルは、背景画像を使用している場合、
+// CSSで背景画像のURLを切り替える必要があります。
+.header-logo__img, .sub-header .header-logo__img {
+  // デフォルトのロゴ画像
+  background-image: url('../images/common/header-logo-pc.png');
+}
+
+.header-logo__img.headerLogoScroll, .sub-header .header-logo__img {
+  background-image: url('../images/common/sub-header-logo-pc.png'); // スクロール時またはsub-header適用時のロゴ画像
+}
+
+// スクロール時とsub-header適用時のhamburgerのspanの背景色変更
+.header.headerColorScroll .hamburger span, .sub-header .hamburger span:not(.hamburger__text) {
+  background-color: $main-color; // 黒色に変更
+}
 
 
-
+// スクロール時とsub-header適用時のhamburger__textの文字色変更
+.header.headerColorScroll .hamburger__text, .sub-header .hamburger__text {
+  color: $main-color; // 黒色に変更
+}

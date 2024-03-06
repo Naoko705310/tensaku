@@ -14,7 +14,7 @@ $mediaquerys: (
   $breakpoints: (
     sm: 600,
     md: 768,
-    lg: 1060,
+    lg: 1024,
     xl: 1440,
   );
 
@@ -29,7 +29,7 @@ $mediaquerys: (
 } @else {
   $breakpoints: (
     xl: 1440,
-    lg: 1100,//1024→1100
+    lg: 1300,
     md: 767,
     sm: 600,
   );

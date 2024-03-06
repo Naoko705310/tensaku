@@ -23,10 +23,20 @@
   height: inherit;
 }
 
-.header-logo img {
-  width: 100%;
-  max-width: 100%;
-  height: 100%;
-  object-fit: cover;
-  // vertical-align: baseline;
+.header-logo__img {
+  width: rem(136); /* ロゴの幅 */
+  height: rem(24); /* ロゴの高さ */
+  background-image: url('../images/common/header-logo-sp.png'); /* デフォルトの白いロゴ */
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  @include mq(md) {
+    width: rem(181);
+    height: rem(32);
+    background-image: url('../images/common/header-logo-pc.png'); 
+  }
+}
+
+.sub-header .header-logo__img {
+  background-image: url('../images/common/sub-header-logo-pc.png'); 
 }

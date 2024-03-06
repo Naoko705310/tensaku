@@ -98,13 +98,16 @@
 
 // 要確認　ボタンを横並びにするかどうか
 .trial__button-wrapper {
-  margin-top: rem(29);
   display: flex;
   justify-content: center;
+  flex-direction: column;
   gap: rem(10);
   margin-top: rem(40);
+  margin-right: auto;
+  margin-left: auto;
   @include mq(md) {
     justify-content: flex-start;
+    flex-direction: row;
     margin-top: rem(65);
     margin-right: 0;
     margin-left: 0;

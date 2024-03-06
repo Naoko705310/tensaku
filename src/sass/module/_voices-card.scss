@@ -29,15 +29,9 @@
   align-items: center;
 }
 
-.voices-card__image::before {
-  content: "";
-  display: block;
-  padding-top: 100%;// height/width
-}
-
-.voices-card__image img {
-  width: rem(41);
-  height: rem(41);
+.swiper-slide .voices-card__image img {
+  width: 41px !important; // 画像の幅を41pxに強制設定
+  height: 41px !important; // 画像の高さを41pxに強制設定
   position: absolute;
   top: 50%;
   left: 50%;

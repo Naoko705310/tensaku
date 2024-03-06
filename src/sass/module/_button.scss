@@ -3,8 +3,6 @@
 // 元になるスタイル
 // 利用申込ボタン：緑(
 .button {
-  width: rem(174);
-  height: rem(50);
   font-family: $base-font-family;
   font-size: rem(16);
   color: $white;
@@ -12,7 +10,6 @@
   line-height: 1;
   display: inline-block;
   text-align: center;
-  // padding: rem(17) rem(39);
   padding: rem(17) 0;
   background-image: linear-gradient(45deg, #075735, #00BA6B);
   border: 1px solid transparent;
@@ -27,32 +24,21 @@
   cursor: pointer;
 }
 
-.button--header-green,
-.button--header-orange {
-  font-family: $base-font-family;
-  font-size: rem(16);
-  color: $white;
-  font-weight: $bold;
-  line-height: 1;
-  display: inline-block;
-  text-align: center;
-  background-image: linear-gradient(45deg, #075735, #00BA6B);
-  border: 1px solid transparent;
-  border-radius: rem(25);
-  box-shadow: 0px 6px 9px rgba(0, 0, 0, 0.25);
-  box-sizing: border-box;
-  white-space: nowrap; // この行を追加
-  transition: .3s;
-  padding-top: rem(17);
-  padding-bottom: rem(17);
+.button.button--header-green,
+.button.button--header-orange {
+  display: none;
   @include mq(md) {
-  padding-right: rem(20);
-  padding-left: rem(20); 
+    display: inline-block;
+    width: rem(174);
+    font-size: rem(14);
   }
-  @include mq(lg) {
-  padding-right: rem(39);
-  padding-left: rem(39);
-  }
+}
+
+.button.button--header-green {
+  margin-left: auto;
+}
+.button.button--header-orange {
+  margin-left: rem(10);
 }
 
 .button--header-green:hover,
@@ -67,26 +53,63 @@
   }
 }
 
-// 資料請求ボタン：オレンジ
-.button--orange {
-  background-image: linear-gradient(45deg, #FF8A00, #E9A512);
+// SPナビのボタン
+.sp-nav__button-wrapper .button.button--sp-nav-apply {
+  width: rem(132);
+  background-image: none;
+  background-color: $white;
+  color: $text-green;
 }
 
-.button--orange:hover {
+.sp-nav__button-wrapper .button.button--sp-nav-download {
+  width: rem(132);
+  background-image: linear-gradient(45deg, #FF8A00, #E9A512);
+
+}
+
+// 資料請求ボタン
+.button.button--top-fv-download {
+  width: rem(283);
+  background-image: linear-gradient(45deg, #FF8A00, #E9A512);
+  @include mq(md) {
+      width: rem(174);
+  }
+}
+
+.button--top-fv-download:hover {
+  width: rem(283);
   transform: scale(1.1); 
   cursor: pointer;
 }
 
-// 利用申込ボタン：白
-.button.button--white {
+// 利用申込ボタン
+.button.button--top-fv-apply {
+  @include mq(md) {
+  width: rem(174);
   color: $text-green;
   background-image: none;
   background-color: $white;
+  }
+}
+
+.button--trial-apply {
+  width: rem(283);
+  @include mq(md) {
+    width: rem(174);
+  }
+}
+
+.button.button--trial-download {
+  width: rem(283);
+  background-image: linear-gradient(45deg, #FF9900, #E9A512);
+  @include mq(md) {
+    width: rem(174);
+  }
 }
 
 
-// 利用申込ボタン
-.button--apply {
+// 価格表・利用申込ボタン
+.button--price-card {
   width: rem(156);
   background-image: none;
   background-color: #FF8A00;
@@ -106,9 +129,6 @@
   background-color: #075735;
   padding: rem(10) 0;
   border-radius: 5px;
-    @include mq(md) {
-
-    }
 }
 
 // お問い合わせボタン
@@ -147,17 +167,4 @@
 .button--popup:hover {
   cursor: pointer;
   transform: scale(1.1);
-}
-
-
-
-
-
-
-// 送信ボタン
-.button__submit {
-  // padding-top: rem(16);
-  // padding-right: rem(112);
-  // padding-bottom: rem(16);
-  // padding-left: rem(56);
 }

@@ -7,6 +7,7 @@
   padding-top: rem(88);
   padding-bottom: rem(44);
   position: relative;
+  overflow: hidden; // はみ出た部分を隠す
   @include mq(md) {
     padding-top: rem(138);
     padding-bottom: rem(30);
@@ -17,20 +18,24 @@
 .top-fv::before {
   content: "";
   position: absolute;
-  top: 0;
+  top: rem(-8);
   left: 0;
   z-index: -1;
-  width: 100%;
-  height: 100%; 
+  width: 130%;
+  height: 300%;
   background-image: linear-gradient(45deg, #00BA6B, #075735);
   background-size: cover;
-  background-position: left bottom;
+  background-position: center;
   background-repeat: no-repeat;
-  clip-path: polygon(0% 0%,100% 0%,40% 100%, 0% 100%) ;
-  // clip-path: polygon(0% 0%,100% 0,40% 100%, 0 100%) ;
+  transform: rotate(33deg) translateY(-30%); 
+  transform-origin: top left; // 回転の基点を左上に設定
   @include mq(md) {
-    width: 66.328%; // 画面左端から849pxの幅
-    clip-path: polygon(0% 0%,100% 0%,40% 100%, 0% 100%) ;
+    clip-path: polygon(0 0, 100% 0, 40% 100%, 0% 100%);
+    top: 0; 
+    left: 0; 
+    width: 66.328%; 
+    height: 100%; 
+    transform: none; 
   }
 }
 
@@ -53,23 +58,11 @@
   @include mq(md) {
     display: grid;
     grid-template-columns: 39.896% 1fr; //464/1163
-    // grid-template-columns: 38.833% 1fr; 
     grid-template-rows: auto auto; 
     grid-template-areas:
       "heading image"
       "button image"; // imageは両行にまたがる
-    // display: grid;
-    // grid-template-columns: 38.833% 1fr;
-    // grid-template-areas: none; // PC表示ではデフォルトのレイアウトを使用
   }
-  // display: flex;
-  // flex-direction: column;
-  // gap: rem(20);
-  // @include mq(md) {
-  //   display: grid;
-  //   grid-template-columns: 38.833% 1fr;
-  //   gap: rem(24);
-  // }
 }
 
 .top-fv__heading {
@@ -79,14 +72,6 @@
 .top-fv__imgage {
   grid-area: image;
 }
-
-.top-fv__button-wrapper {
-  grid-area: button;
-}
-
-// .top-fv__text-wrapper {
-//   order: 1;
-// }
 
 .top-fv__heading {
   order: 1;
@@ -128,9 +113,6 @@
 .top-fv__main-copy {
   font-family: $base-font-family;
   font-size: clamp(24px, 40 / 1280 * 100vw, 40px);
-  // font-size: rem(24);
-  // 要確認　文字の折り返し
-  // font-size: calc(24px + (40 - 24) * ((100vw - 320px) / (1280 - 320)));
   color: $white;
   font-weight: $bold;
   line-height: 1.5;
@@ -155,10 +137,12 @@
 .top-fv__imgage {
   position: relative;
   order: 2;
+  margin-top: rem(11);
   @include mq(md) {
     width:100%;
     max-width: 100%;
     order: 3;
+    margin-top: 0;
   }
 }
 
@@ -183,11 +167,14 @@
 }
 
 .top-fv__button-wrapper {
+  grid-area: button;
   margin-top: rem(29);
   display: flex;
+  flex-direction: column;
   gap: rem(19);
   margin: 0 auto;
   @include mq(md) {
+    flex-direction: row;
     gap: rem(10);
     margin-top: rem(76);
     margin-right: 0;
@@ -201,8 +188,6 @@
 }
 
 .top-fv__swiper {
-  // width: 100%;
-  // max-width: 100%;
   height: rem(185);
   overflow: hidden; 
   margin-left: calc(50% - 50vw);
@@ -210,8 +195,6 @@
 }
 
 .top-fv__swiper .swiper-wrapper {
-  // width: 100%;
-  // max-width: 100%;
   height: inherit;
 }
 
