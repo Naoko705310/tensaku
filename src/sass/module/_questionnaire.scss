@@ -21,8 +21,10 @@
 }
 
 .questionnaire__contents-wrapper {
-  // 要確認 背景グラデーションが違う
-  background-color: $main-color;
+  background-image: linear-gradient(45deg, #00BA6B, #075735);
+  background-size: cover;
+  background-position: left bottom;
+  background-repeat: no-repeat;
   text-align: center;
   padding-top: rem(86);
   padding-bottom: rem(24);

@@ -82,9 +82,9 @@ $(window).on('load scroll', function () {
     /* -------------------------------------------- */
     const voicesSwiper = new Swiper('.js-voices-swiper', {
         loop: true,
-        speed: 4000,
+        speed: 2000,
         autoplay: {
-            delay: 4000,
+            delay: 2000,
         },
         allowTouchMove: false,
         centeredSlides: true,

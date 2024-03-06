@@ -3,24 +3,32 @@
 .voices {
   background-color: #E6F8F1;
   padding-top: rem(30);
-  padding-bottom: rem(113);
+  padding-bottom: rem(111);//swiper下のpadding 60px + 111px = 171px
   position: relative;//ページ送り位置決め用
 }
 
 .voices__contents-wrapper {
-
+  // margin-inline: calc(50% - 50vw); //SPは画面端にくっつける
   margin-top: rem(117);
+  overflow: hidden; //これが無いと横にはみ出る
+  margin-inline: calc(50% - 50vw);
 }
 
+// swiperの一番外側のcontainer
 .voices__swiper-container {
   position: relative;
-  max-width: 100%;
+  max-width: rem(838);
+  // max-width: calc(838px + 37px * 2); 
+  margin-right: auto;
+  margin-left: auto;
   // padding-bottom: rem(58);
   padding-bottom: rem(60);
-  overflow: hidden; //これが無いと横にはみ出る
+
+
 }
 
 .voices__swiper {
+  max-width: rem(838);//swiper-containerと揃える
   width: 100%; //containerの100%
   height: rem(377); 
   @include mq(md) {
@@ -29,6 +37,7 @@
   }
 }
 
+// swiperが流れる領域
 .voices__swiper .swiper-wrapper {
   width: 100%;
   max-width: 100%;
@@ -37,7 +46,7 @@
 }
 
 .voices__swiper .swiper-slide {
-  width: rem(262); //スライド一枚の幅
+  width: rem(262); //スライド一枚の幅（voices-cardでなく、こちらで幅管理）
   max-width: 100%;
   height: inherit;
 }
@@ -45,22 +54,31 @@
 
 .swiper-button-prev,
 .swiper-button-next {
+  //要確認 displayで管理すると矢印が表示されない・・
+  // display: none;
   @include mq(md) {
+    // display: block;
     width: rem(44);
     height: rem(44);
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 42%;
+    // transform: translateY(-50%);
     z-index: 10;
   }
 }
 
 .swiper-button-prev {
-  left: rem(56); //93-37
+  left: calc(-37px); // swiperから左に37pxはみ出る
+  @include mq(md) {
+    left: calc(-37px); // メディアクエリがmd以上でも同じ位置に
+  }
 }
 
 .swiper-button-next {
-  right: rem(56); //93-37
+  right: calc(-37px); // swiperから右に37pxはみ出る
+  @include mq(md) {
+    right: calc(-37px); // メディアクエリがmd以上でも同じ位置に
+  }
 }
 
 .swiper-button-prev::after,
@@ -95,7 +113,7 @@
 
 /* ページネーション */
 .swiper-pagination-bullets.swiper-pagination-horizontal {
-  bottom: rem(100);
+  bottom: rem(97);//デフォルトのpaginationの高さが24pxある
 }
 
 /* ページネーションの余白 */

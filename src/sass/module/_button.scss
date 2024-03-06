@@ -124,6 +124,7 @@
   background-color: #FF8A00;
   padding: rem(13) 0;//要確認 ピクパ調整 15→13
   border-radius: 5px;
+  box-shadow: none;
 }
 
 // ダウンロードボタン
@@ -158,19 +159,23 @@
 }
 
 .button--popup {
-  width: rem(266);
   font-family: $base-font-family;
-  font-size: rem(16);
+  font-size: rem(12);
   color: $black;
   font-weight: $bold;
   display: inline-block;
   text-align: center;
-  padding: rem(11) 0;
+  padding: rem(8);
   background-color: $white;
   border: 2px solid $black;
   border-radius: rem(25);
   box-sizing: border-box;
   transition: .3s;
+  @include mq(md) {
+    width: rem(266);
+    font-size: rem(16);
+    padding: rem(11) 0;
+  }
 }
 
 .button--popup:hover {

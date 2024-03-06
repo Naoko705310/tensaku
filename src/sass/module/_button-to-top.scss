@@ -3,13 +3,17 @@
 
 .button-to-top {
   display: none;//初期は非表示
-  width: rem(88);
-  aspect-ratio: 88/88;
+  width: rem(44);
+  aspect-ratio: 44/44;
   position:fixed;
   right: rem(20);
   bottom: rem(20);
   z-index: 99;
   transition: 0.3s;
+  @include mq(md) {
+    width: rem(88);
+    aspect-ratio: 88/88;
+  }
 }
 
 .button-to-top:hover {

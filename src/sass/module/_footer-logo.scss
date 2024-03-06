@@ -5,7 +5,7 @@
   width: rem(181);
   height: rem(32);
   position: relative;
-  z-index: 9999;
+  z-index: 1;
   @include mq(md) {
     width: rem(181);
     height: rem(32);

@@ -1,11 +1,12 @@
 @use "global" as *;
 
+
 .voices-card {
   display: flex;
   flex-direction: column;
   height: 100%;
   flex-grow: 1;
-  width: rem(262);//SPで崩れないように、横幅固定
+  // width: rem(262);//SPで崩れないように、横幅固定
   background-color: $white;
   padding: rem(22);
   border-radius: 20px;

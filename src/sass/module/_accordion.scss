@@ -19,13 +19,13 @@
   }
 }
 
-// マイナスマーク
+// プラスマーク
 .accordion__heading::after {
   content: "";
   display: inline-block;
   width: rem(30); 
   height: rem(30);
-  background-image: url('../images/common/minus-icon.png'); 
+  background-image: url('../images/common/plus-icon.png'); 
   background-size: cover;
   position: absolute;
   right: rem(20); 
@@ -36,9 +36,9 @@
   }
 }
 
-// プラスマーク
+// マイナスマーク
 .accordion__heading.is-open::after {
-  background-image: url('../images/common/plus-icon.png');
+  background-image: url('../images/common/minus-icon.png');
 }
 
 // 回答のブロック

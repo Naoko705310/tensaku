@@ -1,22 +1,28 @@
 @use "global" as *;
 
 .popup {
-  width: rem(300);
-  aspect-ratio: 300/216;
+  display: none; // 初期状態では非表示 
+  width: 40%;
+  aspect-ratio: 150/108;
   box-shadow: 0px 6px 9px rgba(0, 0, 0, 0.25);
-  padding: rem(6) rem(4);
+  padding: rem(3) rem(2);
   position: relative; //closeボタン用
   z-index: 999;
-  display: none; // 初期状態では非表示 
   position: fixed; 
   left: rem(20); 
   bottom: rem(20); 
   z-index: 1000; 
+  @include mq(md) {
+    width: rem(300);
+    aspect-ratio: 300/216;
+    padding: rem(6) rem(4);
+  }
 }
 
 // 閉じるボタン
 .popup__close {
   position: absolute;
+  z-index: 99;
   top: rem(-8);
   right: rem(-10);
   width: rem(27);
@@ -35,12 +41,18 @@
 
 .popup__heading {
   display: grid;
-  grid-template-columns: rem(113) 1fr;
+grid-template-columns: 1fr;
+  @include mq(md) {
+    grid-template-columns: 38.698% 1fr;
+  }
 }
 
 .popup__image {
-  width: rem(113);
+  width: 100%;
   position: relative;
+  @include mq(md) {
+    width: rem(113);
+  }
 }
 
 .popup__image::before {
@@ -61,20 +73,29 @@
 }
 
 .popup__body {
-  padding: rem(16);
+  padding: rem(8);
+  @include mq(md) {
+    padding: rem(16);
+  }
 }
 
 .popup__text {
 font-family: $base-font-family;
-font-size: rem(16);
+font-size: rem(12);
 color: $white;
 font-weight: $bold;
 line-height: 1.5;
+@include mq(md) {
+  font-size: rem(16);
+}
 }
 
 .popup__button-wrapper {
-  margin-top: rem(23);
+  margin-top: rem(8);
   text-align: center;
+  @include mq(md) {
+    margin-top: rem(23);
+  }
 }
 
 
