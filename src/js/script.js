@@ -3,31 +3,30 @@ jQuery(function ($) {
     /* --------------------------------------------
     /* ヘッダーの色変更
     /* -------------------------------------------- */
+    $(window).on('load scroll', function () {
+        var $header = $('.header'); // ヘッダー要素の取得
+        var $navLinks = $('.pc-nav__link'); // ナビゲーションリンク要素の取得
+        var $logo = $('.header-logo__img'); // ロゴ画像要素の取得
+        var scrollTop = $(window).scrollTop(); // 現在のスクロール位置
+        var isSubPage = $header.hasClass('sub-header'); // サブページかどうか
 
-$(window).on('load scroll', function () {
-    // ヘッダーの背景色変更
-    var $header = $('.header');
-    if ($(window).scrollTop() > 800) {
-        $header.addClass('headerColorScroll');
-    } else {
-        $header.removeClass('headerColorScroll');
-    }
+        // スクロール位置が800pxを超えた場合、またはサブページの場合
+        if (scrollTop > 800 || isSubPage) {
+            $header.addClass('headerColorScroll'); // ヘッダーの背景色を白に変更するクラスを追加
+            $navLinks.addClass('pc-nav__linkColorScroll'); // ナビゲーションリンクの文字色を黒に変更するクラスを追加
 
-    // ナビの文字色変更
-    var $navLinks = $('.pc-nav__link');
-    if ($(window).scrollTop() > 800) {
-        $navLinks.addClass('pc-nav__linkColorScroll');
-    } else {
-        $navLinks.removeClass('pc-nav__linkColorScroll');
-    }
+            // ロゴを緑色のバージョンに切り替え
+            $logo.attr('src', './assets/images/common/sub-header-logo-sp.png');
+            $logo.attr('srcset', './assets/images/common/sub-header-logo-pc.png 768w, ./assets/images/common/sub-header-logo-sp.png 320w');
+        } else {
+            // スクロール位置が800px未満で、サブページでない場合は元のスタイルに戻す
+            $header.removeClass('headerColorScroll'); // ヘッダーの背景色を元に戻す
+            $navLinks.removeClass('pc-nav__linkColorScroll'); // ナビゲーションリンクの文字色を元に戻す
 
-    // ロゴの切り替え
-    var $logo = $('.header-logo__img');
-    if ($(window).scrollTop() > 800) {
-        $logo.addClass('headerLogoScroll');
-    } else {
-        $logo.removeClass('headerLogoScroll');
-    }
+            // ロゴを白色のバージョンに切り替え
+            $logo.attr('src', './assets/images/common/header-logo-sp.png');
+            $logo.attr('srcset', './assets/images/common/header-logo-pc.png 768w, ./assets/images/common/header-logo-sp.png 320w');
+        }
     });
 
     /* --------------------------------------------
@@ -55,6 +54,18 @@ $(window).on('load scroll', function () {
         if ($("body").hasClass("sub-page")) {
             $(".js-header").css("background-color", ""); // 元のスタイルに戻す
         }
+    }
+
+    // ページ読み込み時にPC幅を検出し、768pxを超えたときにメニューを閉じる
+    $(window).resize(function () {
+    if ($(window).width() > 768) {
+        closeDrawerMenu(); // PC幅を超えたらメニューを閉じる
+    }
+    });
+
+    // ページ読み込み時にもPC幅を超えたらメニューを閉じる
+    if ($(window).width() > 768) {
+    closeDrawerMenu();
     }
 
     /* --------------------------------------------
@@ -263,83 +274,109 @@ $(window).on('load scroll', function () {
     /* ダウンロードフォーム Validation
     /* -------------------------------------------- */
 
-    // 要確認　バリデーション
+    // フォームの入力状態をチェックする関数
+    function checkForm() {
+        let isValid = true; // 全てのフォームが有効かどうかを追跡
+        // 各フォーム項目をループして、空のものがあるかチェック
+        $('.download-form__item input, .download-form__item select').each(function() {
+            if ($(this).val() === '') {
+                isValid = false; // 空の入力が見つかった場合、無効
+            }
+        });
 
-        // const downloadButton = document.getElementById('downloadButton');
-        // const formInputs = document.querySelectorAll('.download-form__item input, .download-form__item select');
-        
-        // // フォームの入力状態をチェックしてボタンのdisabled状態を更新
-        // const checkInputs = () => {
-        //   let allFilled = true;
-        //   formInputs.forEach((input) => {
-        //     if (input.value === '') {
-        //       allFilled = false;
-        //     }
-        //   });
-        //   downloadButton.disabled = !allFilled;
-        // };
-      
-        // formInputs.forEach((input) => {
-        //   input.addEventListener('change', checkInputs);
-        // });
-      
-        // // ボタンクリック時のページ遷移
-        // downloadButton.addEventListener('click', () => {
-        //   window.location.href = 'whitepaper-download.html'; // 目的のページURL
-        // });
-      
-        // // 初期状態でのチェック
-        // checkInputs();
+        // 全てのフォーム項目が有効なら、ダウンロードボタンを有効にする
+        if (isValid) {
+            $('#js-download').prop('disabled', false).removeClass('disabled');
+        } else {
+            $('#js-download').prop('disabled', true).addClass('disabled');
+        }
+    }
 
+    // フォームの入力が変更されたときにチェックを行う
+    $('.download-form__item input, .download-form__item select').on('change keyup', function() {
+        $('.download-error').text(''); // 入力が変更されたらエラーメッセージをクリア
+        checkForm();
+    });
 
+    // ダウンロードボタンがクリックされたときの処理
+    $('#js-download').click(function(e) {
+        e.preventDefault(); // フォームの送信を防ぐ
+        checkForm(); // フォームの状態を再チェック
+
+        // フォームが有効なら、次のページに遷移
+        if (!$('#js-download').prop('disabled')) {
+            window.location.href = 'whitepaper-download.html';
+        } else {
+            // フォームが無効なら、エラーメッセージを表示
+            $('.download-error').text('※全ての項目に入力してください。');
+            
+        }
+    });
 
 /* --------------------------------------------
 /* お問い合わせフォーム（バリデーション）
 /* -------------------------------------------- */
-$('#contact-form').on('submit', function(event) {
-    var isValid = true; // 全てのフィールドが有効であると仮定
+function validateForm() {
+    let hasError = false;
+    $('.input-area, .checkbox-input, .radio-input').removeClass('errored');
+    $('.error_required, .checkbox-error, .radio-error, .privacy-error').text('');
 
-    // .requiredクラスが付与された全ての入力フィールドをチェック
-    $('.required').each(function() {
-        // 値が空の場合
-        if (!$(this).val().trim()) {
-            isValid = false; // 無効なフィールドが見つかった
-            $(this).addClass('errored'); // エラースタイルを適用
-        } else {
-            $(this).removeClass('errored'); // エラースタイルを削除
-        }
-    });
+// 必須テキストフィールドのバリデーション	// 以下のコードは省略（テキストフィールドとチェックボックスのバリデーション）
+$('.required').each(function() {	
+if ($(this).val().trim() === '') {	
+$(this).addClass('errored');	
+$(this).next('.error_required').text('※入力必須項目です');	
+hasError = true;	
+} else {	
+     $(this).css('color', 'black'); // 入力がある場合はテキストの色を黒に	
+}	
+});	
+// ご利用意図のチェックボックスバリデーション	
+if ($('input[name="checkbox-name"]:checked').length === 0) {	
+$('.checkbox-error').text('※少なくとも一つ選択してください');	
+hasError = true;	
+}	
+// 個人情報の取り扱いについてのチェックボックスバリデーション	
+if (!$('input[name="checkbox-name-agree"]:checked').length) {	
+$('.privacy-error').text('※個人情報保護方針に同意してください。');	
+hasError = true;	
+}
 
-    // チェックボックスとラジオボタンのバリデーション
-    // 同じ名前を持つチェックボックスやラジオボタンが少なくとも一つ選択されているか確認
-    $('input[type=checkbox].required, input[type=radio].required').each(function() {
-        var name = $(this).attr('name');
-        if ($('input[name="' + name + '"]:checked').length == 0) {
-            isValid = false; // 一つも選択されていない場合、無効
-            $('input[name="' + name + '"]').closest('.contact-form__item').addClass('errored');
-        } else {
-            $('input[name="' + name + '"]').closest('.contact-form__item').removeClass('errored');
-        }
-    });
-
-    // 個人情報の取り扱いについての同意チェック
-    if (!$('#checkbox-01-agree').is(':checked')) {
-        isValid = false;
-        $('#checkbox-01-agree').closest('.contact-form__item').addClass('errored');
-    } else {
-        $('#checkbox-01-agree').closest('.contact-form__item').removeClass('errored');
+    // ご検討状況1のラジオボタンバリデーション
+    if ($('input[name="radio-name-1"]:checked').length === 0) {
+        $('.radio-error').first().text('※ご検討状況を選択してください');
+        hasError = true;
     }
 
-    if (!isValid) {
-        event.preventDefault(); // フォームの送信を阻止
-        // エラーメッセージを表示する処理をここに追加
-        $('.contact-form__error').show();
+    // ご検討状況2のラジオボタンバリデーション
+    if ($('input[name="radio-name-2"]:checked').length === 0) {
+        $('.radio-error').last().text('※ご検討状況を選択してください');
+        hasError = true;
+    }
+
+    // エラーがある場合は送信ボタンを非アクティブに
+    if (hasError) {
+        $('#js-submit').addClass('disabled').prop('disabled', true);
     } else {
-        // フォームが有効な場合、エラーメッセージを隠す
-        $('.contact-form__error').hide();
+        $('#js-submit').removeClass('disabled').prop('disabled', false);
+    }
+
+    return !hasError; // ここでエラーの有無に基づいて true または false を返す
+}
+
+// 送信ボタンクリック時の処理
+$('#js-submit').click(function(e) {
+    e.preventDefault();
+    if (validateForm()) {
+        // バリデーション成功時にページ遷移
+        window.location.href = 'contact-thanks.html';
     }
 });
 
+// 入力フィールドの変更を監視
+$('.required, .checkbox-input, input[type="radio"]').on('change input', function() {
+    validateForm();
+});
 
 
 }); //jQueryの閉じタグ（消さない！！）

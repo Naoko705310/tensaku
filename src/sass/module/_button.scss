@@ -158,6 +158,21 @@
     }
 }
 
+/* 送信ボタングレイアウトスタイル */
+.button--contact.disabled {
+  background-color: #cccccc;
+  color: #666666; 
+  cursor: not-allowed; 
+}
+
+/* ダウンロードボタングレイアウトスタイル */
+.button-download.disabled {
+  background-color: #cccccc;
+  color: #666666; 
+  cursor: not-allowed; 
+}
+
+
 .button--popup {
   font-family: $base-font-family;
   font-size: rem(12);

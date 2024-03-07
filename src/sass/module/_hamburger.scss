@@ -1,6 +1,4 @@
 @use "global" as *;
-// ハンバーガーメニュー
-//「メニュー」テキストの幅になり線が左によってしまうので、marginで中央寄せ
 
 .hamburger {
   max-width: 100%;
@@ -12,7 +10,6 @@
   }
 }
 
-//span（線）のスタイル。「メニュー」以外
 .header__hamburger span:not(.hamburger__text) {
   width: rem(28);
   height: rem(2);
@@ -23,24 +20,20 @@
   transition: ease .3s;
 }
 
-// .headerColorScroll .hamburger span:not(.hamburger__text) {
-//   background: $main-color; // ここで希望の色を指定
-// }
-
+// スクロール時とsub-header適用時のhamburgerのspanの背景色変更
+.header.headerColorScroll .header__hamburger span:not(.hamburger__text),
+.sub-header .header__hamburger span:not(.hamburger__text) {
+  background-color: $main-color; // 黒色に変更
+}
 
 .hamburger span:nth-child(1) {
-top: 0;
+  top: 0;
 }
 
 .hamburger span:nth-child(2) {
-margin: rem(9) auto;
+  margin: rem(9) auto;
 }
 
-// .hamburger span:nth-child(3) {
-// top: 0;
-// }
-
-// 「メニュー」
 .hamburger__text {
   font-family: $base-font-family;
   font-size: rem(10);
@@ -56,11 +49,9 @@ margin: rem(9) auto;
   text-align: center; // テキストを中央揃えにする
 }
 
-
-//is-OPEN時の動き
 .hamburger.is-open span:nth-child(1) {
-top: rem(11);
-transform: rotate(40deg);
+  top: rem(11);
+  transform: rotate(40deg);
 }
 
 .hamburger.is-open span:nth-child(2) {
@@ -68,7 +59,83 @@ transform: rotate(40deg);
   transform: rotate(-40deg);
 }
 
-//ハンバーガーばバツ印の時、「メニュー」は表示しない
 .hamburger.is-open .hamburger__text {
   display: none; // 三つ目のspanを非表示にする
 }
+
+
+
+// @use "global" as *;
+// // ハンバーガーメニュー
+// //「メニュー」テキストの幅になり線が左によってしまうので、marginで中央寄せ
+
+// .hamburger {
+//   max-width: 100%;
+//   z-index: 9999;
+//   margin-left: auto;
+//   position: relative;
+//   @include mq(md) {
+//     display: none;
+//   }
+// }
+
+// //span（線）のスタイル。「メニュー」以外
+// .header__hamburger span:not(.hamburger__text) {
+//   width: rem(28);
+//   height: rem(2);
+//   position: relative;
+//   display: block;
+//   background: #fff;
+//   margin: 0 auto;
+//   transition: ease .3s;
+// }
+
+// // .headerColorScroll .hamburger span:not(.hamburger__text) {
+// //   background: $main-color; // ここで希望の色を指定
+// // }
+
+
+// .hamburger span:nth-child(1) {
+// top: 0;
+// }
+
+// .hamburger span:nth-child(2) {
+// margin: rem(9) auto;
+// }
+
+// // .hamburger span:nth-child(3) {
+// // top: 0;
+// // }
+
+// // 「メニュー」
+// .hamburger__text {
+//   font-family: $base-font-family;
+//   font-size: rem(10);
+//   color: $white;
+//   font-weight: $normal;
+//   line-height: 1;
+//   margin-top: 0;
+//   position: absolute;
+//   top: calc(#{rem(9)} + #{rem(2)} + 7px); // 二本目のspanのmargin-top + height + 7px
+//   left: 50%;
+//   transform: translateX(-50%);
+//   white-space: nowrap;
+//   text-align: center; // テキストを中央揃えにする
+// }
+
+
+// //is-OPEN時の動き
+// .hamburger.is-open span:nth-child(1) {
+// top: rem(11);
+// transform: rotate(40deg);
+// }
+
+// .hamburger.is-open span:nth-child(2) {
+//   top: 0;
+//   transform: rotate(-40deg);
+// }
+
+// //ハンバーガーばバツ印の時、「メニュー」は表示しない
+// .hamburger.is-open .hamburger__text {
+//   display: none; // 三つ目のspanを非表示にする
+// }

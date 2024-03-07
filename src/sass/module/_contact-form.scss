@@ -178,6 +178,15 @@ select::placeholder {
   font-size: rem(14);
   color: #C94800;
   font-weight: $normal;
+  margin-top: rem(8);
+}
+
+.radio-error {
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: #C94800;
+  font-weight: $normal;
+  margin-top: rem(8);
 }
 
 // 「同意する」
@@ -319,12 +328,12 @@ span.error_required {
 
 // ※必須項目が入力されていません。入力してください。
 .error-message {
-  // display: none;
+  display: none;
   font-family: $base-font-family;
   font-size: rem(14);
   color: #C94800;
   font-weight: $normal;
-  text-align: left;
+  text-align: center;
   margin-top: rem(52);
   margin-bottom: rem(40);
   position: relative;
@@ -339,5 +348,6 @@ span.error_required {
   font-size: rem(14);
   color: #C94800;
   font-weight: $normal;
-  text-align: center;
+  text-align: left;
+  margin-top: rem(8);
 }

@@ -108,3 +108,12 @@ input::placeholder{
 .download-form__button-wrapper {
   margin-top: rem(22);//要確認　ピクパ調整24→22
 }
+
+.download-error {
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: #C94800;
+  font-weight: $normal;
+  text-align: left;
+  margin-top: rem(8);
+}

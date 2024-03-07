@@ -16,16 +16,12 @@
   height: rem(98);
 }
 
-// .header.is-open {
-//   //色はJSで管理
-// }
-
 .header__inner {
   width: 100%;
   max-width: 100%;
   height: 100%;
   display: flex;
-  justify-content: space-between;//hamburgerを右寄せ
+  justify-content: space-between;
   align-items: center;
   padding-right: rem(21);
   padding-left: rem(15);
@@ -36,75 +32,190 @@
 }
 
 .header__hamburger {
-  margin: 0 -6px; //デフォルトでbuttonタグについている、左右のpadding:6pxを消す
+  margin: 0 -6px;
 }
 
 .header__sp-nav {
-  display: none;
-  background-image: linear-gradient(45deg, #00BA6B, #075735);
-  background-size: cover;
-  background-position: left bottom;
-  background-repeat: no-repeat;
-  width: 80%; //300/375
+  width: 80%;
+  max-width: rem(300);
   position: absolute;
   top: rem(74);
   left: 0;
   right: 0;
   z-index: 88;
-  overflow: scroll; /* 縦スクロールを可能にする */
+  overflow: scroll;
+  display: none;
+  background-image: linear-gradient(45deg, #00BA6B, #075735);
+  background-size: cover;
+  background-position: left bottom;
+  background-repeat: no-repeat;
   padding-top: rem(23);
   padding-right: rem(13);
   padding-bottom: rem(50);
   padding-left: rem(13);
   margin-left: auto;
 
-  // sub-headerが適用された時のdrawer-menuの位置調整
   .sub-header & {
-    top: rem(98); // sub-headerの高さに合わせて調整
+    top: rem(98);
   }
 }
 
-/* 800pxスクロールした時と、下層ページの時に、ヘッダーメニューの背景色とナビの文字色を変更 */
-
-// スクロール時の背景色変更
+/* スクロール時とsub-header適用時の背景色とナビの文字色変更 */
 .header.headerColorScroll, .sub-header {
-  background-color: #FFFFFF; // 例: 白色
+  background-color: #FFFFFF; // 白色
   transition: background-color 0.4s ease-out;
 }
 
-// スクロール時とsub-header適用時のナビの文字色変更
 .pc-nav__link.pc-nav__linkColorScroll, .sub-header .pc-nav__link {
-  color: $black; 
+  color: $black; // 黒色
 }
 
-// ロゴ画像切り替えのスタイルは、背景画像を使用している場合、
-// CSSで背景画像のURLを切り替える必要があります。
-.header-logo__img, .sub-header .header-logo__img {
-  // デフォルトのロゴ画像
-  background-image: url('../images/common/header-logo-pc.png');
+.header-logo__img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  width: rem(136);
+  height: rem(24);
+  @include mq(md) {
+    width: rem(181);
+    height: rem(32);
+  }
 }
 
-.header-logo__img.headerLogoScroll, .sub-header .header-logo__img {
-  background-image: url('../images/common/sub-header-logo-pc.png'); // スクロール時またはsub-header適用時のロゴ画像
-}
-
-// // スクロール時とsub-header適用時のhamburgerのspanの背景色変更
-// .header.headerColorScroll .hamburger span, .sub-header .hamburger span:not(.hamburger__text) {
-//   background-color: $main-color; // 黒色に変更
-// }
-
-// スクロール時とsub-header適用時のhamburger__textの文字色変更
-.header.headerColorScroll .hamburger__text, .sub-header .hamburger__text {
-  color: $main-color; // テキスト色を黒色に変更
-}
-
-// 必要に応じて、.hamburger__text以外のspanの背景色を指定するセレクタを追加
+/* ハンバーガーメニューのテキスト色変更 */
+.header.headerColorScroll .hamburger__text, .sub-header .hamburger__text,
 .header.headerColorScroll .hamburger span:not(.hamburger__text),
 .sub-header .hamburger span:not(.hamburger__text) {
-  background-color: $main-color; 
-}
-
-// スクロール時とsub-header適用時のhamburger__textの文字色変更
-.header.headerColorScroll .hamburger__text, .sub-header .hamburger__text {
   color: $main-color; // 黒色に変更
 }
+
+
+
+
+
+// @use "global" as *;
+
+// .header {
+//   // display: none;//制作過程で邪魔な時非表示
+//   width: 100%;
+//   max-width: 100%;
+//   height: rem(74);
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   z-index: 99;
+// }
+
+// .header.sub-header {
+//   height: rem(98);
+// }
+
+// // .header.is-open {
+// //   //色はJSで管理
+// // }
+
+// .header__inner {
+//   width: 100%;
+//   max-width: 100%;
+//   height: 100%;
+//   display: flex;
+//   justify-content: space-between;//hamburgerを右寄せ
+//   align-items: center;
+//   padding-right: rem(21);
+//   padding-left: rem(15);
+//   @include mq(md) {
+//     margin: 0 auto;
+//     padding: 0 rem(57);
+//   }
+// }
+
+// .header__hamburger {
+//   margin: 0 -6px; //デフォルトでbuttonタグについている、左右のpadding:6pxを消す
+// }
+
+// .header__sp-nav {
+//   display: none;
+//   background-image: linear-gradient(45deg, #00BA6B, #075735);
+//   background-size: cover;
+//   background-position: left bottom;
+//   background-repeat: no-repeat;
+//   width: 80%; //300/375
+//   position: absolute;
+//   top: rem(74);
+//   left: 0;
+//   right: 0;
+//   z-index: 88;
+//   overflow: scroll; /* 縦スクロールを可能にする */
+//   padding-top: rem(23);
+//   padding-right: rem(13);
+//   padding-bottom: rem(50);
+//   padding-left: rem(13);
+//   margin-left: auto;
+
+//   // sub-headerが適用された時のdrawer-menuの位置調整
+//   .sub-header & {
+//     top: rem(98); // sub-headerの高さに合わせて調整
+//   }
+// }
+
+// /* 800pxスクロールした時と、下層ページの時に、ヘッダーメニューの背景色とナビの文字色を変更 */
+
+// // スクロール時の背景色変更
+// .header.headerColorScroll, .sub-header {
+//   background-color: #FFFFFF; // 例: 白色
+//   transition: background-color 0.4s ease-out;
+// }
+
+// // スクロール時とsub-header適用時のナビの文字色変更
+// .pc-nav__link.pc-nav__linkColorScroll, .sub-header .pc-nav__link {
+//   color: $black; 
+// }
+
+// .header-logo__img {
+//   display: block;
+//   max-width: 100%;
+//   height: auto;
+//   object-fit: contain;
+//   width: rem(136); // ロゴの幅
+//   height: rem(24); // ロゴの高さ
+//   @include mq(md) {
+//     width: rem(181);
+//     height: rem(32);
+//   }
+//   // background-image関連のスタイルは削除
+// }
+
+// /* ヘッダーの背景色を白に変更するスタイル */
+// .headerColorScroll {
+//   background-color: #FFFFFF; /* 白色 */
+// }
+
+// /* ナビゲーションリンクの文字色を黒に変更するスタイル */
+// .pc-nav__linkColorScroll {
+//   color: #000000; /* 黒色 */
+// }
+
+
+
+// // // スクロール時とsub-header適用時のhamburgerのspanの背景色変更
+// // .header.headerColorScroll .hamburger span, .sub-header .hamburger span:not(.hamburger__text) {
+// //   background-color: $main-color; // 黒色に変更
+// // }
+
+// // スクロール時とsub-header適用時のhamburger__textの文字色変更
+// .header.headerColorScroll .hamburger__text, .sub-header .hamburger__text {
+//   color: $main-color; // テキスト色を黒色に変更
+// }
+
+// // 必要に応じて、.hamburger__text以外のspanの背景色を指定するセレクタを追加
+// .header.headerColorScroll .hamburger span:not(.hamburger__text),
+// .sub-header .hamburger span:not(.hamburger__text) {
+//   background-color: $main-color; 
+// }
+
+// // スクロール時とsub-header適用時のhamburger__textの文字色変更
+// .header.headerColorScroll .hamburger__text, .sub-header .hamburger__text {
+//   color: $main-color; // 黒色に変更
+// }
