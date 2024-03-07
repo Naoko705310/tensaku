@@ -162,94 +162,30 @@ jQuery(function ($) {
         }
     });
 
-
-
-
-
-
-    // // タブのクリックイベントハンドラ
-    // $('.js-tab-trigger').click(function() {
-    //     var id = $(this).attr('id');
-    //     $('.js-tab-trigger').removeClass('is-active');
-    //     $(this).addClass('is-active');
-    //     $('.js-tab-target').removeClass('is-active');
-    //     $('#' + id + '-content').addClass('is-active');
-    //     return false;
-    // });
-
-    // // アコーディオンのクリックイベントハンドラ
-    // $('.js-accordion-Q').click(function() {
-    //     $(this).toggleClass('is-open').next('.js-accordion-A').slideToggle();
-    // });
-
-    // // 最初のアコーディオンアイテム以外を閉じる処理
-    // // 最初のアイテムには初期状態でis-activeクラスが付与されているとのことなので、
-    // // 最初のアイテムの状態を変更せず、残りのアイテムを閉じた状態にします。
-    // $('.js-accordion-Q').each(function(index) {
-    //     if (index !== 0) { // 最初のアイテム以外
-    //         $(this).removeClass('is-open').next('.js-accordion-A').hide();
-    //     } else {
-    //         // 最初のアイテムが開いていることを保証する
-    //         $(this).addClass('is-open').next('.js-accordion-A').show();
-    //     }
-    // });
-
-    // $('.js-tab-trigger').click(function() {
-    //     var id = $(this).attr('id');
-    //     $('.js-tab-trigger').removeClass('is-active');
-    //     $(this).addClass('is-active');
-    //     $('.js-tab-target').removeClass('is-active');
-    //     $('#' + id + '-content').addClass('is-active');
-    //     return false;
-    // });
-
-    // $('.js-accordion-Q').click(function() {
-    //     $(this).toggleClass('is-open').next('.js-accordion-A').slideToggle();
-    // });
-
     /* --------------------------------------------
     /* ポップアップ
     /* -------------------------------------------- */
+    // ページの高さの半分を計算
+    var halfwayPoint = $(document).height() / 2;
+    // ポップアップが閉じられたかどうかを追跡するフラグ
+    var isPopupClosed = false;
 
-        // ページの高さの半分を計算
-        var halfwayPoint = $(document).height() / 2;
+    // スクロールイベントを監視
+    $(window).scroll(function() {
+        // ポップアップが閉じられていない、かつ、現在のスクロール位置がページの半分を超えたかどうかをチェック
+        if (!isPopupClosed && $(window).scrollTop() > halfwayPoint) {
+            // ポップアップを表示
+            $('.popup').fadeIn();
+        }
+    });
 
-        // スクロールイベントを監視
-        $(window).scroll(function() {
-            // 現在のスクロール位置がページの半分を超えたかどうかをチェック
-            if ($(window).scrollTop() > halfwayPoint) {
-                // ポップアップを表示
-                $('.popup').fadeIn();
-            } else {
-                // ポップアップを非表示
-                $('.popup').fadeOut();
-            }
-        });
-    
-        // ポップアップの閉じるボタンをクリックしたときの処理
-        $('.js-popup-close').click(function() {
-            // ポップアップを非表示にする
-            $('.popup').fadeOut();
-        });
-    // const popup = document.querySelector('.popup');
-    // const closeButton = document.querySelector('.js-popup-close');
-
-    // window.addEventListener('scroll', function() {
-    //     const halfwayDown = document.body.scrollHeight / 2;
-    //     if (window.scrollY > halfwayDown) {
-    //         popup.style.position = 'fixed';
-    //         popup.style.left = '20px';
-    //         popup.style.bottom = '20px';
-    //         popup.style.display = 'block';
-    //     } else {
-    //         // popup.style.display = 'none';//要確認　不要？コンソールにエラーが出たため非表示にした
-    //     }
-    // });
-
-    // closeButton.addEventListener('click', function() {
-    //     popup.style.display = 'none';
-    // });
-
+    // ポップアップの閉じるボタンをクリックしたときの処理
+    $('.js-popup-close').click(function() {
+        // ポップアップを非表示にする
+        $('.popup').fadeOut();
+        // ポップアップが閉じられたことをフラグで記録
+        isPopupClosed = true;
+    });
 
     /* --------------------------------------------
     /* トップへ戻るボタン

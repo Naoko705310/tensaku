@@ -16,7 +16,7 @@
   }
 }
 
-.terms__main-text {
+.terms__heading {
   font-family: $base-font-family;
   font-size: rem(16);
   color: $black;
@@ -27,7 +27,7 @@
   margin-top: rem(58);
 }
 
-.terms__heading {
+.terms__item-title {
   font-family: $base-font-family;
   // font-size: rem(24);
   font-size: clamp(14px, 18 / 375 * 100vw, 24px);

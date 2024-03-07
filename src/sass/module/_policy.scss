@@ -9,13 +9,20 @@
   }
 }
 
+.policy__heading {
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $black;
+  font-weight: $normal;
+}
+
 .policy__contents {
   @include mq(md) {
       padding: 0 rem(20);
   }
 }
 
-.policy__main-text {
+.policy__item-title {
   font-family: $base-font-family;
   font-size: rem(16);
   color: $black;
@@ -28,7 +35,7 @@
   margin-top: rem(58);
 }
 
-.policy__heading {
+.policy__item-title {
   font-family: $base-font-family;
   // font-size: rem(24);
   font-size: clamp(14px, 18 / 375 * 100vw, 24px);

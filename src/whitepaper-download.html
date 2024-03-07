@@ -50,11 +50,11 @@
     <header class="header sub-header js-header">
       <div class="header__inner">
         <!-- ヘッダーロゴ -->
-        <h1 class="header__logo header-logo">
+        <div class="header__logo header-logo">
           <a href="index.html" class="header-logo__link">
             <img src="./assets/images/common/header-logo-sp.png" alt="ロゴ" class="header-logo__img" srcset="./assets/images/common/header-logo-pc.png 768w, ./assets/images/common/header-logo-sp.png 320w" sizes="(max-width: 768px) 100vw, 768px">
           </a>
-        </h1>
+        </div>
         <!-- ハンバーガー -->
         <button class="header__hamburger hamburger js-hamburger">
           <span></span>
@@ -95,7 +95,7 @@
           </nav>
         </div><!-- /.header__sp-nav js-drawer-menu -->
         <!-- PCナビ -->
-        <div class="header__pc-nav pc-nav u-desktop">
+        <nav class="header__pc-nav pc-nav u-desktop">
           <ul class="pc-nav__items">
             <li class="pc-nav__item">
               <a href="index.html#features" class="pc-nav__link">特徴</a>
@@ -113,7 +113,7 @@
               <a href="index.html#faq" class="pc-nav__link">よくある質問</a>
             </li>
           </ul>
-        </div><!-- /.header__pc-nav pc-nav -->
+        </nav><!-- /.header__pc-nav pc-nav -->
         <a href="contact.html" class="button button--header-green">利用申し込み</a>
         <a href="whitepaper.html" class="button button--header-orange">資料請求する</a>
       </div><!-- /.header__inner inner -->
@@ -135,7 +135,7 @@
         </div>
       </section>
       <!-- 下層ページコンテンツ -->
-      <section class="page-download page-layout">
+      <article class="page-download page-layout">
         <div class="page-download__inner inner">
           <div class="page-download__contents">
             <div class="page-download__body">
@@ -181,7 +181,7 @@
             </div>
           </div>
         </div>
-</section>
+      </article>
     </main>
     <!-- フッター -->
     <footer class="footer">

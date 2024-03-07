@@ -50,11 +50,11 @@
     <header class="header sub-header js-header">
       <div class="header__inner">
         <!-- ヘッダーロゴ -->
-        <h1 class="header__logo header-logo">
+        <div class="header__logo header-logo">
           <a href="index.html" class="header-logo__link">
             <img src="./assets/images/common/header-logo-sp.png" alt="ロゴ" class="header-logo__img" srcset="./assets/images/common/header-logo-pc.png 768w, ./assets/images/common/header-logo-sp.png 320w" sizes="(max-width: 768px) 100vw, 768px">
           </a>
-        </h1>
+        </div>
         <!-- ハンバーガー -->
         <button class="header__hamburger hamburger js-hamburger">
           <span></span>
@@ -95,7 +95,7 @@
           </nav>
         </div><!-- /.header__sp-nav js-drawer-menu -->
         <!-- PCナビ -->
-        <div class="header__pc-nav pc-nav u-desktop">
+        <nav class="header__pc-nav pc-nav u-desktop">
           <ul class="pc-nav__items">
             <li class="pc-nav__item">
               <a href="index.html#features" class="pc-nav__link">特徴</a>
@@ -113,7 +113,7 @@
               <a href="index.html#faq" class="pc-nav__link">よくある質問</a>
             </li>
           </ul>
-        </div><!-- /.header__pc-nav pc-nav -->
+        </nav><!-- /.header__pc-nav pc-nav -->
         <a href="contact.html" class="button button--header-green">利用申し込み</a>
         <a href="whitepaper.html" class="button button--header-orange">資料請求する</a>
       </div><!-- /.header__inner inner -->
@@ -131,18 +131,18 @@
         </div>
       </section>
       <!-- 下層ページコンテンツ -->
-      <section class="terms page-layout">
+      <article class="terms page-layout">
         <div class="terms__inner inner">
           <div class="terms__contents">
-            <h3 class="terms__main-text">
+            <h2 class="terms__heading">
               この利用規約（以下，「本規約」といいます。）は，TENSAKU（以下，「当社」といいます。）がこのウェブサイト上で提供するサー
               ビス（以下，「本サービス」といいます。）の利用条件を定めるものです。登録ユーザーの皆さま（以下，「ユーザー」といいます。）には，本規約に従って，本サービスをご利用いただきます。
-            </h3>
+            </h2>
             <ul class="terms__items">
               <li class="terms__item">
-                <h4 class="terms__heading">
+                <h3 class="terms__item-title">
                   第1条（適用）
-                </h4>
+                </h3>
                 <ol class="terms__list-items">
                   <li class="terms__list-item">
                     本規約は，ユーザーと当社との間の本サービスの利用に関わる一切の関係に適用されるものとします。
@@ -156,9 +156,9 @@
                 </ol>
               </li>
               <li class="terms__item">
-                <h4 class="terms__heading">
+                <h3 class="terms__item-title">
                   第2条（利用登録）
-                </h4>
+                </h3>
                 <ol class="terms__list-items">
                   <li class="terms__list-item">
                     本サービスにおいては，登録希望者が本規約に同意の上，当社の定める方法によって利用登録を申請し，当社がこれを承認することによって，利用登録が完了するものとします。
@@ -178,9 +178,9 @@
                 </ol>
               </li>
               <li class="terms__item">
-                <h4 class="terms__heading">
+                <h3 class="terms__item-title">
                   第3条（ユーザーIDおよびパスワードの管理）
-                </h4>
+                </h3>
                 <ol class="terms__list-items">
                   <li class="terms__list-item">
                     ユーザーは，自己の責任において，本サービスのユーザーIDおよびパスワードを適切に管理するものとします。
@@ -194,9 +194,9 @@
                 </ol>
               </li>
               <li class="terms__item">
-                <h4 class="terms__heading">
+                <h3 class="terms__item-title">
                   第4条（利用料金および支払方法）
-                </h4>
+                </h3>
                 <ol class="terms__list-items">
                   <li class="terms__list-item">
                     ユーザーは，本サービスの有料部分の対価として，当社が別途定め，本ウェブサイトに表示する利用料金を，当社が指定する方法により支払うものとします。
@@ -207,9 +207,9 @@
                 </ol>
               </li>
               <li class="terms__item">
-                <h4 class="terms__heading">
+                <h3 class="terms__item-title">
                   第5条（退会）
-                </h4>
+                </h3>
                 <ol class="terms__list-items terms__list-items--05">
                   <li class="terms__list-item">
                     ユーザーは，当社の定める退会手続により，本サービスから退会できるものとします。
@@ -217,9 +217,9 @@
                 </ol>
               </li>
               <li class="terms__item">
-                <h4 class="terms__heading">
+                <h3 class="terms__item-title">
                   第6条（個人情報の取扱い）
-                </h4>
+                </h3>
                 <ol class="terms__list-items terms__list-items--06">
                   <li class="terms__list-item">
                     当社は，本サービスの利用によって取得する個人情報については，当社「プライバシーポリシー」に従い適切に取り扱うものとします。
@@ -227,9 +227,9 @@
                 </ol>
               </li>
               <li class="terms__item">
-                <h4 class="terms__heading">
+                <h3 class="terms__item-title">
                   第7条（準拠法・裁判管轄）
-                </h4>
+                </h3>
                 <ol class="terms__list-items">
                   <li class="terms__list-item">
                     本規約の解釈にあたっては，日本法を準拠法とします。
@@ -242,7 +242,7 @@
             </ul>
           </div>
         </div>
-</section>
+      </article>
     </main>
     <!-- フッター -->
     <footer class="footer">

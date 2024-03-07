@@ -175,7 +175,8 @@
 
 .button--popup {
   font-family: $base-font-family;
-  font-size: rem(12);
+  // font-size: rem(12);
+  font-size: calc(10px + (16 - 10) * ((100vw - 320px) / (768 - 320)));//画面幅320の時に10px, 768の時に16px
   color: $black;
   font-weight: $bold;
   display: inline-block;
