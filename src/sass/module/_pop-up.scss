@@ -2,8 +2,8 @@
 
 .popup {
   display: none; // 初期状態では非表示 
-  width: 50%;
-  aspect-ratio: 150/108;
+  width: rem(200);
+  // aspect-ratio: 150/108;
   box-shadow: 0px 6px 9px rgba(0, 0, 0, 0.25);
   padding: rem(3) rem(2);
   position: relative; //closeボタン用
@@ -94,8 +94,7 @@ line-height: 1.5;
 }
 
 .popup__button-wrapper {
-  // margin-top: rem(8);
-  margin-top: auto;
+  margin-top: rem(23);
   text-align: center;
   @include mq(md) {
     margin-top: rem(23);

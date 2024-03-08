@@ -1,14 +1,15 @@
 @use "global" as *;
 
 .footer-logo {
-  // 要確認　サイズ
-  width: rem(181);
-  height: rem(32);
+  width: rem(136);
+  height: rem(24);
+  aspect-ratio: 136/24;
   position: relative;
   z-index: 1;
   @include mq(md) {
     width: rem(181);
     height: rem(32);
+    aspect-ratio: 181/32;
   }
 }
 

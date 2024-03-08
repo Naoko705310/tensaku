@@ -54,15 +54,11 @@
 
 .swiper-button-prev,
 .swiper-button-next {
-  //要確認 displayで管理すると矢印が表示されない・・
-  // display: none;
   @include mq(md) {
-    // display: block;
     width: rem(44);
     height: rem(44);
     position: absolute;
     top: 42%;
-    // transform: translateY(-50%);
     z-index: 10;
   }
 }
@@ -106,7 +102,6 @@
   width: 100%;
 }
 
-// 要確認 位置調整
 .swiper-pagination {
   position: absolute;
 }

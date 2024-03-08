@@ -117,3 +117,30 @@ input::placeholder{
   text-align: left;
   margin-top: rem(8);
 }
+
+.prefecture-dl {
+  display: none;
+}
+// .select-wrapper {
+//   position: relative;
+//   display: inline-block;
+// }
+// .select-wrapper label {
+//   position: absolute;
+//   top: 0;
+//   left: 10px; /* 適宜調整 */
+//   pointer-events: none;
+//   color: #666; /* 適宜調整 */
+//   transition: all 0.3s ease;
+// }
+// .select-wrapper select {
+//   -webkit-appearance: none; /* デフォルトの外観を無効にする */
+//   -moz-appearance: none;
+//   appearance: none;
+//   padding-left: 80px; /* labelのテキストに合わせて調整 */
+//   /* その他のスタイリング */
+// }
+// .select-wrapper select:focus + label {
+//   /* フォーカス時のlabelスタイルを変更 */
+//   color: #333;
+// }

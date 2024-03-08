@@ -87,7 +87,9 @@ textarea {
   border: none;
   border-radius: 0;
   font: inherit;
-  outline: none;
+    //これがあるとキーボードフォーカスが当たらないので非表示にする
+  // outline: none;
+
 }
 
 textarea {
@@ -96,7 +98,7 @@ textarea {
 
 input[type="checkbox"],
 input[type="radio"] {
-  display: none;
+  // display: none;
 }
 
 input[type="submit"],
@@ -108,7 +110,7 @@ select {
 }
 
 select::-ms-expand {
-  display: none;
+  // display: none;
 }
 
 /* ホバー */

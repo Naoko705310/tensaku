@@ -10,22 +10,48 @@
 
 .flow-chart__item {
   background-color: #DAFFF1;
-  display: grid;
-  grid-template-columns: rem(79) 1fr;
-  gap: rem(23);
+  position: relative;
   padding-top: rem(24);
   padding-right: rem(20);
   padding-bottom: rem(21);
   padding-left: rem(12);
-  position: relative;
-  z-index: -1;
+  display: grid;
+  grid-template-columns: 26.072% 1fr;//335-12-20=79/303
+  align-items: flex-start;
+  // gap: rem(23);
   @include mq(md) {
-    grid-template-columns: 1fr;
-    gap: rem(35);
+    display: block;
+    // grid-template-columns: 1fr;
+    // grid-template-rows: auto;
+    // gap: rem(35);
+    clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%);
+    margin-right: -16px; // 右隣のアイテムと重ねるために設定
     padding-top: rem(27);
-    padding-right: rem(1);
+    padding-right: rem(22);
+    // padding-right: calc(rem(16) + rem(6));
     padding-bottom: rem(27);//29→27 要確認　ピクパ調整
     padding-left: rem(20);
+  }
+}
+
+@include mq(md) {
+  .flow-chart__item:nth-child(1) {
+    position: relative;
+    z-index: 4; // 一番左のアイテムが一番上に来る
+  }
+  .flow-chart__item:nth-child(2) {
+    position: relative;
+    z-index: 3;
+  }
+  .flow-chart__item:nth-child(3) {
+    position: relative;
+    z-index: 2;
+  }
+  .flow-chart__item:nth-child(4) {
+    position: relative;
+    z-index: 1; // 一番右のアイテムが一番下に来る
+    clip-path: none;
+    margin-right: 0; // 右隣と重ねる設定を解除
   }
 }
 
@@ -40,7 +66,7 @@
   background-color: #3AEFA2;
 }
 
-// 三角形（SPの時）
+//三角形（SPの時）
 .flow-chart__item::after {
   content: "";
   position: absolute;
@@ -74,33 +100,21 @@
   border-top: 14.25px solid #76F6C5; 
 }
 
-// 三角形（PCの時）
-.flow-chart__item::before {
-  @include mq(md) {
-    content: "";
-    position: absolute;
-    top: 50%; 
-    left: 0; 
-    transform: translateY(-50%);
-    width: 0;
-    height: 100%;
-    border-top: 107px solid transparent;//itemの縦半分(214/2=107)
-    border-bottom: 107px solid transparent;
-    border-left: 19px solid #DAFFF1; 
-  }
-}
-
-// 各三角形の背景色を指定
-.flow-chart__item:nth-child(2)::before { border-left-color: #DAFFF1; }
-.flow-chart__item:nth-child(3)::before { border-left-color: #A4FAD8; }
-.flow-chart__item:nth-child(4)::before { border-left-color: #76F6C5; }
-
 .flow-chart__step {
   font-family: $base-font-family;
   font-size: rem(20);
   color: #BBBBBB;
   font-weight: $bold;
   line-height: 1;
+}
+
+.flow-chart__text-wrapper {
+  margin-left: rem(23);
+  @include mq(md) {
+    margin-top: rem(35);
+    margin-left: 0;
+  }
+
 }
 
 .flow-chart__heading {

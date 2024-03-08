@@ -4,6 +4,14 @@
   margin-top: rem(30);
 }
 
+.flow__inner.inner {
+  max-width: rem(640);
+  padding: 0 rem(20);
+  @include mq(md) {
+    max-width: rem(1064);
+  }
+}
+
 .flow__text {
   font-family: $base-font-family;
   font-size: rem(16);

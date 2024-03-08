@@ -33,19 +33,6 @@
   position: relative;
 }
 
-.questionnaire__contents-wrapper:before {
-  content: "";
-  position: absolute;
-  top: rem(58);//要確認 角度が若干違う
-  left: 50%;
-  transform: translateX(-50%) translateY(-100%);
-  width: 0;
-  height: 0;
-  border-left: 93px solid transparent; 
-  border-right: 93px solid transparent; 
-  border-top: 61px solid #f2fffa; 
-}
-
 .questionnaire__main-copy--01 h3,
 .questionnaire__main-copy--02 h3 {
   font-family: $base-font-family;
