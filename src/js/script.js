@@ -56,6 +56,7 @@ jQuery(function ($) {
         }
     }
 
+
     // ページ読み込み時にPC幅を検出し、768pxを超えたときにメニューを閉じる
     $(window).resize(function () {
     if ($(window).width() > 768) {
@@ -75,9 +76,10 @@ jQuery(function ($) {
         loop: true,
         speed: 4000,
         autoplay: {
-            delay: 4000
+            delay: 5000 //等速で、途切れさせずうごかす
         },
         allowTouchMove: false,
+        disableOnInteraction: false, // ユーザーの操作後も自動再生を続ける
         slidesPerView: "auto",
         spaceBetween: 24,
         breakpoints: {
@@ -314,5 +316,18 @@ $('.required, .checkbox-input, input[type="radio"]').on('change input', function
     validateForm();
 });
 
+
+/* --------------------------------------------
+/* スムーススクロール
+/* -------------------------------------------- */
+// URLのハッシュをチェックして対応するセクションへスムーススクロール
+if(window.location.hash) {
+var hash = window.location.hash;
+if($(hash).length) {
+    $('html, body').animate({
+    scrollTop: $(hash).offset().top
+    }, 400); // 400ミリ秒でスクロール
+}
+}
 
 }); //jQueryの閉じタグ（消さない！！）

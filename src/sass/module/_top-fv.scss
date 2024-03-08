@@ -196,6 +196,7 @@
 
 .top-fv__swiper .swiper-wrapper {
   height: inherit;
+  transition-timing-function: linear;//等速で滑らかに動かす
 }
 
 .top-fv__swiper .swiper-slide {

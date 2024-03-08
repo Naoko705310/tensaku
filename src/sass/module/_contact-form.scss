@@ -93,14 +93,9 @@ select::placeholder {
   font-weight: $normal;
 }
 
-//** チェックボックスのデザイン **
 
-//inputタグのデフォルトデザインを消す
-.checkbox-input {
-  position: absolute;
-  opacity: 0;
-  z-index: -1;
-}
+
+//** チェックボックスのデザイン **
 
 // チェックボックスのアイテムリスト
 .checkbox__items {
@@ -118,11 +113,6 @@ select::placeholder {
 // チェックボックスアイテム項目(四角とテキスト）
 .checkbox-label {
   width: 100%;
-  font-family: $base-font-family;
-  font-size: rem(16);
-  color: $black;
-  font-weight: $normal;
-  line-height: 1;
   position: relative;//これがないと四角が表示されない
   display: flex;
   align-items: flex-start;
@@ -130,16 +120,22 @@ select::placeholder {
   cursor: pointer;
 }
 
-// チェックボックスの四角
+// チェックボックス：ラベルのテキスト
 .checkbox-label-span {
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $black;
+  font-weight: $normal;
+  line-height: 1;
   display: inline-block;//これがないと表示されないので注意
-  cursor: pointer;
   padding-left: rem(30);//label手前にチェックボックス用の余白を開ける
   vertical-align: middle;
   position: relative; //本来のcheckboxの位置
   margin-top: 0;
+  cursor: pointer;
 }
 
+// チェックボックスの四角（カスタム）
 .checkbox-label-span::before {
   content: "";
   display: inline-block;
@@ -151,6 +147,43 @@ select::placeholder {
   position: absolute;
   left: 0;
   top: 0;
+}
+
+//inputタグのデフォルトデザインを消す
+.checkbox-input {
+  // position: absolute;
+  // opacity: 0;
+  // z-index: -1;
+}
+
+// フォーカスできるけど見えないようにする
+input[type="radio"] ,
+input[type="checkbox"] {
+  /* 透明度0 */
+  filter: alpha(opacity=0);
+  -moz-opacity:0;
+  opacity:0;
+  /* ブラウザのデフォルトのスタイルを削除 */
+  -webkit-appearance: none;
+  appearance: none;
+  /* レイアウトから無視 */
+  position: absolute;
+}
+
+// input[type="radio"]:focus + .radio-input,
+// input[type="checkbox"]:focus + .checkbox-input{
+//   box-shadow: 0 0 4px #004AA1;
+// }
+
+// デフォルトのinputがフォーカスされた時に、カスタムのinputに同時に色をつける
+input[type="checkbox"]:focus + .checkbox-label-span::before {
+  outline: 2px solid #004AA1; // 明るい色でアウトラインを追加
+  outline-offset: 2px; // アウトラインと要素の間に隙間を作る
+}
+
+// 適用されていない
+input[type="checkbox"]:focus + .checkbox-label-span + .checkbox-label {
+  color: #004AA1; // フォーカス時にラベルの色を変更
 }
 
 // チェックマーク
@@ -173,36 +206,13 @@ select::placeholder {
   opacity: 1;
 }
 
-.checkbox-error {
-  font-family: $base-font-family;
-  font-size: rem(14);
-  color: #C94800;
-  font-weight: $normal;
-  margin-top: rem(8);
-}
-
-.radio-error {
-  font-family: $base-font-family;
-  font-size: rem(14);
-  color: #C94800;
-  font-weight: $normal;
-  margin-top: rem(8);
-}
-
-// 「同意する」
-.checkbox-label-span--agree {
-  font-weight: $bold;
-  margin-top: rem(12);
-}
-
-
 // ラジオボタンのスタイルここから
 
 // ラジオボタンのデフォルトデザインを消す
 .radio-input {
-  position: absolute;
-  opacity: 0;
-  z-index: -1;
+  // position: absolute;
+  // opacity: 0;
+  // z-index: -1;
 }
 
 .radio__items {
@@ -217,25 +227,32 @@ select::placeholder {
   margin-top: 0;
 }
 
-// ラジオボタンアイテム項目
+// ラジオボタンアイテム項目(四角とテキスト）
 .radio-label {
   width: 100%;
-  position: relative; // これがないと丸が表示されない
+  position: relative;//これがないと四角が表示されない
   display: flex;
-  padding-left: rem(30);
+  align-items: flex-start;
+  gap: rem(10);//デフォルトのinputがはみ出ている分をマイナス12→10
   cursor: pointer;
 }
 
+// radioのテキスト
 .radio-label-span {
   font-family: $base-font-family;
   font-size: rem(16);
   color: $black;
   font-weight: $normal;
   line-height: 1;
+  padding-left: rem(30);//label手前にradio用の余白を開ける
+  vertical-align: middle;
+  position: relative; //本来のradioの位置
+  margin-top: 0;
+  cursor: pointer;
 }
 
 // ラジオボタンの丸
-.radio-label::before {
+.radio-label span::before {
   content: "";
   display: inline-block;
   width: rem(18); 
@@ -260,8 +277,34 @@ select::placeholder {
   left: rem(4); 
   top: rem(4);
 }
+
+input[type="radio"]:focus + .radio-label-span::before {
+  outline: 2px solid #004AA1; // 明るい色でアウトラインを追加
+  outline-offset: 2px; // アウトラインと要素の間に隙間を作る
+}
 // ラジオボタンのスタイルここまで
 
+.checkbox-error {
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: #C94800;
+  font-weight: $normal;
+  margin-top: rem(8);
+}
+
+.radio-error {
+  font-family: $base-font-family;
+  font-size: rem(14);
+  color: #C94800;
+  font-weight: $normal;
+  margin-top: rem(8);
+}
+
+// 「同意する」
+.checkbox-label-span--agree {
+  font-weight: $bold;
+  margin-top: rem(12);
+}
 
 .checkbox__text--policy {
   font-family: $base-font-family;

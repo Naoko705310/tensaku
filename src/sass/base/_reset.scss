@@ -76,30 +76,50 @@ img:not([alt]) {
 
 
 /* フォームリセット */
+// 以下を記述するとキーボードフォーカスが当たらないので、コメントアウトした。
 input,
 button,
 select,
 textarea {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  font: inherit;
+  // -webkit-appearance: none;
+  // -moz-appearance: none;
+  // appearance: none;
+  // background: transparent;
+  // border: none;
+  // border-radius: 0;
+  // font: inherit;
     //これがあるとキーボードフォーカスが当たらないので非表示にする
   // outline: none;
-
 }
 
 textarea {
   resize: vertical;
 }
 
-input[type="checkbox"],
-input[type="radio"] {
-  // display: none;
-}
+//display:noneにするとフォーカスが当たらないので、こちらに書き換え
+// input[type="radio"] ,
+// input[type="checkbox"] {
+//   /* 透明度0 */
+//   filter: alpha(opacity=0);
+//   -moz-opacity:0;
+//   opacity:0;
+//   /* ブラウザのデフォルトのスタイルを削除 */
+//   -webkit-appearance: none;
+//   appearance: none;
+//   /* レイアウトから無視 */
+//   position: absolute;
+// }
+
+// input[type="checkbox"],
+// input[type="radio"] {
+//   display: none;
+// }
+
+// input[type="radio"]:focus + .radio-input,
+// input[type="checkbox"]:focus + .checkbox-input{
+//   box-shadow: 0 0 4px #004AA1;
+// }
+
 
 input[type="submit"],
 input[type="button"],
