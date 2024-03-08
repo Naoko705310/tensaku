@@ -81,13 +81,13 @@ input,
 button,
 select,
 textarea {
-  // -webkit-appearance: none;
-  // -moz-appearance: none;
-  // appearance: none;
-  // background: transparent;
-  // border: none;
-  // border-radius: 0;
-  // font: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  font: inherit;
     //これがあるとキーボードフォーカスが当たらないので非表示にする
   // outline: none;
 }
