@@ -266,7 +266,7 @@ input[type="checkbox"]:focus + .checkbox-label-span + .checkbox-label {
 }
 
 // ラジオボタンがチェックされたときの内側の黒丸
-.radio-input:checked + .radio-label::after {
+.radio-input:checked + .radio-label-span::after {
   content: "";
   display: inline-block;
   width: rem(10); 
@@ -278,10 +278,23 @@ input[type="checkbox"]:focus + .checkbox-label-span + .checkbox-label {
   top: rem(4);
 }
 
-input[type="radio"]:focus + .radio-label-span::before {
-  outline: 2px solid #004AA1; // 明るい色でアウトラインを追加
-  outline-offset: 2px; // アウトラインと要素の間に隙間を作る
+.radio-input:focus + .radio-label .radio-label-span::before {
+  content: ""; // 既存のアウトラインをクリア
+  display: inline-block;
+  width: 10px; // 黒丸のサイズ
+  height: 10px; // 黒丸のサイズ
+  background-color: #000; // 黒丸の色
+  border-radius: 50%; // 円形にする
+  position: absolute;
+  left: 0; // 黒丸の位置調整
+  top: 50%; // 黒丸の位置調整
+  transform: translateY(-50%); // 中央揃え
 }
+
+// input[type="radio"]:focus + .radio-label-span::before {
+//   outline: 2px solid #004AA1; // 明るい色でアウトラインを追加
+//   outline-offset: 2px; // アウトラインと要素の間に隙間を作る
+// }
 // ラジオボタンのスタイルここまで
 
 .checkbox-error {
