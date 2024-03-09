@@ -5,73 +5,173 @@ jQuery(function ($) {
     /* ヘッダー（背景とロゴ、文字の色変更）
     /* -------------------------------------------- */
     $(window).scroll(function() {
-        var scrollPosition = $(this).scrollTop();
-        var topHeader = $('.top-header'); // top-headerクラスを持つヘッダーをターゲットにする
-        var logo = $('.top-header .header-logo__img'); // top-header内のロゴ画像をターゲットにする
-        var hamburgerLines = $('.js-hamburger span:not(.hamburger__text)'); // ハンバーガーメニューの線をターゲットにする
-        var hamburgerText = $('.js-hamburger .hamburger__text'); // ハンバーガーメニューのテキストをターゲットにする
-    
-        if (scrollPosition >= 800) {
-            // スクロール位置が800pxを超えた場合
-            logo.attr('src', './assets/images/common/tensaku-logo.png'); // ロゴを緑のロゴに変更
-            topHeader.css({
-                'background-color': 'white', // ヘッダーの背景色を白に
-                'color': 'black' // ヘッダー内の文字色を黒に
-            });
-            // ボタン以外のリンクの文字色を黒に、ただしsp-nav__item内のaタグは除外
-            topHeader.find('a:not(.button)').not('.sp-nav__item a').css('color', 'black');
-            hamburgerLines.css('background-color', '#075735'); // ハンバーガーメニューの線の色を緑に変更
-            hamburgerText.css('color', '#075735'); // ハンバーガーメニューのテキストの色を緑に変更
+        if ($(this).scrollTop() > 800) {
+            $('.top-header').css('background-color', '#fff'); // ヘッダーの背景色を白に変更
+            $('.top-header .pc-nav__item a').css('color', '#333333'); // PCナビのリンクの文字色を変更
+            $('.top-header .header-logo__img').attr('src', './assets/images/common/tensaku-logo.png'); // ロゴの画像を変更
         } else {
-            // スクロール位置が800px未満の場合
-            logo.attr('src', './assets/images/common/header-logo-pc.png'); // ロゴを白のロゴに戻す
-            topHeader.css({
-                'background-color': 'transparent', // ヘッダーの背景色を透明に
-                'color': 'white' // ヘッダー内の文字色を白に
-            });
-            // 元の色に戻す処理はそのままで良い
-            topHeader.find('a:not(.button)').css('color', 'white');
-            hamburgerLines.css('background-color', ''); // ハンバーガーメニューの線の色を元に戻す
-            hamburgerText.css('color', ''); // ハンバーガーメニューのテキストの色を元に戻す
+            // スクロールが800未満の場合は元のスタイルに戻す（必要に応じて設定）
+            $('.top-header').css('background-color', ''); // 元の背景色に
+            $('.top-header .pc-nav__item a').css('color', ''); // PCナビのリンクの文字色を元に戻す
+            $('.top-header .header-logo__img').attr('src', './assets/images/common/header-logo-pc.png'); // 元のロゴ画像に
         }
     });
 
-    $(".js-hamburger").on("click", function () {
-        if ($(this).hasClass("is-open")) {
-            closeDrawerMenu();
-        } else {
-            $(".js-drawer-menu").fadeIn();
-            $(this).addClass("is-open");
-            $("body").css("overflow", "hidden");
-            // 下層ページでドロワーメニューが展開している時のみヘッダーの背景色を白に設定
-            if ($("body").hasClass("sub-page")) {
-                $(".js-header").css("background-color", "#FFFFFF"); // 白色に設定
+    /* --------------------------------------------
+    /* ハンバーガー
+    /* -------------------------------------------- */
+        // ハンバーガーメニューのクリックイベント
+        $(".js-hamburger").on("click", function () {
+            if ($(this).hasClass("is-open")) {
+                closeDrawerMenu(); // メニューを閉じる関数を呼び出す
+            } else {
+                $(".js-drawer-menu").fadeIn();
+                $(this).addClass("is-open");
+                $("body").css("overflow", "hidden"); // メニューが開いたときに背景のスクロールを無効にする
+                $(".js-drawer-menu").css("overflow", "auto"); // ドロワーメニュー自体はスクロール可能にする
+            }
+        });
+    
+        // メニューを閉じる関数
+        function closeDrawerMenu() {
+            $(".js-drawer-menu").fadeOut();
+            $(".js-hamburger").removeClass("is-open");
+            $("body").css("overflow", "auto"); // メニューが閉じたときに背景のスクロールを有効にする
+            $(".js-header").css("background-color", ""); // ヘッダーの背景色を元に戻す
+        }
+    
+        // ページ読み込み時とウィンドウのリサイズ時にPC幅を検出し、768pxを超えたときにメニューを閉じる
+        function checkWindowSizeAndCloseMenu() {
+            if ($(window).width() > 768) {
+                closeDrawerMenu(); // PC幅を超えたらメニューを閉じる
             }
         }
-    });
     
-    function closeDrawerMenu() {
-        $(".js-drawer-menu").fadeOut();
-        $(".js-hamburger").removeClass("is-open");
-        $("body").css("overflow", "auto");
-        // 下層ページでドロワーメニューが閉じる時にヘッダーの背景色を元に戻す
-        if ($("body").hasClass("sub-page")) {
-            $(".js-header").css("background-color", ""); // 元のスタイルに戻す
-        }
-    }
+        $(window).resize(checkWindowSizeAndCloseMenu);
+        checkWindowSizeAndCloseMenu(); // ページ読み込み時にも実行
+    
+        // スクロール時とsub-header適用時の背景色とナビの文字色変更
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 800) {
+                // スクロール位置が800pxを超えたら、クラスを追加してスタイルを適用
+                $('.header').addClass('headerColorScroll');
+                $('.pc-nav__link').addClass('pc-nav__linkColorScroll');
+            } else {
+                // スクロール位置が800px未満なら、クラスを削除
+                $('.header').removeClass('headerColorScroll');
+                $('.pc-nav__link').removeClass('pc-nav__linkColorScroll');
+            }
+        });
+    // // ハンバーガーメニューのクリックイベント
+    // $(".js-hamburger").on("click", function () {
+    //     if ($(this).hasClass("is-open")) {
+    //         closeDrawerMenu(); // メニューを閉じる関数を呼び出す
+    //     } else {
+    //         $(".js-drawer-menu").fadeIn();
+    //         $(this).addClass("is-open");
+    //         $("body").css("overflow", "hidden"); // メニューが開いたときに背景のスクロールを無効にする
+    //         $(".js-drawer-menu").css("overflow", "auto"); // ドロワーメニュー自体はスクロール可能にする
+    //     }
+    // });
+
+    // // メニューを閉じる関数
+    // function closeDrawerMenu() {
+    //     $(".js-drawer-menu").fadeOut();
+    //     $(".js-hamburger").removeClass("is-open");
+    //     $("body").css("overflow", "auto"); // メニューが閉じたときに背景のスクロールを有効にする
+    //     $(".js-header").css("background-color", ""); // ヘッダーの背景色を元に戻す
+    // }
+
+    // // ページ読み込み時とウィンドウのリサイズ時にPC幅を検出し、768pxを超えたときにメニューを閉じる
+    // function checkWindowSizeAndCloseMenu() {
+    //     if ($(window).width() > 768) {
+    //         closeDrawerMenu(); // PC幅を超えたらメニューを閉じる
+    //     }
+    // }
+
+    // $(window).resize(checkWindowSizeAndCloseMenu);
+    // checkWindowSizeAndCloseMenu(); // ページ読み込み時にも実行
 
 
-    // ページ読み込み時にPC幅を検出し、768pxを超えたときにメニューを閉じる
-    $(window).resize(function () {
-    if ($(window).width() > 768) {
-        closeDrawerMenu(); // PC幅を超えたらメニューを閉じる
-    }
-    });
 
-    // ページ読み込み時にもPC幅を超えたらメニューを閉じる
-    if ($(window).width() > 768) {
-    closeDrawerMenu();
-    }
+
+
+
+
+    // 元のコード　　　！！！！！！！！
+    // $(window).scroll(function() {
+    //     var scrollPosition = $(this).scrollTop();
+    //     var topHeader = $('.top-header'); // top-headerクラスを持つヘッダーをターゲットにする
+    //     var logo = $('.top-header .header-logo__img'); // top-header内のロゴ画像をターゲットにする
+    //     var hamburgerLines = $('.js-hamburger span:not(.hamburger__text)'); // ハンバーガーメニューの線をターゲットにする
+    //     var hamburgerText = $('.js-hamburger .hamburger__text'); // ハンバーガーメニューのテキストをターゲットにする
+    
+    //     if (scrollPosition >= 800) {
+    //         // スクロール位置が800pxを超えた場合
+    //         logo.attr('src', './assets/images/common/tensaku-logo.png'); // ロゴを緑のロゴに変更
+    //         topHeader.css({
+    //             'background-color': 'white', // ヘッダーの背景色を白に
+    //             'color': 'black' // ヘッダー内の文字色を黒に
+    //         });
+    //         // ボタン以外のリンクの文字色を黒に、ただしsp-nav__item内のaタグは除外
+    //         topHeader.find('a:not(.button)').not('.sp-nav__item a').css('color', 'black');
+    //         hamburgerLines.css('background-color', '#075735'); // ハンバーガーメニューの線の色を緑に変更
+    //         hamburgerText.css('color', '#075735'); // ハンバーガーメニューのテキストの色を緑に変更
+    //     } else {
+    //         // スクロール位置が800px未満の場合
+    //         logo.attr('src', './assets/images/common/header-logo-pc.png'); // ロゴを白のロゴに戻す
+    //         topHeader.css({
+    //             'background-color': 'transparent', // ヘッダーの背景色を透明に
+    //             'color': 'white' // ヘッダー内の文字色を白に
+    //         });
+    //         // 元の色に戻す処理はそのままで良い
+    //         topHeader.find('a:not(.button)').css('color', 'white');
+    //         hamburgerLines.css('background-color', ''); // ハンバーガーメニューの線の色を元に戻す
+    //         hamburgerText.css('color', ''); // ハンバーガーメニューのテキストの色を元に戻す
+    //     }
+    // });
+
+    // $(".js-hamburger").on("click", function () {
+    //     if ($(this).hasClass("is-open")) {
+    //         closeDrawerMenu();
+    //     } else {
+    //         $(".js-drawer-menu").fadeIn();
+    //         $(this).addClass("is-open");
+    //         $("body").css("overflow", "hidden");
+    //         // 下層ページでドロワーメニューが展開している時のみヘッダーの背景色を白に設定
+    //         if ($("body").hasClass("sub-page")) {
+    //             $(".js-header").css("background-color", "#FFFFFF"); // 白色に設定
+    //         }
+    //     }
+    // });
+    
+    // function closeDrawerMenu() {
+    //     $(".js-drawer-menu").fadeOut();
+    //     $(".js-hamburger").removeClass("is-open");
+    //     $("body").css("overflow", "auto");
+    //     // 下層ページでドロワーメニューが閉じる時にヘッダーの背景色を元に戻す
+    //     if ($("body").hasClass("sub-page")) {
+    //         $(".js-header").css("background-color", ""); // 元のスタイルに戻す
+    //     }
+    // }
+
+
+    // // ページ読み込み時にPC幅を検出し、768pxを超えたときにメニューを閉じる
+    // $(window).resize(function () {
+    // if ($(window).width() > 768) {
+    //     closeDrawerMenu(); // PC幅を超えたらメニューを閉じる
+    // }
+    // });
+
+    // // ページ読み込み時にもPC幅を超えたらメニューを閉じる
+    // if ($(window).width() > 768) {
+    // closeDrawerMenu();
+    // }
+
+    /* --------------------------------------------
+    /* ハンバーガー
+    /* -------------------------------------------- */
+
 
     /* --------------------------------------------
     /* トップページのFVスワイパー
