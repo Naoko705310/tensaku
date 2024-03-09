@@ -40,6 +40,9 @@ jQuery(function ($) {
     /* ハンバーガーメニュー
     /* -------------------------------------------- */
 
+        /* --------------------------------------------
+    /* ハンバーガーメニューのトグル
+    /* -------------------------------------------- */
     $(".js-hamburger").on("click", function () {
         if ($(this).hasClass("is-open")) {
             closeDrawerMenu();
@@ -54,6 +57,9 @@ jQuery(function ($) {
         }
     });
     
+    /* --------------------------------------------
+    /* ドロワーメニューを閉じる関数
+    /* -------------------------------------------- */
     function closeDrawerMenu() {
         $(".js-drawer-menu").fadeOut();
         $(".js-hamburger").removeClass("is-open");
@@ -64,18 +70,69 @@ jQuery(function ($) {
         }
     }
 
-
-    // ページ読み込み時にPC幅を検出し、768pxを超えたときにメニューを閉じる
+    /* --------------------------------------------
+    /* ページ読み込み時とウィンドウリサイズ時にドロワーメニューを閉じる
+    /* -------------------------------------------- */
     $(window).resize(function () {
-    if ($(window).width() > 768) {
-        closeDrawerMenu(); // PC幅を超えたらメニューを閉じる
-    }
+        if ($(window).width() > 768) {
+            closeDrawerMenu(); // PC幅を超えたらメニューを閉じる
+        }
     });
 
-    // ページ読み込み時にもPC幅を超えたらメニューを閉じる
     if ($(window).width() > 768) {
-    closeDrawerMenu();
+        closeDrawerMenu(); // ページ読み込み時にもPC幅を超えたらメニューを閉じる
     }
+
+    /* --------------------------------------------
+    /* sp-nav__item aクリック時のスムーススクロールとドロワーメニューの閉じる処理
+    /* -------------------------------------------- */
+    $(".sp-nav__item a").on("click", function (e) {
+        e.preventDefault(); // デフォルトのイベントをキャンセル
+        var target = $(this).attr("href");
+        var targetPosition = $(target).offset().top;
+        $("html, body").animate({ scrollTop: targetPosition }, 400, function() {
+            closeDrawerMenu(); // スクロール完了後にドロワーメニューを閉じる
+        });
+    });
+
+
+    // 以下、後ほど削除
+    // $(".js-hamburger").on("click", function () {
+    //     if ($(this).hasClass("is-open")) {
+    //         closeDrawerMenu();
+    //     } else {
+    //         $(".js-drawer-menu").fadeIn();
+    //         $(this).addClass("is-open");
+    //         $("body").css("overflow", "hidden");
+    //         // 下層ページでドロワーメニューが展開している時のみヘッダーの背景色を白に設定
+    //         if ($("body").hasClass("sub-page")) {
+    //             $(".js-header").css("background-color", "#FFFFFF"); // 白色に設定
+    //         }
+    //     }
+    // });
+    
+    // function closeDrawerMenu() {
+    //     $(".js-drawer-menu").fadeOut();
+    //     $(".js-hamburger").removeClass("is-open");
+    //     $("body").css("overflow", "auto");
+    //     // 下層ページでドロワーメニューが閉じる時にヘッダーの背景色を元に戻す
+    //     if ($("body").hasClass("sub-page")) {
+    //         $(".js-header").css("background-color", ""); // 元のスタイルに戻す
+    //     }
+    // }
+
+
+    // // ページ読み込み時にPC幅を検出し、768pxを超えたときにメニューを閉じる
+    // $(window).resize(function () {
+    // if ($(window).width() > 768) {
+    //     closeDrawerMenu(); // PC幅を超えたらメニューを閉じる
+    // }
+    // });
+
+    // // ページ読み込み時にもPC幅を超えたらメニューを閉じる
+    // if ($(window).width() > 768) {
+    // closeDrawerMenu();
+    // }
 
     /* --------------------------------------------
     /* トップページのFVスワイパー
