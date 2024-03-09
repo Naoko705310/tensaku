@@ -247,7 +247,7 @@ jQuery(function ($) {
 
         // フォームが有効なら、次のページに遷移
         if (!$('#js-download').prop('disabled')) {
-            window.location.href = 'whitepaper-download.html';
+            window.location.href = '../whitepaper-download/index.html';
         } else {
             // フォームが無効なら、エラーメッセージを表示
             $('.download-error').text('※全ての項目に入力してください。');
@@ -312,7 +312,7 @@ $('#js-submit').click(function(e) {
     e.preventDefault();
     if (validateForm()) {
         // バリデーション成功時にページ遷移
-        window.location.href = 'contact-thanks.html';
+        window.location.href = '../contact-thanks/index.html';
     }
 });
 
