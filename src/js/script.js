@@ -27,18 +27,10 @@ jQuery(function ($) {
             } else {
                 $(".js-drawer-menu").fadeIn();
                 $(this).addClass("is-open");
-                $("body").css("overflow", "hidden"); // メニューが開いたときに背景のスクロールを無効にする
+                // $("body").css("overflow", "hidden"); // メニューが開いたときに背景のスクロールを無効にする
                 $(".js-drawer-menu").css("overflow", "auto"); // ドロワーメニュー自体はスクロール可能にする
             }
         });
-    
-        // メニューを閉じる関数
-        function closeDrawerMenu() {
-            $(".js-drawer-menu").fadeOut();
-            $(".js-hamburger").removeClass("is-open");
-            $("body").css("overflow", "auto"); // メニューが閉じたときに背景のスクロールを有効にする
-            $(".js-header").css("background-color", ""); // ヘッダーの背景色を元に戻す
-        }
     
         // ページ読み込み時とウィンドウのリサイズ時にPC幅を検出し、768pxを超えたときにメニューを閉じる
         function checkWindowSizeAndCloseMenu() {
@@ -46,6 +38,19 @@ jQuery(function ($) {
                 closeDrawerMenu(); // PC幅を超えたらメニューを閉じる
             }
         }
+
+            // .sp-nav__item aをクリックしたときにドロワーメニューを閉じる
+    $('.sp-nav__item a').on('click', function() {
+        closeDrawerMenu(); // メニューを閉じる関数を呼び出す
+    });
+
+    // メニューを閉じる関数
+    function closeDrawerMenu() {
+        $(".js-drawer-menu").fadeOut();
+        $(".js-hamburger").removeClass("is-open");
+        $("body").css("overflow", "auto"); // メニューが閉じたときに背景のスクロールを有効にする
+        $(".js-header").css("background-color", ""); // ヘッダーの背景色を元に戻す
+    }
     
         $(window).resize(checkWindowSizeAndCloseMenu);
         checkWindowSizeAndCloseMenu(); // ページ読み込み時にも実行
@@ -62,41 +67,6 @@ jQuery(function ($) {
                 $('.pc-nav__link').removeClass('pc-nav__linkColorScroll');
             }
         });
-    // // ハンバーガーメニューのクリックイベント
-    // $(".js-hamburger").on("click", function () {
-    //     if ($(this).hasClass("is-open")) {
-    //         closeDrawerMenu(); // メニューを閉じる関数を呼び出す
-    //     } else {
-    //         $(".js-drawer-menu").fadeIn();
-    //         $(this).addClass("is-open");
-    //         $("body").css("overflow", "hidden"); // メニューが開いたときに背景のスクロールを無効にする
-    //         $(".js-drawer-menu").css("overflow", "auto"); // ドロワーメニュー自体はスクロール可能にする
-    //     }
-    // });
-
-    // // メニューを閉じる関数
-    // function closeDrawerMenu() {
-    //     $(".js-drawer-menu").fadeOut();
-    //     $(".js-hamburger").removeClass("is-open");
-    //     $("body").css("overflow", "auto"); // メニューが閉じたときに背景のスクロールを有効にする
-    //     $(".js-header").css("background-color", ""); // ヘッダーの背景色を元に戻す
-    // }
-
-    // // ページ読み込み時とウィンドウのリサイズ時にPC幅を検出し、768pxを超えたときにメニューを閉じる
-    // function checkWindowSizeAndCloseMenu() {
-    //     if ($(window).width() > 768) {
-    //         closeDrawerMenu(); // PC幅を超えたらメニューを閉じる
-    //     }
-    // }
-
-    // $(window).resize(checkWindowSizeAndCloseMenu);
-    // checkWindowSizeAndCloseMenu(); // ページ読み込み時にも実行
-
-
-
-
-
-
 
     // 元のコード　　　！！！！！！！！
     // $(window).scroll(function() {
@@ -130,47 +100,6 @@ jQuery(function ($) {
     //         hamburgerText.css('color', ''); // ハンバーガーメニューのテキストの色を元に戻す
     //     }
     // });
-
-    // $(".js-hamburger").on("click", function () {
-    //     if ($(this).hasClass("is-open")) {
-    //         closeDrawerMenu();
-    //     } else {
-    //         $(".js-drawer-menu").fadeIn();
-    //         $(this).addClass("is-open");
-    //         $("body").css("overflow", "hidden");
-    //         // 下層ページでドロワーメニューが展開している時のみヘッダーの背景色を白に設定
-    //         if ($("body").hasClass("sub-page")) {
-    //             $(".js-header").css("background-color", "#FFFFFF"); // 白色に設定
-    //         }
-    //     }
-    // });
-    
-    // function closeDrawerMenu() {
-    //     $(".js-drawer-menu").fadeOut();
-    //     $(".js-hamburger").removeClass("is-open");
-    //     $("body").css("overflow", "auto");
-    //     // 下層ページでドロワーメニューが閉じる時にヘッダーの背景色を元に戻す
-    //     if ($("body").hasClass("sub-page")) {
-    //         $(".js-header").css("background-color", ""); // 元のスタイルに戻す
-    //     }
-    // }
-
-
-    // // ページ読み込み時にPC幅を検出し、768pxを超えたときにメニューを閉じる
-    // $(window).resize(function () {
-    // if ($(window).width() > 768) {
-    //     closeDrawerMenu(); // PC幅を超えたらメニューを閉じる
-    // }
-    // });
-
-    // // ページ読み込み時にもPC幅を超えたらメニューを閉じる
-    // if ($(window).width() > 768) {
-    // closeDrawerMenu();
-    // }
-
-    /* --------------------------------------------
-    /* ハンバーガー
-    /* -------------------------------------------- */
 
 
     /* --------------------------------------------
