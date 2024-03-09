@@ -27,17 +27,17 @@
   display: block;
   width: rem(136); /* ロゴの幅 */
   height: rem(24); /* ロゴの高さ */
-  background-image: url('../images/common/header-logo-sp.png'); /* デフォルトの白いロゴ */
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
+  // background-image: url('../images/common/header-logo-sp.png'); /* デフォルトの白いロゴ */
+  // background-size: contain;
+  // background-position: center;
+  // background-repeat: no-repeat;
   @include mq(md) {
     width: rem(181);
     height: rem(32);
-    background-image: url('../images/common/header-logo-pc.png'); 
+    // background-image: url('../images/common/header-logo-pc.png'); 
   }
 }
 
 .sub-header .header-logo__img {
-  background-image: url('../images/common/sub-header-logo-pc.png'); 
+  // background-image: url('../images/common/sub-header-logo-pc.png'); 
 }

@@ -1,32 +1,30 @@
 
 jQuery(function ($) { 
 
-    $(window).on('load scroll', function () {
-        var $header = $('.header');
-        var $navLinks = $('.pc-nav__link');
-        var $logo = $('.header-logo__img');
-        var scrollTop = $(window).scrollTop();
-        var isSubPage = $header.hasClass('sub-header');
-    
-        // 現在のURLから、トップページにいるかどうかを判断
-        var isTopPage = window.location.pathname.endsWith('/tensaku/') || window.location.pathname.endsWith('/tensaku/index.html');
-    
-        // 画像のパスを設定
-        var basePath = isTopPage ? './' : '../';
-        var logoGreenPath = basePath + 'assets/images/common/tensaku-logo.png'; // 緑のロゴ
-        var logoWhitePath = basePath + 'assets/images/common/header-logo-sp.png'; // 白のロゴ
-        var logoWhitePathSet = basePath + 'assets/images/common/header-logo-pc.png 768w, ' + basePath + 'assets/images/common/header-logo-sp.png 320w';
-    
-        if (isSubPage || scrollTop > 800) {
-            $header.addClass('headerColorScroll');
-            $navLinks.addClass('pc-nav__linkColorScroll');
-            $logo.attr('src', logoGreenPath);
-            $logo.attr('srcset', logoGreenPath + ' 768w, ' + logoGreenPath + ' 320w');
+    /* --------------------------------------------
+    /* ヘッダー（背景とロゴ、文字の色変更）
+    /* -------------------------------------------- */
+    $(window).scroll(function() {
+        var scrollPosition = $(this).scrollTop();
+        var topHeader = $('.top-header'); // top-headerクラスを持つヘッダーをターゲットにする
+        var logo = $('.top-header .header-logo__img'); // top-header内のロゴ画像をターゲットにする
+
+        if (scrollPosition >= 800) {
+            // スクロール位置が800pxを超えた場合
+            logo.attr('src', './assets/images/common/tensaku-logo.png'); // ロゴを緑のロゴに変更
+            topHeader.css({
+                'background-color': 'white', // ヘッダーの背景色を白に
+                'color': 'black' // ヘッダー内の文字色を黒に
+            });
+            topHeader.find('a:not(.button)').css('color', 'black'); // ボタン以外のリンクの文字色を黒に
         } else {
-            $header.removeClass('headerColorScroll');
-            $navLinks.removeClass('pc-nav__linkColorScroll');
-            $logo.attr('src', logoWhitePath);
-            $logo.attr('srcset', logoWhitePathSet);
+            // スクロール位置が800px未満の場合
+            logo.attr('src', './assets/images/common/header-logo-pc.png'); // ロゴを白のロゴに戻す
+            topHeader.css({
+                'background-color': 'transparent', // ヘッダーの背景色を透明に
+                'color': 'white' // ヘッダー内の文字色を白に
+            });
+            topHeader.find('a:not(.button)').css('color', 'white'); // ボタン以外のリンクの文字色を白に
         }
     });
 
