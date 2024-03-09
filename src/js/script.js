@@ -1,31 +1,32 @@
 
 jQuery(function ($) { 
-    /* --------------------------------------------
-    /* ヘッダーの色変更
-    /* -------------------------------------------- */
+
     $(window).on('load scroll', function () {
-        var $header = $('.header'); // ヘッダー要素の取得
-        var $navLinks = $('.pc-nav__link'); // ナビゲーションリンク要素の取得
-        var $logo = $('.header-logo__img'); // ロゴ画像要素の取得
-        var scrollTop = $(window).scrollTop(); // 現在のスクロール位置
-        var isSubPage = $header.hasClass('sub-header'); // サブページかどうか
-
-        // スクロール位置が800pxを超えた場合、またはサブページの場合
-        if (scrollTop > 800 || isSubPage) {
-            $header.addClass('headerColorScroll'); // ヘッダーの背景色を白に変更するクラスを追加
-            $navLinks.addClass('pc-nav__linkColorScroll'); // ナビゲーションリンクの文字色を黒に変更するクラスを追加
-
-            // ロゴを緑色のバージョンに切り替え
-            $logo.attr('src', '../assets/images/common/sub-header-logo-sp.png');
-            $logo.attr('srcset', '../assets/images/common/sub-header-logo-pc.png 768w, ./assets/images/common/sub-header-logo-sp.png 320w');
+        var $header = $('.header');
+        var $navLinks = $('.pc-nav__link');
+        var $logo = $('.header-logo__img');
+        var scrollTop = $(window).scrollTop();
+        var isSubPage = $header.hasClass('sub-header');
+    
+        // 現在のURLから、トップページにいるかどうかを判断
+        var isTopPage = window.location.pathname.endsWith('/tensaku/') || window.location.pathname.endsWith('/tensaku/index.html');
+    
+        // 画像のパスを設定
+        var basePath = isTopPage ? './' : '../';
+        var logoGreenPath = basePath + 'assets/images/common/tensaku-logo.png'; // 緑のロゴ
+        var logoWhitePath = basePath + 'assets/images/common/header-logo-sp.png'; // 白のロゴ
+        var logoWhitePathSet = basePath + 'assets/images/common/header-logo-pc.png 768w, ' + basePath + 'assets/images/common/header-logo-sp.png 320w';
+    
+        if (isSubPage || scrollTop > 800) {
+            $header.addClass('headerColorScroll');
+            $navLinks.addClass('pc-nav__linkColorScroll');
+            $logo.attr('src', logoGreenPath);
+            $logo.attr('srcset', logoGreenPath + ' 768w, ' + logoGreenPath + ' 320w');
         } else {
-            // スクロール位置が800px未満で、サブページでない場合は元のスタイルに戻す
-            $header.removeClass('headerColorScroll'); // ヘッダーの背景色を元に戻す
-            $navLinks.removeClass('pc-nav__linkColorScroll'); // ナビゲーションリンクの文字色を元に戻す
-
-            // ロゴを白色のバージョンに切り替え
-            $logo.attr('src', '../assets/images/common/header-logo-sp.png');
-            $logo.attr('srcset', '../assets/images/common/header-logo-pc.png 768w, ./assets/images/common/header-logo-sp.png 320w');
+            $header.removeClass('headerColorScroll');
+            $navLinks.removeClass('pc-nav__linkColorScroll');
+            $logo.attr('src', logoWhitePath);
+            $logo.attr('srcset', logoWhitePathSet);
         }
     });
 
