@@ -16,16 +16,16 @@ jQuery(function ($) {
             $navLinks.addClass('pc-nav__linkColorScroll'); // ナビゲーションリンクの文字色を黒に変更するクラスを追加
 
             // ロゴを緑色のバージョンに切り替え
-            $logo.attr('src', './assets/images/common/sub-header-logo-sp.png');
-            $logo.attr('srcset', './assets/images/common/sub-header-logo-pc.png 768w, ./assets/images/common/sub-header-logo-sp.png 320w');
+            $logo.attr('src', '../assets/images/common/sub-header-logo-sp.png');
+            $logo.attr('srcset', '../assets/images/common/sub-header-logo-pc.png 768w, ./assets/images/common/sub-header-logo-sp.png 320w');
         } else {
             // スクロール位置が800px未満で、サブページでない場合は元のスタイルに戻す
             $header.removeClass('headerColorScroll'); // ヘッダーの背景色を元に戻す
             $navLinks.removeClass('pc-nav__linkColorScroll'); // ナビゲーションリンクの文字色を元に戻す
 
             // ロゴを白色のバージョンに切り替え
-            $logo.attr('src', './assets/images/common/header-logo-sp.png');
-            $logo.attr('srcset', './assets/images/common/header-logo-pc.png 768w, ./assets/images/common/header-logo-sp.png 320w');
+            $logo.attr('src', '../assets/images/common/header-logo-sp.png');
+            $logo.attr('srcset', '../assets/images/common/header-logo-pc.png 768w, ./assets/images/common/header-logo-sp.png 320w');
         }
     });
 
