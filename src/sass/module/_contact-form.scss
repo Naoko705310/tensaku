@@ -21,6 +21,12 @@
   padding: rem(12) rem(13);
 }
 
+.contact-form__item.contact-form__item--check,
+.contact-form__item.contact-form__item--radio,
+.contact-form__item.contact-form__item--privacy {
+  padding-bottom: rem(5);
+}
+
 .contact-form__item:first-child {
   margin-top: 0;
 }
@@ -198,7 +204,7 @@ input[type="checkbox"]:focus + .checkbox-label-span + .checkbox-label {
 // ラジオボタンのスタイルここから
 
 .radio__items {
-  margin-top: rem(14);
+  margin-top: rem(13);
 }
 
 .radio__item:first-child {
@@ -207,13 +213,20 @@ input[type="checkbox"]:focus + .checkbox-label-span + .checkbox-label {
 
 // inputとlabelのセット
 .radio__set {
+  font-family: $base-font-family;
+  font-size: rem(16);
+  color: $black;
+  font-weight: $normal;
+  line-height: 1;
+  // カンプはline-height:1;だが、radioボタンのサイズが18pxのため、高さを1.5(つまり24px)にするためデフォルトの1.5のままにした。
   margin-top: rem(7);
 }
 
 .radio-label {
   position: relative;
   cursor: pointer;
-  padding-left: 30px;
+  padding-left: rem(30);
+  display: flex; //テキストを折り返した時に、テキストがラジオボタンの方にはみ出ないようにした。
 }
 
 // 枠と黒丸共通のスタイル
@@ -223,17 +236,18 @@ input[type="checkbox"]:focus + .checkbox-label-span + .checkbox-label {
   display: block; 
   border-radius: 50%;
   position: absolute;
-  transform: translateY(-50%);
-  top: 50%;
+  // transform: translateY(-50%);
+  // top: 0;
 }
 
 // ラジオボタンの枠
 .radio-label::before {
   background-color: $white;
-  border: 2px solid #BCBCBC; 
+  border: 1px solid #BCBCBC; 
   border-radius: 50%;
   width: rem(18);
   height: rem(18);
+  top: rem(3);//radio-setの高さが24pxで、枠が18pxだから、差分の6pxの半分
   left: 0;
 }
 
@@ -244,6 +258,7 @@ input[type="checkbox"]:focus + .checkbox-label-span + .checkbox-label {
   opacity: 0;
   width: rem(10);
   height: rem(10);
+  top: rem(6);
   left: rem(4);
 }
 
