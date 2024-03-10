@@ -261,7 +261,7 @@
                     <p class="checkbox-error"></p>
                   </dd>
                 </dl>
-                <!-- ご検討状況1（ラジオボタン） -->
+                <!-- ご検討状況1（ラジオボタン:3アイテム） -->
                 <dl class="contact-form__item">
                   <dt>
                     <label class="contact-form__heading">
@@ -272,29 +272,26 @@
                   <dd>
                     <ul class="contact-form__radio radio__items">
                       <li class="radio__item">
-                        <label for="radio01" class="radio-label">
-                          <input id="radio01" class="radio-input" type="radio" name="radio-name-1" value="TENSAKUを利用するのが決定している">
-                          <span class="radio-label-span">TENSAKUを利用するのが決定している</span>
-                        </label>
-                      </li>
-                      <li class="radio__item">
-                        <label for="radio02" class="radio-label">
-                          <input id="radio02" class="radio-input" type="radio" name="radio-name-1" value="利用検討中・他社比較中">
-                          <span class="radio-label-span">利用検討中・他社比較中</span>
-                        </label>
-                      </li>
-                      <li class="radio__item">
-                        <label for="radio03" class="radio-label">
-                          <input id="radio03" class="radio-input" type="radio" name="radio-name-1" value="添削サービスの情報収集中">
-                          <span class="radio-label-span">添削サービスの情報収集中</span>
-                        </label>
+                        <div class="radio__set">
+                          <input  class="visually-hidden" type="radio" name="radio-name-1" id="radio01" 
+                          value="TENSAKUを利用するのが決定している"/>
+                          <label class="radio-label" for="radio01">TENSAKUを利用するのが決定している</label>
+                        </div>
+                        <div class="radio__set">
+                          <input class="visually-hidden" type="radio" name="radio-name-1" id="radio02" value="利用検討中・他社比較中"/>
+                          <label class="radio-label" for="radio02">利用検討中・他社比較中</label>
+                        </div>
+                        <div class="radio__set">
+                          <input class="visually-hidden" type="radio" name="radio-name-1" id="radio03" />
+                          <label class="radio-label"for="radio03" value="添削サービスの情報収集中">添削サービスの情報収集中</label>
+                        </div>
                       </li>
                     </ul>
                     <!-- テキスト内容はJSで制御 -->
                     <p class="radio-error"></p>
                   </dd>
                 </dl>
-                <!-- ご検討状況2（ラジオボタン） -->
+                <!-- ご検討状況2（ラジオボタン:7アイテム） -->
                 <dl class="contact-form__item">
                   <dt>
                     <label class="contact-form__heading">
@@ -305,46 +302,41 @@
                   <dd>
                     <ul class="contact-form__radio radio__items">
                       <li class="radio__item">
-                        <label for="radio04" class="radio-label">
-                          <input id="radio04" class="radio-input" type="radio" name="radio-name-2" value="ネット検索">
-                          <span class="radio-label-span">ネット検索</span>
-                        </label>
-                      </li>
-                      <li class="radio__item">
-                        <label for="radio05" class="radio-label">
-                          <input id="radio05" class="radio-input" type="radio" name="radio-name-2" value="テレビCM">
-                          <span class="radio-label-span">テレビCM</span>
-                        </label>
-                      </li>
-                      <li class="radio__item">
-                        <label for="radio06" class="radio-label">
-                          <input id="radio06" class="radio-input" type="radio" name="radio-name-2" value="X(旧Twitter)">
-                          <span class="radio-label-span">X(旧Twitter)</span>
-                        </label>
-                      </li>
-                      <li class="radio__item">
-                        <label for="radio07" class="radio-label">
-                          <input id="radio07" class="radio-input" type="radio" name="radio-name-2" value="Facebook">
-                          <span class="radio-label-span">Facebook</span>
-                        </label>
-                      </li>
-                      <li class="radio__item">
-                        <label for="radio-08" class="radio-label">
-                          <input id="radio-08" class="radio-input" type="radio" name="radio-name-2" value="プレスリリース">
-                          <span class="radio-label-span">プレスリリース</span>
-                        </label>
-                      </li>
-                      <li class="radio__item">
-                        <label for="radio09" class="radio-label">
-                          <input id="radio09" class="radio-input" type="radio" name="radio-name-2" value="ブログ記事">
-                          <span class="radio-label-span">ブログ記事</span>
-                        </label>
-                      </li>
-                      <li class="radio__item">
-                        <label for="radio10" class="radio-label">
-                          <input id="radio10" class="radio-input" type="radio" name="radio-name-2" value="その他">
-                          <span class="radio-label-span">その他</span>
-                        </label>
+                        <div class="radio__set">
+                          <input  class="visually-hidden" type="radio" name="radio-name-2" id="radio04" 
+                          value="ネット検索"/>
+                          <label class="radio-label" for="radio04">ネット検索</label>
+                        </div>
+                        <div class="radio__set">
+                          <input  class="visually-hidden" type="radio" name="radio-name-2" id="radio05" 
+                          value="テレビCM"/>
+                          <label class="radio-label" for="radio05">テレビCM</label>
+                        </div>
+                        <div class="radio__set">
+                          <input  class="visually-hidden" type="radio" name="radio-name-2" id="radio06" 
+                          value="X(旧Twitter)"/>
+                          <label class="radio-label" for="radio06">X(旧Twitter)</label>
+                        </div>
+                        <div class="radio__set">
+                          <input  class="visually-hidden" type="radio" name="radio-name-2" id="radio07" 
+                          value="Facebook"/>
+                          <label class="radio-label" for="radio07">Facebook</label>
+                        </div>
+                        <div class="radio__set">
+                          <input  class="visually-hidden" type="radio" name="radio-name-2" id="radio08" 
+                          value="プレスリリース"/>
+                          <label class="radio-label" for="radio08">プレスリリース</label>
+                        </div>
+                        <div class="radio__set">
+                          <input  class="visually-hidden" type="radio" name="radio-name-2" id="radio09" 
+                          value="ブログ記事"/>
+                          <label class="radio-label" for="radio09">ブログ記事</label>
+                        </div>
+                        <div class="radio__set">
+                          <input  class="visually-hidden" type="radio" name="radio-name-2" id="radio10" 
+                          value="その他"/>
+                          <label class="radio-label" for="radio10">その他</label>
+                        </div>
                       </li>
                     </ul>
                     <!-- テキスト内容はJSで制御 -->

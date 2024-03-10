@@ -149,15 +149,9 @@ select::placeholder {
   top: 0;
 }
 
-//inputタグのデフォルトデザインを消す
-.checkbox-input {
-  // position: absolute;
-  // opacity: 0;
-  // z-index: -1;
-}
 
 // フォーカスできるけど見えないようにする
-input[type="radio"] ,
+// radioは一旦削除
 input[type="checkbox"] {
   /* 透明度0 */
   filter: alpha(opacity=0);
@@ -170,18 +164,13 @@ input[type="checkbox"] {
   position: absolute;
 }
 
-// input[type="radio"]:focus + .radio-input,
-// input[type="checkbox"]:focus + .checkbox-input{
-//   box-shadow: 0 0 4px #004AA1;
-}
-
 // デフォルトのinputがフォーカスされた時に、カスタムのinputに同時に色をつける
 input[type="checkbox"]:focus + .checkbox-label-span::before {
   outline: 2px solid #004AA1; // 明るい色でアウトラインを追加
   outline-offset: 2px; // アウトラインと要素の間に隙間を作る
 }
 
-// 適用されていない
+// 適用されていない（クラスには使えない）
 input[type="checkbox"]:focus + .checkbox-label-span + .checkbox-label {
   color: #004AA1; // フォーカス時にラベルの色を変更
 }
@@ -208,89 +197,82 @@ input[type="checkbox"]:focus + .checkbox-label-span + .checkbox-label {
 
 // ラジオボタンのスタイルここから
 
-// ラジオボタンのデフォルトデザインを消す
-.radio-input {
-  // position: absolute;
-  // opacity: 0;
-  // z-index: -1;
-}
-
 .radio__items {
   margin-top: rem(14);
-}
-
-.radio__item {
-  margin-top: rem(7);
 }
 
 .radio__item:first-child {
   margin-top: 0;
 }
 
-// ラジオボタンアイテム項目(四角とテキスト）
+// inputとlabelのセット
+.radio__set {
+  margin-top: rem(7);
+}
+
 .radio-label {
-  width: 100%;
-  position: relative;//これがないと四角が表示されない
-  display: flex;
-  align-items: flex-start;
-  gap: rem(10);//デフォルトのinputがはみ出ている分をマイナス12→10
+  position: relative;
   cursor: pointer;
+  padding-left: 30px;
 }
 
-// radioのテキスト
-.radio-label-span {
-  font-family: $base-font-family;
-  font-size: rem(16);
-  color: $black;
-  font-weight: $normal;
-  line-height: 1;
-  padding-left: rem(30);//label手前にradio用の余白を開ける
-  vertical-align: middle;
-  position: relative; //本来のradioの位置
-  margin-top: 0;
-  cursor: pointer;
-}
-
-// ラジオボタンの丸
-.radio-label span::before {
+// 枠と黒丸共通のスタイル
+.radio-label::before,
+.radio-label::after {
   content: "";
-  display: inline-block;
-  width: rem(18); 
-  height: rem(18); 
+  display: block; 
+  border-radius: 50%;
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+}
+
+// ラジオボタンの枠
+.radio-label::before {
   background-color: $white;
   border: 2px solid #BCBCBC; 
-  border-radius: 50%; 
-  position: absolute;
+  border-radius: 50%;
+  width: rem(18);
+  height: rem(18);
   left: 0;
-  top: 0;
 }
 
-// ラジオボタンがチェックされたときの内側の黒丸
-// .radio-input:checked + .radio-label-span::after {
-//   content: "";
-//   display: inline-block;
-//   width: rem(10); 
-//   height: rem(10); 
-//   background-color: #000; 
-//   border-radius: 50%; 
-//   position: absolute;
-//   left: rem(4); 
-//   top: rem(4);
-// }
+// ラジオボタン選択後の黒丸
+.radio-label::after {
+  background-color: #000;
+  border-radius: 50%;
+  opacity: 0;
+  width: rem(10);
+  height: rem(10);
+  left: rem(4);
+}
 
-// .radio-input:focus + .radio-label .radio-label-span::before {
-//   content: ""; // 既存のアウトラインをクリア
-//   display: inline-block;
-//   width: 10px; // 黒丸のサイズ
-//   height: 10px; // 黒丸のサイズ
-//   background-color: #000; // 黒丸の色
-//   border-radius: 50%; // 円形にする
-//   position: absolute;
-//   left: 0; // 黒丸の位置調整
-//   top: 50%; // 黒丸の位置調整
-//   transform: translateY(-50%); // 中央揃え
-// }
+// クリックした時に、afterで作った黒丸を表示
+// // 注）radio-labelというクラスにするとスタイルが当たらない
+input:checked + label::after {
+  opacity: 1;
+}
 
+// カスタムスタイルの下にinputが隠れてしまうので、フォーカスが当たっていることを明示するために青い枠をつける
+input[type="radio"]:focus + .radio-label::before {
+  outline: 2px solid blue; // 青い枠を追加
+  outline-offset: 2px; // 枠と要素の間に少し隙間を作る
+}
+
+// デフォルトのinputを見えなくする
+// 注）display:none;は使わない！
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+}
 
 // エラー時のスタイル
 .checkbox-error {

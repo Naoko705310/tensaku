@@ -81,6 +81,19 @@ input,
 button,
 select,
 textarea {
+  // -webkit-appearance: none;
+  // -moz-appearance: none;
+  // appearance: none;
+  // background: transparent;
+  // border: none;
+  // border-radius: 0;
+  // font: inherit;
+    //これがあるとキーボードフォーカスが当たらないので非表示にする
+  // outline: none;
+}
+
+// inputにこれと同じスタイルを当てるとフォーカスを当てることができないので、buttonだけ別にスタイリングする
+button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -88,8 +101,6 @@ textarea {
   border: none;
   border-radius: 0;
   font: inherit;
-    //これがあるとキーボードフォーカスが当たらないので非表示にする
-  // outline: none;
 }
 
 textarea {
