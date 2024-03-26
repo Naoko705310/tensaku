@@ -68,38 +68,6 @@ jQuery(function ($) {
             }
         });
 
-    // 元のコード　　　！！！！！！！！
-    // $(window).scroll(function() {
-    //     var scrollPosition = $(this).scrollTop();
-    //     var topHeader = $('.top-header'); // top-headerクラスを持つヘッダーをターゲットにする
-    //     var logo = $('.top-header .header-logo__img'); // top-header内のロゴ画像をターゲットにする
-    //     var hamburgerLines = $('.js-hamburger span:not(.hamburger__text)'); // ハンバーガーメニューの線をターゲットにする
-    //     var hamburgerText = $('.js-hamburger .hamburger__text'); // ハンバーガーメニューのテキストをターゲットにする
-    
-    //     if (scrollPosition >= 800) {
-    //         // スクロール位置が800pxを超えた場合
-    //         logo.attr('src', './assets/images/common/tensaku-logo.png'); // ロゴを緑のロゴに変更
-    //         topHeader.css({
-    //             'background-color': 'white', // ヘッダーの背景色を白に
-    //             'color': 'black' // ヘッダー内の文字色を黒に
-    //         });
-    //         // ボタン以外のリンクの文字色を黒に、ただしsp-nav__item内のaタグは除外
-    //         topHeader.find('a:not(.button)').not('.sp-nav__item a').css('color', 'black');
-    //         hamburgerLines.css('background-color', '#075735'); // ハンバーガーメニューの線の色を緑に変更
-    //         hamburgerText.css('color', '#075735'); // ハンバーガーメニューのテキストの色を緑に変更
-    //     } else {
-    //         // スクロール位置が800px未満の場合
-    //         logo.attr('src', './assets/images/common/header-logo-pc.png'); // ロゴを白のロゴに戻す
-    //         topHeader.css({
-    //             'background-color': 'transparent', // ヘッダーの背景色を透明に
-    //             'color': 'white' // ヘッダー内の文字色を白に
-    //         });
-    //         // 元の色に戻す処理はそのままで良い
-    //         topHeader.find('a:not(.button)').css('color', 'white');
-    //         hamburgerLines.css('background-color', ''); // ハンバーガーメニューの線の色を元に戻す
-    //         hamburgerText.css('color', ''); // ハンバーガーメニューのテキストの色を元に戻す
-    //     }
-    // });
 
 
     /* --------------------------------------------
